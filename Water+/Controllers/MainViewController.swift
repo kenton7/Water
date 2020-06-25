@@ -15,9 +15,9 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     var resultString = ""
     var delegate: MililetersVCDelegate?
     let defaults = UserDefaults.standard
-    let beginingOfDay = NSCalendar.current.startOfDay(for: NSDate() as Date)
+    //let beginingOfDay = NSCalendar.current.startOfDay(for: NSDate() as Date)
     var currentTime = 0
-    private var addedDrinksCollectionView: UICollectionView?
+    var addedDrinksCollectionView: UICollectionView?
     var addedDrinksArray: [String] {
         get {
             return UserDefaults.standard.array(forKey: "savedArray") as? [String] ?? []
@@ -100,7 +100,11 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
             self.volume = UserSettings.addedVolume
             self.defaults.set(self.volume, forKey: String(UserSettings.addedVolume))
             self.currentValue.text = String(UserSettings.addedVolume) + " " + "/"
-            
+            if self.currentValue.text == "0" {
+                self.addedDrinksLabel.text = "Вы не добавили ни одного напитика"
+            } else {
+                self.checkAddedDrinksAndUpdateLabel()
+            }
             UserDefaults.standard.synchronize()
         }
         print(addedDrinksArray)
@@ -162,13 +166,13 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     }
     
     //сбрасываем лейбл в 12 ночи каждого дня
-    func resetLabelEveryNight() {
-        let dateComparisionResult: ComparisonResult = NSDate().compare(beginingOfDay)
-
-        if dateComparisionResult == ComparisonResult.orderedDescending || dateComparisionResult == ComparisonResult.orderedSame {
-            currentValue.text = "0" //reset the time tracker
-        }
-    }
+//    func resetLabelEveryNight() {
+//        let dateComparisionResult: ComparisonResult = NSDate().compare(beginingOfDay)
+//
+//        if dateComparisionResult == ComparisonResult.orderedDescending || dateComparisionResult == ComparisonResult.orderedSame {
+//            currentValue.text = "0" //reset the time tracker
+//        }
+//    }
     
     //MARK: - Обновляем лейбл "вы не добавили ни одного напитка" после добавления напитика
     func checkAddedDrinksAndUpdateLabel() {
@@ -176,7 +180,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
             addedDrinksLabel.text = "Вы не добавили ни одного напитика"
         } else {
             //обноявлем лейбл добавленными напитками
-            addedDrinksLabel.isHidden = true
+            //addedDrinksLabel.isHidden = true
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
             layout.itemSize = CGSize(width: 100, height: 100)
