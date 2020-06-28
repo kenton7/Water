@@ -10,7 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
-    
+    let maxProgress = Float(UserSettings.result)!
+    var progress: Float = 0
     let shapeLayer = CAShapeLayer()
     var resultString = ""
     var delegate: MililetersVCDelegate?
@@ -18,6 +19,8 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     //let beginingOfDay = NSCalendar.current.startOfDay(for: NSDate() as Date)
     var currentTime = 0
     var addedDrinksCollectionView: UICollectionView?
+    let milileters = MilimetersScreen()
+    let milileters2 = MililetersViewController()
     var addedDrinksArray: [String] {
         get {
             return UserDefaults.standard.array(forKey: "savedArray") as? [String] ?? []
@@ -26,11 +29,6 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         }
     }
     
-    public var progress: CGFloat = 0 {
-        didSet {
-            updateProgress()
-        }
-    }
     
     //переменная с computed property для получения новых данных
     var volume: Int = 0 {
@@ -43,7 +41,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     @IBOutlet weak var addButtonOutlet: UIButton!
     @IBOutlet weak var resultValue: UILabel!
     @IBOutlet weak var currentValue: UILabel!
-    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var progressBar: ProgressBarView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -66,60 +64,21 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         
         addedDrinksCollectionView?.delegate = self
         addedDrinksCollectionView?.dataSource = self
-        
-        
-        let center = view.center
-        
-        //создаем слой трекинга
-        let trackLayer = CAShapeLayer()
-        
-        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true)
-        trackLayer.path = circularPath.cgPath
-        
-        trackLayer.strokeColor = UIColor.lightGray.cgColor
-        trackLayer.lineWidth = 10
-        trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.lineCap = .round
-        view.layer.addSublayer(trackLayer)
-        
-        shapeLayer.path = circularPath.cgPath
-        
-        shapeLayer.strokeColor = UIColor.systemBlue.cgColor
-        shapeLayer.lineWidth = 10
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineCap = .round
-        shapeLayer.strokeEnd = 0
-        
-        view.layer.addSublayer(shapeLayer)
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        progressBar.maxProgress = maxProgress
         
         //обновляем лейбл с результатом кол-ва воды при запуске приложения и сохраняем результат добавленного юзером объема воды
         DispatchQueue.main.async {
-            
             self.resultValue.text = UserSettings.result
             self.volume = UserSettings.addedVolume
             self.defaults.set(self.volume, forKey: String(UserSettings.addedVolume))
             self.currentValue.text = String(UserSettings.addedVolume) + " " + "/"
-            if self.currentValue.text == "0" {
-                self.addedDrinksLabel.text = "Вы не добавили ни одного напитика"
-            } else {
-                self.checkAddedDrinksAndUpdateLabel()
-            }
+            //self.progress = UserSettings.userProgress
+            self.checkAddedDrinksAndUpdateLabel()
             UserDefaults.standard.synchronize()
         }
         print(addedDrinksArray)
+        print(progress)
     }
-    
-    
-    @objc private func handleTap() {
-        let basicAnimation = CABasicAnimation(keyPath: K.basicAnimation)
-        basicAnimation.toValue = 1
-        basicAnimation.duration = 2
-        basicAnimation.fillMode = .forwards
-        basicAnimation.isRemovedOnCompletion = false
-        shapeLayer.add(basicAnimation, forKey: "basicAn")
-    }
-    
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
 
@@ -127,23 +86,22 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     
     @IBAction func unwindToMainVC(segue:UIStoryboardSegue) {}
     
-    func updateProgress() {
-        shapeLayer.strokeEnd = progress
+    func updateProgress(with value: Float) {
+        print(value)
+        progress += value
+        print(progress)
+        progressBar.updateProgress(with: progress)
     }
     
     //функция для добавления нового выбранного объема напитка
     public func addVolume(_ value: Int) {
         volume += value
-        //UserSettings.addedVolume = String(value)
     }
     
     //обновляем лейбл
     private func updateVolumeLabel(with value: Int) {
         //форматируем и выводим текст в лейбле
         let text = value
-        //currentValue.text = text + " " + "/"
-        //UserSettings.addedVolume = String(value)
-        
         //сохраняем текущую дату пользователя
         let df = DateFormatter()
         df.dateFormat = "dd/MM/yyyy"
@@ -162,10 +120,8 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         UserSettings.addedVolume = text
         currentValue.text = String(UserSettings.addedVolume) + " " + "/"
         defaults.set(text, forKey: String(UserSettings.addedVolume))
-        //UserDefaults.standard.set(true, forKey: UserSettings.addedVolume)
     }
     
-    //сбрасываем лейбл в 12 ночи каждого дня
 //    func resetLabelEveryNight() {
 //        let dateComparisionResult: ComparisonResult = NSDate().compare(beginingOfDay)
 //

@@ -655,17 +655,17 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZS-tp-X8U">
-                                <rect key="frame" x="186" y="431" width="125" height="34"/>
+                                <rect key="frame" x="188" y="360" width="125" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="b7g-Dk-vFD"/>
-                                    <constraint firstAttribute="width" constant="125" id="vS1-fF-4sX"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="vS1-fF-4sX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qay-Es-RxV">
-                                <rect key="frame" x="102" y="417" width="124" height="62"/>
+                                <rect key="frame" x="102" y="346" width="124" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="LVZ-cL-IFz"/>
                                     <constraint firstAttribute="height" constant="62" id="c7v-U5-mGr"/>
@@ -674,21 +674,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCP-tV-L3c" customClass="ProgressBarView" customModule="Water_" customModuleProvider="target">
+                                <rect key="frame" x="54" y="416" width="307" height="212"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="dCP-tV-L3c" firstAttribute="leading" secondItem="bak-I8-1aq" secondAttribute="leading" constant="54" id="0YT-l7-rWM"/>
                             <constraint firstItem="bak-I8-1aq" firstAttribute="trailing" secondItem="CPf-oD-BEk" secondAttribute="trailing" constant="20" id="6Bg-4w-LT1"/>
-                            <constraint firstItem="CPf-oD-BEk" firstAttribute="top" secondItem="9ZS-tp-X8U" secondAttribute="bottom" constant="214" id="8pt-bj-u37"/>
-                            <constraint firstItem="qay-Es-RxV" firstAttribute="top" secondItem="GE8-0U-ITo" secondAttribute="bottom" constant="234.5" id="Bdu-Jg-cRJ"/>
+                            <constraint firstItem="CPf-oD-BEk" firstAttribute="top" secondItem="9ZS-tp-X8U" secondAttribute="bottom" constant="285" id="8pt-bj-u37"/>
+                            <constraint firstItem="dCP-tV-L3c" firstAttribute="top" secondItem="9ZS-tp-X8U" secondAttribute="bottom" constant="22" id="9Co-Qj-Vej"/>
+                            <constraint firstItem="qay-Es-RxV" firstAttribute="top" secondItem="GE8-0U-ITo" secondAttribute="bottom" constant="163.5" id="Bdu-Jg-cRJ"/>
                             <constraint firstItem="bak-I8-1aq" firstAttribute="trailing" secondItem="qay-Es-RxV" secondAttribute="trailing" constant="188" id="CMg-BD-Odt"/>
+                            <constraint firstItem="bak-I8-1aq" firstAttribute="trailing" secondItem="dCP-tV-L3c" secondAttribute="trailing" constant="53" id="QE0-pJ-gSH"/>
                             <constraint firstItem="bak-I8-1aq" firstAttribute="trailing" secondItem="GE8-0U-ITo" secondAttribute="trailing" constant="20" id="T71-cx-rh0"/>
                             <constraint firstItem="GE8-0U-ITo" firstAttribute="top" secondItem="bak-I8-1aq" secondAttribute="top" constant="37" id="dyW-i0-TT2"/>
                             <constraint firstItem="bak-I8-1aq" firstAttribute="bottom" secondItem="CPf-oD-BEk" secondAttribute="bottom" constant="79" id="jMk-fh-eR0"/>
-                            <constraint firstItem="9ZS-tp-X8U" firstAttribute="leading" secondItem="qay-Es-RxV" secondAttribute="trailing" constant="-40" id="nqL-mH-HYY"/>
+                            <constraint firstItem="9ZS-tp-X8U" firstAttribute="leading" secondItem="qay-Es-RxV" secondAttribute="trailing" constant="-38" id="nqL-mH-HYY"/>
                             <constraint firstItem="CPf-oD-BEk" firstAttribute="leading" secondItem="bak-I8-1aq" secondAttribute="leading" constant="20" id="rj7-ze-RBI"/>
-                            <constraint firstItem="bak-I8-1aq" firstAttribute="trailing" secondItem="9ZS-tp-X8U" secondAttribute="trailing" constant="103" id="uAM-bc-8Vz"/>
+                            <constraint firstItem="bak-I8-1aq" firstAttribute="trailing" secondItem="9ZS-tp-X8U" secondAttribute="trailing" constant="101" id="uAM-bc-8Vz"/>
                             <constraint firstItem="qay-Es-RxV" firstAttribute="leading" secondItem="bak-I8-1aq" secondAttribute="leading" constant="102" id="wqZ-dw-SD0"/>
                             <constraint firstItem="GE8-0U-ITo" firstAttribute="leading" secondItem="bak-I8-1aq" secondAttribute="leading" constant="20" id="wtI-0W-sXE"/>
+                            <constraint firstItem="CPf-oD-BEk" firstAttribute="top" secondItem="dCP-tV-L3c" secondAttribute="bottom" constant="51" id="wza-9o-KOT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bak-I8-1aq"/>
                     </view>
@@ -700,13 +708,14 @@
                         <outlet property="addButtonOutlet" destination="CPf-oD-BEk" id="B0z-vx-Kte"/>
                         <outlet property="addedDrinksLabel" destination="GE8-0U-ITo" id="9Jc-HP-GcW"/>
                         <outlet property="currentValue" destination="qay-Es-RxV" id="eCl-Mw-lqw"/>
+                        <outlet property="progressBar" destination="dCP-tV-L3c" id="Yab-Mj-Mc3"/>
                         <outlet property="resultValue" destination="9ZS-tp-X8U" id="WCZ-Qp-vee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucW-Za-jxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="f5p-P8-L1j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3264" y="1618"/>
+            <point key="canvasLocation" x="3263.7681159420295" y="1617.8571428571429"/>
         </scene>
         <!--Statistic View Controller-->
         <scene sceneID="XrU-6q-BlN">

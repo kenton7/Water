@@ -15,6 +15,7 @@ final class UserSettings {
         case result
         case addedVolume
         case userDate
+        case userProgress
     }
     
     static var userSex: String! {
@@ -88,6 +89,21 @@ final class UserSettings {
             if let userDate = newValue {
                 print("Дата пользователя \(userDate) добавлена в \(key)")
                 defaults.set(userDate, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    static var userProgress: Float! {
+        get {
+            return UserDefaults.standard.float(forKey: SettingsKeys.userProgress.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.userProgress.rawValue
+            if let userProgress = newValue {
+                print("Прогресс пользователя \(userProgress) добавлен в \(key)")
+                defaults.set(userProgress, forKey: key)
                 UserDefaults.standard.synchronize()
             } else {
                 defaults.removeObject(forKey: key)

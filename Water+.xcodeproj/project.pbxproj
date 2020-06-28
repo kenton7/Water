@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0925E91424A61B8F00639973 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925E91324A61B8F00639973 /* ProgressBarView.swift */; };
 		094483472479701900FD1040 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094483462479701900FD1040 /* UserSettings.swift */; };
 		09448349247C372A00FD1040 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09448348247C372A00FD1040 /* SceneDelegate.swift */; };
 		0952DF442495024C00ACDA6B /* MililetersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0952DF432495024C00ACDA6B /* MililetersViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0925E91324A61B8F00639973 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		094483462479701900FD1040 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		09448348247C372A00FD1040 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0952DF432495024C00ACDA6B /* MililetersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MililetersViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				095E8712248839F50046F404 /* SettingsCell.swift */,
 				095E871A248D34140046F404 /* CollectionViewCell.swift */,
 				097794A7249EAB930091F547 /* AddedDrinksCollectionViewCell.swift */,
+				0925E91324A61B8F00639973 /* ProgressBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				09F5183C24715A1E00DFB0C7 /* WelcomeViewController.swift in Sources */,
 				095E870D248816680046F404 /* CalendarViewController.swift in Sources */,
 				095E871124881AFF0046F404 /* SettingsScreen.swift in Sources */,
+				0925E91424A61B8F00639973 /* ProgressBarView.swift in Sources */,
 				09448349247C372A00FD1040 /* SceneDelegate.swift in Sources */,
 				0952DF442495024C00ACDA6B /* MililetersViewController.swift in Sources */,
 				09F5184D24716B7200DFB0C7 /* WeightManViewController.swift in Sources */,

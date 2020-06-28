@@ -76,13 +76,13 @@ class ActivityManViewController: UIViewController {
             switch selectedButtonTag {
             case 1:
                 destinationVC.activityFewResult = activityFew
-                destinationVC.resultString = String(format: "%.0f", activityFew) + " " + "Мл"
+                destinationVC.resultString = String(format: "%.0f", activityFew) 
             case 2:
                 destinationVC.activityMediumResult = activityMedium
-                destinationVC.resultString = String(format: "%.0f", activityMedium * 1000) + " " + "Мл"
+                destinationVC.resultString = String(format: "%.0f", activityMedium * 1000)
             case 3:
                 destinationVC.activityHardResult = activityHard
-                destinationVC.resultString = String(format: "%.0f", activityHard * 1000) + " " + "Мл"
+                destinationVC.resultString = String(format: "%.0f", activityHard * 1000) 
             default:
                 break
             }

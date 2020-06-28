@@ -38,9 +38,10 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
     var drinks: Drinks?
     var volume = MilimetersScreen()
     var delegate: MililetersVCDelegate?
-    var main = MainViewController()
+    //var main = MainViewController()
     var addDrinks = AddDrinksViewController()
     var drinksToMainVC: [String] = []
+    var progressToMainVC: Float = 0.0
 
     
     
@@ -72,9 +73,10 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
         vc?.delegate = self
         vc?.addVolume(volumeFromMilimetersVC)
         vc?.addedDrinksArray.append(contentsOf: drinksToMainVC)
+        //vc?.addProgress(with: (volumeFromMilimetersVC))
+        vc?.updateProgress(with: Float(vc?.volume ?? 0))
+    
     }
-    
-    
 }
 
 extension MililetersViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -97,8 +99,7 @@ extension MililetersViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         volumeFromMilimetersVC = volume.volumeArray[row]
         drinksToMainVC.append(drinks?.imageName ?? "nil")
-        //UserSettings.addedVolume = String(volumeFromMilimetersVC)
-        //UserDefaults.standard.set(true, forKey: String(volumeFromMilimetersVC))
+        progressToMainVC = Float(volumeFromMilimetersVC)
     }
     
     //высота между элементами
