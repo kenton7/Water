@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct DaysOfWeek {
+//    var monday: String?
+//    var tuesday: String?
+//    var wednesday: String?
+//    var thursday: String?
+//    var friday: String?
+//    var suturday: String?
+//    var sunday: String?
+    var dayOfWeek: String?
+}
+
+

@@ -16,6 +16,16 @@ final class UserSettings {
         case addedVolume
         case userDate
         case userProgress
+        case savingPercentDailyResult
+        case alert
+        
+        case monday
+        case tuesday
+        case wednesday
+        case thursday
+        case friday
+        case saturday
+        case sunday
     }
     
     static var userSex: String! {
@@ -110,6 +120,137 @@ final class UserSettings {
             }
         }
     }
+    
+    static var monday: Double! {
+        get {
+            return UserDefaults.standard.double(forKey: SettingsKeys.monday.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.monday.rawValue
+            if let monday = newValue {
+                print("Результат в процентах \(monday) добавлен в \(key)")
+                defaults.set(monday, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var tuesday: Double! {
+        get {
+            return UserDefaults.standard.double(forKey: SettingsKeys.tuesday.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.monday.rawValue
+            if let tuesday = newValue {
+                print("Результат в процентах \(tuesday) добавлен в \(key)")
+                defaults.set(tuesday, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var wednesday: Double! {
+        get {
+            return UserDefaults.standard.double(forKey: SettingsKeys.wednesday.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.wednesday.rawValue
+            if let wednesday = newValue {
+                print("Результат в процентах \(wednesday) добавлен в \(key)")
+                defaults.set(wednesday, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var thursday: Double! {
+        get {
+            return UserDefaults.standard.double(forKey: SettingsKeys.thursday.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.thursday.rawValue
+            if let thursday = newValue {
+                print("Результат в процентах \(thursday) добавлен в \(key)")
+                defaults.set(thursday, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var friday: Double! {
+        get {
+            return UserDefaults.standard.double(forKey: SettingsKeys.friday.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.friday.rawValue
+            if let friday = newValue {
+                print("Результат в процентах \(friday) добавлен в \(key)")
+                defaults.set(friday, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var saturday: Double! {
+        get {
+            return UserDefaults.standard.double(forKey: SettingsKeys.saturday.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.saturday.rawValue
+            if let saturday = newValue {
+                print("Результат субботы \(saturday) добавлен в \(key)")
+                defaults.set(saturday, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var sunday: Double! {
+        get {
+            return UserDefaults.standard.double(forKey: SettingsKeys.sunday.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.sunday.rawValue
+            if let sunday = newValue {
+                print("Результат в процентах \(sunday) добавлен в \(key)")
+                defaults.set(sunday, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var alert: Bool! {
+        get {
+            return UserDefaults.standard.bool(forKey: SettingsKeys.alert.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.alert.rawValue
+            if let alert = newValue {
+                print("Алерт показан: \(alert). Данные записаны в \(key)")
+                defaults.set(alert, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
 }
+
+
 
 

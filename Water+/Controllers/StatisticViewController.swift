@@ -11,8 +11,12 @@ import Macaw
 
 class StatisticViewController: UIViewController {
     
+    
     @IBOutlet weak var segmentedControllOutlet: UISegmentedControl!
     @IBOutlet weak private var chartView: MacawCharts!
+    var currentDay: String?
+    let delegate = MainViewController()
+    var resultOfDay = 0
     
     
      override func viewDidLoad() {
@@ -20,7 +24,10 @@ class StatisticViewController: UIViewController {
         segmentedControllOutlet.setTitle("По месяцам", forSegmentAt: 2)
         chartView.contentMode = .scaleAspectFit
         MacawCharts.playAnimations()
+        self.reloadInputViews()
+        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true

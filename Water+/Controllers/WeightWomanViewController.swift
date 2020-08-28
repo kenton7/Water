@@ -19,11 +19,17 @@ class WeightWomanViewController: UIViewController, UITextFieldDelegate {
        override func viewDidLoad() {
          super.viewDidLoad()
         
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: textFieldOutlet.frame.height - 2, width: textFieldOutlet.frame.width, height: 2)
+        bottomLine.backgroundColor = UIColor.init(red: 30/255, green: 144/255, blue: 255/255, alpha: 1).cgColor
+        textFieldOutlet.borderStyle = .none
+        textFieldOutlet.layer.addSublayer(bottomLine)
+        
         textFieldOutlet.delegate = self
         nextButtonOutlet?.isUserInteractionEnabled = false
         nextButtonOutlet?.alpha = 0.5
         
-         nextButtonOutlet.layer.cornerRadius = nextButtonOutlet.frame.size.height / 5
+         nextButtonOutlet.layer.cornerRadius = 25
          nextButtonOutlet.layer.shadowColor = UIColor.black.cgColor
          nextButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
          nextButtonOutlet.layer.masksToBounds = false
@@ -67,7 +73,7 @@ class WeightWomanViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func nextPressed(_ sender: UIButton) {
-        UserSettings.userWeight = "weightSet"
+        //UserSettings.userWeight = "weightSet"
         if sender.isSelected {
             //записываем вес в TextField и проверяем на nil
             if let weight = Double(textFieldOutlet.text!) {
@@ -75,6 +81,8 @@ class WeightWomanViewController: UIViewController, UITextFieldDelegate {
                 weightWoman = weight
             }
          }
+        UserSettings.userWeight = textFieldOutlet.text
+        print(UserSettings.userWeight)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

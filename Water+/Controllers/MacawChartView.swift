@@ -7,17 +7,25 @@
 //
 
 import Foundation
+import UIKit
 import Macaw
 
 class MacawCharts: MacawView {
     
-    static let daysOfWeek = createDummyData()
+    static let daysOfWeek = chartsData()
     static let maxValue = 100
     static let maxValueLineHeight = 100
     static let lineWidth: Double = 350
     static let dataDivisor = Double(maxValue / maxValueLineHeight)
     static let adjustedData: [Double] = daysOfWeek.map({ $0.viewCount / dataDivisor })
+    //static let data: [Double] = daysOfWeek.map({$0.resultOfDay / dataDivisor})
     static var animations: [Animation] = []
+    var resultOfDay: Double = 0
+    var currentDay: String?
+    let delegate = MainViewController()
+    static var thursday: Double = 0
+    
+    
     
     
         required init?(coder aDecoder: NSCoder) {
@@ -71,9 +79,21 @@ class MacawCharts: MacawView {
         return newNodes
     }
     
+    func dayOfWeek() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        currentDay = dateFormatter.string(from: Date()).capitalized
+        print(currentDay!)
+        let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
+        resultOfDay = percentOfResult
+        print(percentOfResult)
+        return dateFormatter.string(from: Date()).capitalized
+    }
+    
     private static func createBars() -> Group {
         
-        let fill = LinearGradient(degree: 90, from: Color.blue, to: Color.blue.with(a: 0.33))
+        let fill = LinearGradient(degree: 90, from: .blue, to: .aqua)
+        //let fill = LinearGradient(degree: 90, from: Color.blue, to: Color.blue.with(a: 0.33))
         let items = adjustedData.map { _ in Group() }
         
         animations = items.enumerated().map {(i: Int, item: Group) in
@@ -86,19 +106,75 @@ class MacawCharts: MacawView {
         return items.group()
     }
     
+    
+    
     static func playAnimations() {
         animations.combine().play()
     }
     
-    private static func createDummyData() -> [StatisticScreen] {
-        let monday = StatisticScreen(showNumber: "Пн", viewCount: 40)
-        let tuesday = StatisticScreen(showNumber: "Вт", viewCount: 70)
-        let wednesday = StatisticScreen(showNumber: "Ср", viewCount: 64)
-        let thursday = StatisticScreen(showNumber: "Чт", viewCount: 100)
-        let friday = StatisticScreen(showNumber: "Пт", viewCount: 77)
-        let suturday = StatisticScreen(showNumber: "Сб", viewCount: 80)
-        let sunday = StatisticScreen(showNumber: "Вск", viewCount: 89)
+    static func chartsData() -> [StatisticScreen] {
+        //var resultOfDay: Double = 0
+        var currentDay: String?
+        let delegate = MainViewController()
+        let dateFormatter = DateFormatter()
+        var monday: Double?
+        var tuesday: Double?
+        var wednesday: Double?
+        //var thursday: Double?
+        var friday: Double?
+        var saturday: Double?
+        var sunday: Double?
         
-        return [monday, tuesday, wednesday, thursday, friday, suturday, sunday]
+        
+        dateFormatter.dateFormat = "EEEE"
+        currentDay = dateFormatter.string(from: Date()).capitalized
+        print(currentDay!)
+        let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
+        //resultOfDay = percentOfResult
+        print(percentOfResult)
+        
+        switch currentDay {
+        case "Monday", "Понедельник":
+            monday = percentOfResult
+            UserSettings.monday = monday
+        case "Tuesday", "Вторник":
+            tuesday = percentOfResult
+            UserSettings.tuesday = tuesday
+        case "Wednesday", "Среда":
+            wednesday = percentOfResult
+            UserSettings.wednesday = wednesday
+        case "Thursday", "Четверг":
+            thursday = percentOfResult
+            UserSettings.thursday = thursday
+        case "Пятница", "Friday", "Vendredi":
+            friday = percentOfResult
+            UserSettings.friday = friday
+        case "Saturday", "Суббота":
+            saturday = percentOfResult
+            UserSettings.saturday = saturday
+        case "Sunday", "Воскресенье":
+            sunday = percentOfResult
+            UserSettings.sunday = sunday
+        default:
+            break
+        }
+        
+
+        let mondayForChart = StatisticScreen(showNumber: "Пн", viewCount: UserSettings.monday)
+        let tuesdayForChart = StatisticScreen(showNumber: "Вт", viewCount: UserSettings.tuesday)
+        let wednesdayForChart = StatisticScreen(showNumber: "Ср", viewCount: UserSettings.wednesday)
+        let thursdayForChart = StatisticScreen(showNumber: "Чт", viewCount: UserSettings.thursday)
+        let fridayForChart = StatisticScreen(showNumber: "Пт", viewCount: UserSettings.friday)
+        let saturdayForChart = StatisticScreen(showNumber: "Сб", viewCount: UserSettings.saturday)
+        let sundayForChart = StatisticScreen(showNumber: "Вск", viewCount: UserSettings.sunday)
+        
+        
+        return [mondayForChart, tuesdayForChart, wednesdayForChart, thursdayForChart, fridayForChart, saturdayForChart, sundayForChart]
     }
 }
+
+
+
+
+
+

@@ -12,7 +12,7 @@ protocol MililetersVCDelegate {
 
 import UIKit
 
-class MililetersViewController: UIViewController, UIViewControllerTransitioningDelegate, MililetersVCDelegate {
+class MililetersViewController: UIViewController, UIViewControllerTransitioningDelegate, MililetersVCDelegate, UITextFieldDelegate {
     func passingDataBack(data: [String]) {
         self.delegate?.passingDataBack(data: arrayVolumes)
     }
@@ -29,12 +29,16 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
             drinkNameOutlet.text = drinks?.drinkName
         }
     }
+    @IBOutlet weak var descriptionLabel: UILabel! {
+        didSet {
+            descriptionLabel.text = drinks?.description
+        }
+    }
     @IBOutlet weak var pickerViewOutlet: UIPickerView!
     @IBOutlet weak var addButtonOutlet: UIButton!
     
     var arrayVolumes = [""]
-    var volumeFromMilimetersVC = 0
-    var volumeFromMilimeters2 = 0
+    var volumeFromMilimetersVC = 0.0
     var drinks: Drinks?
     var volume = MilimetersScreen()
     var delegate: MililetersVCDelegate?
@@ -42,25 +46,21 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
     var addDrinks = AddDrinksViewController()
     var drinksToMainVC: [String] = []
     var progressToMainVC: Float = 0.0
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pickerViewOutlet.dataSource = self
         pickerViewOutlet.delegate = self
+        //textField.delegate = self
         self.transitioningDelegate = self
-        
-        addButtonOutlet.layer.cornerRadius = addButtonOutlet.frame.size.height / 5
+
+        addButtonOutlet.layer.cornerRadius = 25
         addButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         addButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         addButtonOutlet.layer.masksToBounds = false
         addButtonOutlet.layer.shadowRadius = 1.0
         addButtonOutlet.layer.shadowOpacity = 0.5
-        
-        
-        
     }
     
     
@@ -71,12 +71,15 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? MainViewController
         vc?.delegate = self
-        vc?.addVolume(volumeFromMilimetersVC)
-        vc?.addedDrinksArray.append(contentsOf: drinksToMainVC)
-        //vc?.addProgress(with: (volumeFromMilimetersVC))
-        vc?.updateProgress(with: Float(vc?.volume ?? 0))
+        vc?.addVolume(Int(volumeFromMilimetersVC))
+        vc?.addedDrinksArray.insert(contentsOf: drinksToMainVC, at: 0)
+        //vc?.updateProgress(with: Float(vc?.volume ?? 0))
+        //vc?.updateProgress(with: Float(vc?.volume ?? 0))
+        vc?.updateProgress(with: Float(volumeFromMilimetersVC))
+        //vc?.updateProgress(with: progressToMainVC)
     
     }
+    
 }
 
 extension MililetersViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -97,9 +100,57 @@ extension MililetersViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        volumeFromMilimetersVC = volume.volumeArray[row]
+        
+        volumeFromMilimetersVC = Double(volume.volumeArray[row])
         drinksToMainVC.append(drinks?.imageName ?? "nil")
         progressToMainVC = Float(volumeFromMilimetersVC)
+        
+        switch drinks?.drinkName {
+        case "Вода":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
+            print(volumeFromMilimetersVC)
+        case "Зелёный \nчай":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
+            print(volumeFromMilimetersVC)
+        case "Чёрный \nчай":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
+        case "Какао":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row])
+        case "Кофе":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.9
+        case "Кола":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.89
+        case "Молоко":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.88
+        case "Кефир":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.91
+        case "Вино":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.86
+        case "Пиво":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.91
+        case "Смузи":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.85
+        case "Квас":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * (-0.4)
+        case "Кола Zero":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
+        case "Компот":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.87
+        case "Лимонад":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * (-0.4)
+        case "Энергетик":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * (-0.8)
+        case "Пиво \nбезалкогол.":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.94
+        case "Яблочный \nсок":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.88
+        case "Крепкий \nалкоголь":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.62
+        case "Апельсин. \nсок":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.89
+        default:
+            break
+        }
     }
     
     //высота между элементами
@@ -108,3 +159,4 @@ extension MililetersViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
 }
+

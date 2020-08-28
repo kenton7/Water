@@ -13,6 +13,7 @@ struct K {
     static let resultSegueMan = "toResultFromMan"
     static let resultSegueWoman = "toResultFromWoman"
     static let cellIdentifier = "drinksCell"
+    static let settingsCell = "settingsCell"
     static let addDrinksView = "toAddDrinks"
     static let milimetersView = "toMililiters"
     static let BackToMainView = "unwindSegueToMainVC"
@@ -20,5 +21,9 @@ struct K {
     static let manDefaultValue = 35.0
     static let womanDefaultValue = 31.0
     static let identifierAddedDrinksCollectionView = "AddedDrinksCollectionViewCell"
-    
+    static let savedDailyNormal = "savedDailyNormal"
+    static let savedNewWeight = "savedNewWeight"
+    static let languageCell = "languageCell"
+    static let fromLanguage = "fromLanguage"
+    static let backToSettingsVC = "settingsVC"
 }

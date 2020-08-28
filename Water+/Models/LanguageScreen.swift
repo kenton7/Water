@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct LanguagesScreen {
+    let languagesArray = ["Русский", "Английский", "Немецкий", "Французский", "Итальянский"]
+}

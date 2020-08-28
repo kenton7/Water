@@ -16,13 +16,10 @@ struct CalculateWater {
     func getNormalValueMan() -> String {
         let manToOneDecimalPlace = String(format: "%1.f", K.manDefaultValue)
         return manToOneDecimalPlace
-       // if water?.weightMan != nil {
-            //let normalValueMan = K.manDefaultValue * water!.weightMan
     }
     func getNormalValueWoman() -> String {
         let womanToOneDecimalPlace = String(format: "%1.f", K.womanDefaultValue)
         return womanToOneDecimalPlace
-        //if let normalValueWoman = K.womanDefaultValue * water?.weightWoman
     }
     
     func calculateWaterForMan(weight: Double) -> Double {

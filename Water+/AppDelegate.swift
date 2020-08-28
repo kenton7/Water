@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController = UINavigationController()
+    private var myTimer: Timer?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

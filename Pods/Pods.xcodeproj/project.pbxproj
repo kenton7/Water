@@ -276,18 +276,18 @@
 		86B9D4CC738EE76074BDCEE27794F8C6 /* Font.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Font.swift; path = Source/model/draw/Font.swift; sourceTree = "<group>"; };
 		8842D86FE8F21A8BA6233660DE38AD27 /* MacawView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MacawView.swift; path = Source/views/MacawView.swift; sourceTree = "<group>"; };
 		8975A1F2AAC93948D08649E1DF459496 /* Common_iOS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Common_iOS.swift; path = Source/platform/iOS/Common_iOS.swift; sourceTree = "<group>"; };
-		89F7F2ACB91FF458A6514709285B03CA /* Pods_Water_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Water_.framework; path = "Pods-Water+.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89F7F2ACB91FF458A6514709285B03CA /* Pods_Water_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Water_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A5D3F01FC865145794E11E3EA6FF7A8 /* Transform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transform.swift; path = Source/model/geom2d/Transform.swift; sourceTree = "<group>"; };
 		8B53435ADB2DC3DFAA94A8D17B372EA0 /* Align.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Align.swift; path = Source/model/draw/Align.swift; sourceTree = "<group>"; };
 		8DDA8D6C6810A6BDBC6733602A958DFC /* SWXMLHash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWXMLHash.debug.xcconfig; sourceTree = "<group>"; };
 		9152A094B3802AC12CC9DB6BB07BFF04 /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Source/model/scene/Image.swift; sourceTree = "<group>"; };
 		944AF6EC3A708525A7CA2756DB8F58C0 /* AnimatableVariable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatableVariable.swift; path = Source/animation/AnimatableVariable.swift; sourceTree = "<group>"; };
 		979E800D075CF07DCBBBEAFBFC3DE245 /* Node.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.swift; path = Source/model/scene/Node.swift; sourceTree = "<group>"; };
-		97D014AD6344E543FEDB1FD1F8F2BFEC /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWXMLHash.framework; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97D014AD6344E543FEDB1FD1F8F2BFEC /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2751FE0B6415DC3A50CF6FDC0BF9B5 /* LocusInterpolation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocusInterpolation.swift; path = Source/animation/layer_animation/Extensions/LocusInterpolation.swift; sourceTree = "<group>"; };
 		9B42511B0D15D7454D51272C24E40CFF /* Stop.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stop.swift; path = Source/model/draw/Stop.swift; sourceTree = "<group>"; };
 		9CE79D2D3D14DF8A44FA26C42686AEB7 /* MCAMediaTimingFunctionName_macOS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MCAMediaTimingFunctionName_macOS.swift; path = Source/MCAMediaTimingFunctionName_macOS.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DAD8B98FD89A792A74A3E40F6259F43 /* ShapeAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShapeAnimation.swift; path = Source/animation/types/ShapeAnimation.swift; sourceTree = "<group>"; };
 		9DEDCDB6C66CE74FED58E6625F5FBF90 /* MCAShapeLayerLineJoin_macOS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MCAShapeLayerLineJoin_macOS.swift; path = Source/MCAShapeLayerLineJoin_macOS.swift; sourceTree = "<group>"; };
 		9FA5B7717F7D6D444A3D28F6DAE75B06 /* FillInterpolation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FillInterpolation.swift; path = Source/animation/layer_animation/Extensions/FillInterpolation.swift; sourceTree = "<group>"; };
@@ -310,7 +310,7 @@
 		BC856018D96CE7FE4C003D5076D40921 /* ContentsInterpolation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContentsInterpolation.swift; path = Source/animation/layer_animation/Extensions/ContentsInterpolation.swift; sourceTree = "<group>"; };
 		BF3BC358EE835F06A3140F09A912150F /* Pods-Water+-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Water+-Info.plist"; sourceTree = "<group>"; };
 		C08439D497835B9F8665235695C2FA88 /* shim.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = shim.swift; path = Source/shim.swift; sourceTree = "<group>"; };
-		C387806CE1F7FC814E9EE915DD03EEF9 /* Macaw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Macaw.framework; path = Macaw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C387806CE1F7FC814E9EE915DD03EEF9 /* Macaw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Macaw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A612035C63EDC8FE8B475E03A955E7 /* Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Source/animation/Animation.swift; sourceTree = "<group>"; };
 		C58E3C8C3C92C330E55A11A69DA68E63 /* Stroke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stroke.swift; path = Source/model/draw/Stroke.swift; sourceTree = "<group>"; };
 		C7E80B5884E391E8D7F7B48CD2C63540 /* Macaw.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Macaw.modulemap; sourceTree = "<group>"; };
@@ -475,7 +475,6 @@
 				19967A5F5654125FB8277867EBE0ED58 /* XMLIndexer+XMLIndexerDeserializable.swift */,
 				2434F26A109B7AFC31EB5C613324319B /* Support Files */,
 			);
-			name = SWXMLHash;
 			path = SWXMLHash;
 			sourceTree = "<group>";
 		};
@@ -629,7 +628,6 @@
 				5E61E17FA897E8F42563709BE3F175B9 /* Variable.swift */,
 				4DB04768DE9E972FFF89F479D537598F /* Support Files */,
 			);
-			name = Macaw;
 			path = Macaw;
 			sourceTree = "<group>";
 		};

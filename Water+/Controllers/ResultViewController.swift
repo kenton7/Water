@@ -22,7 +22,7 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextButtonOutlet.layer.cornerRadius = nextButtonOutlet.frame.size.height / 5
+        nextButtonOutlet.layer.cornerRadius = 25
         nextButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         nextButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         nextButtonOutlet.layer.masksToBounds = false

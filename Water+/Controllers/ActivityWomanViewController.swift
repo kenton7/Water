@@ -73,12 +73,15 @@ class ActivityWomanViewController: UIViewController {
             case 4:
                 destinationVC.activityFewResult = activityFew
                 destinationVC.resultString = String(format: "%.0f", activityFew)
+                //destinationVC.resultString = Float(activityFew)
             case 5:
                 destinationVC.activityMediumResult = activityMedium
                 destinationVC.resultString = String(format: "%.0f", activityMedium * 1000)
+                //destinationVC.resultString = Float(activityMedium * 1000)
             case 6:
                 destinationVC.activityHardResult = activityHard
                 destinationVC.resultString = String(format: "%.0f", activityHard * 1000)
+                //destinationVC.resultString = Float(activityHard * 1000)
             default:
                 break
             }
@@ -88,28 +91,28 @@ class ActivityWomanViewController: UIViewController {
     func boundButtons() {
         nextButtonOutlet.isUserInteractionEnabled = false
         nextButtonOutlet.alpha = 0.5
-        nextButtonOutlet.layer.cornerRadius = nextButtonOutlet.frame.size.height / 5
+        nextButtonOutlet.layer.cornerRadius = 25
         nextButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         nextButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         nextButtonOutlet.layer.masksToBounds = false
         nextButtonOutlet.layer.shadowRadius = 1.0
         nextButtonOutlet.layer.shadowOpacity = 0.5
         
-        fewButtonOutlet.layer.cornerRadius = fewButtonOutlet.frame.size.height / 5
+        fewButtonOutlet.layer.cornerRadius = 25
         fewButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         fewButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         fewButtonOutlet.layer.masksToBounds = false
         fewButtonOutlet.layer.shadowRadius = 1.0
         fewButtonOutlet.layer.shadowOpacity = 0.5
         
-        mediumButtonOutlet.layer.cornerRadius = mediumButtonOutlet.frame.size.height / 5
+        mediumButtonOutlet.layer.cornerRadius = 25
         mediumButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         mediumButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         mediumButtonOutlet.layer.masksToBounds = false
         mediumButtonOutlet.layer.shadowRadius = 1.0
         mediumButtonOutlet.layer.shadowOpacity = 0.5
         
-        manyButtonOutlet.layer.cornerRadius = manyButtonOutlet.frame.size.height / 5
+        manyButtonOutlet.layer.cornerRadius = 25
         manyButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         manyButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         manyButtonOutlet.layer.masksToBounds = false

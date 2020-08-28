@@ -11,4 +11,5 @@ import Foundation
 struct Drinks {
     var drinkName: String?
     var imageName: String?
+    var description: String?
 }
