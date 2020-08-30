@@ -10,7 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
-    var maxProgress = Float(UserSettings.result)
+    //var maxProgress = Float(UserSettings.result) ?? 0
+    //var maxProgress = 0
+    var maxProgress = UserSettings.result
     
     private var progress: Float = 0
     var resultString = ""
@@ -81,7 +83,8 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     
         addedDrinksCollectionView?.delegate = self
         addedDrinksCollectionView?.dataSource = self
-        progressBar.maxProgress = maxProgress
+        //progressBar.maxProgress = Float(maxProgress)
+        progressBar.maxProgress = Float(UserSettings.result)
         progressBar.progressLayer.strokeEnd = CGFloat(UserSettings.userProgress)
         progress = Float(UserSettings.addedVolume)
         print(progress)
@@ -90,7 +93,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         print(progressBar.progressLayer.strokeEnd)
         //обновляем лейбл с результатом кол-ва воды при запуске приложения и сохраняем результат добавленного юзером объема воды
         DispatchQueue.main.async {
-            self.resultValue.text = UserSettings.result
+            self.resultValue.text = String(UserSettings.result)
             self.volume = UserSettings.addedVolume
             self.defaults.set(self.volume, forKey: String(UserSettings.addedVolume))
             self.currentValue.text = String(UserSettings.addedVolume) + " " + "/"
@@ -156,7 +159,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         } else {
             UserSettings.userDate = str
             currentValue.text = "0"
-            resultValue.text = UserSettings.result
+            resultValue.text = String(UserSettings.result)
             progress = 0
             print(progress)
             UserSettings.userProgress = 0

@@ -24,8 +24,10 @@ struct DataCharts {
         dateFormatter.dateFormat = "EEEE"
         currentDay = dateFormatter.string(from: Date()).capitalized
         print(currentDay!)
-        let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
-        resultOfDay = percentOfResult
+        //let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
+        //let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress)
+        let percentOfResult = (UserSettings.addedVolume * 100) / delegate.maxProgress!
+        resultOfDay = Double(percentOfResult)
         print(percentOfResult)
         return dateFormatter.string(from: Date()).capitalized
     }

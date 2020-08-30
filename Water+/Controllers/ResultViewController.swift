@@ -22,19 +22,26 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserDefaults.standard.bool(forKey: "resultShowed") {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainViewController = mainStoryboard.instantiateViewController(identifier: "MainViewController")
+            navigationController?.pushViewController(mainViewController, animated: false)
+        }
         nextButtonOutlet.layer.cornerRadius = 25
         nextButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         nextButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         nextButtonOutlet.layer.masksToBounds = false
         nextButtonOutlet.layer.shadowRadius = 1.0
         nextButtonOutlet.layer.shadowOpacity = 0.5
-        UserSettings.result = resultString
-        resultValue.text = UserSettings.result
+        //UserSettings.result = Int(resultString)
+        resultValue.text = String(UserSettings.result)
         print(resultString)
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         selectedButtonTag = nextButtonOutlet.tag
+        UserDefaults.standard.set(true, forKey: "resultShowed")
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MainView" {
@@ -42,7 +49,8 @@ class ResultViewController: UIViewController {
 
             switch selectedButtonTag {
             case 7:
-                destinationVC.resultString = UserSettings.result
+                //destinationVC.resultString = String(UserSettings.result)
+                destinationVC.resultString = String(format: "%0.f", UserSettings.result)
             default:
                 break
             }

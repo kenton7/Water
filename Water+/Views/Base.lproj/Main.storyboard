@@ -325,7 +325,7 @@
         <!--Activity Man View Controller-->
         <scene sceneID="5Gd-IN-9AD">
             <objects>
-                <viewController id="dj9-4a-chn" customClass="ActivityManViewController" customModule="Water_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dj9-4a-chn" customClass="ActivityManViewController" customModule="Water_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aRX-m5-bSq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

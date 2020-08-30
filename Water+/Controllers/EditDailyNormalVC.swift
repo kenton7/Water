@@ -73,9 +73,9 @@ class EditDailyNormalVC: UIViewController, UITextFieldDelegate {
         progressToMainVC = Float(newDailyFromEditDailyVC)
         vc?.newDaily(newDaily)
         newMaxProgress = Float(newDaily)!
-        UserSettings.result = newDaily
+        UserSettings.result = Int(newDaily)
         DispatchQueue.main.async {
-            vc?.maxProgress = self.newMaxProgress
+            vc?.maxProgress = Int(self.newMaxProgress)
         }
         
         //delegateMainVC.resultValue.text = UserSettings.result

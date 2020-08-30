@@ -24,9 +24,21 @@ class ActivityManViewController: UIViewController {
     @IBOutlet weak var nextButtonOutlet: UIButton!
     
     override func viewDidLoad() {
-            super.viewDidLoad()
+        super.viewDidLoad()
         
         boundButtons()
+        
+        if UserDefaults.standard.bool(forKey: "activitySet") {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainViewController = mainStoryboard.instantiateViewController(identifier: "BackToMainView")
+            navigationController?.pushViewController(mainViewController, animated: false)
+        }
+        
+//        if UserDefaults.standard.bool(forKey: "activitySet") == true {
+//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let mainViewController = mainStoryboard.instantiateViewController(identifier: "MainViewController")
+//            navigationController?.pushViewController(mainViewController, animated: false)
+//        }
         
     }
     
@@ -37,7 +49,8 @@ class ActivityManViewController: UIViewController {
         nextButtonOutlet.isUserInteractionEnabled = true
         nextButtonOutlet.alpha = 1.0
         selectedButtonTag = sender.tag
-        activityFew = calcWater.calculateWaterForMan(weight: weightMan ?? 0)
+        //activityFew = calcWater.calculateWaterForMan(weight: weightMan ?? 0)
+        activityFew = calcWater.calculateWaterForMan(weight: Double(UserSettings.userWeight) ?? 0)
         print(activityFew)
     }
     
@@ -48,8 +61,8 @@ class ActivityManViewController: UIViewController {
         nextButtonOutlet.isUserInteractionEnabled = true
         nextButtonOutlet.alpha = 1.0
         selectedButtonTag = sender.tag
-        activityMedium = calcWater.calculateMediumActivity(weight: weightMan ?? 0)
-        
+        activityMedium = calcWater.calculateMediumActivity(weight: Double(UserSettings.userWeight) ?? 0)
+        UserSettings.result = Int(activityMedium)
         print(activityMedium)
     }
     
@@ -60,13 +73,14 @@ class ActivityManViewController: UIViewController {
         nextButtonOutlet.isUserInteractionEnabled = true
         nextButtonOutlet.alpha = 1.0
         selectedButtonTag = sender.tag
-        activityHard = calcWater.calculateHardActivity(weight: weightMan ?? 0)
-
+        activityHard = calcWater.calculateHardActivity(weight: Double(UserSettings.userWeight) ?? 0)
         print(activityHard)
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-
+        //UserSettings.userActivity = "activitySet"
+        UserSettings.userActivity = "activitySet"
+        UserDefaults.standard.set(true, forKey: "activitySet")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,22 +91,25 @@ class ActivityManViewController: UIViewController {
             case 1:
                 destinationVC.activityFewResult = activityFew
                 destinationVC.resultString = String(format: "%.0f", activityFew)
-                //destinationVC.resultString = Float(activityFew)
+                UserSettings.result = Int(destinationVC.resultString)
+            //destinationVC.resultString = Float(activityFew)
             case 2:
                 destinationVC.activityMediumResult = activityMedium
                 destinationVC.resultString = String(format: "%.0f", activityMedium * 1000)
-                //destinationVC.resultString = Float(activityMedium * 1000)
+                UserSettings.result = Int(destinationVC.resultString)
+            //destinationVC.resultString = Float(activityMedium * 1000)
             case 3:
                 destinationVC.activityHardResult = activityHard
                 destinationVC.resultString = String(format: "%.0f", activityHard * 1000)
-                //destinationVC.resultString = Float(activityHard * 1000)
+                UserSettings.result = Int(destinationVC.resultString)
+            //destinationVC.resultString = Float(activityHard * 1000)
             default:
                 break
             }
         }
     }
-
-     func boundButtons() {
+    
+    func boundButtons() {
         nextButtonOutlet.isUserInteractionEnabled = false
         nextButtonOutlet.alpha = 0.5
         nextButtonOutlet.layer.cornerRadius = 25

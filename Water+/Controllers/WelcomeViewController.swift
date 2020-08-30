@@ -29,20 +29,27 @@ class WelcomeViewController: UIViewController {
         
         if UserDefaults.standard.bool(forKey: "SexSelected") {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainViewController = mainStoryboard.instantiateViewController(identifier: "MainViewController")
+            let mainViewController = mainStoryboard.instantiateViewController(identifier: "WeightManVC")
             navigationController?.pushViewController(mainViewController, animated: false)
         }
         
+//        if UserDefaults.standard.bool(forKey: "SexSelected") == true {
+//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let mainViewController = mainStoryboard.instantiateViewController(identifier: "MainViewController")
+//            navigationController?.pushViewController(mainViewController, animated: false)
+//        }
     }
 
     @IBAction func manSelected(_ sender: UIButton) {
+        //UserSettings.userSex = "SexSelected"
         UserSettings.userSex = "SexSelected"
-        UserDefaults.standard.set(true, forKey: UserSettings.userSex)
+        UserDefaults.standard.set(true, forKey: "SexSelected")
     }
     
     @IBAction func womanSelected(_ sender: UIButton) {
+        //UserSettings.userSex = "SexSelected"
         UserSettings.userSex = "SexSelected"
-        UserDefaults.standard.set(true, forKey: UserSettings.userSex)
+        UserDefaults.standard.set(true, forKey: "SexSelected")
     }
 }
 

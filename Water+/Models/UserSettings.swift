@@ -12,12 +12,14 @@ final class UserSettings {
     enum SettingsKeys: String {
         case userSex
         case userWeight
+        case userActivity
         case result
         case addedVolume
         case userDate
         case userProgress
         case savingPercentDailyResult
         case alert
+        case checkUserWeight
         
         case monday
         case tuesday
@@ -43,6 +45,22 @@ final class UserSettings {
         }
     }
     
+    static var checkUserWeight: String! {
+        get {
+            return UserDefaults.standard.string(forKey: SettingsKeys.checkUserWeight.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.checkUserWeight.rawValue
+            if let check = newValue {
+                print("Вес \(check) был выбран \(key)")
+                defaults.set(check, forKey: key)
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    
     static var userWeight: String! {
         get {
             return UserDefaults.standard.string(forKey: SettingsKeys.userWeight.rawValue)
@@ -58,9 +76,24 @@ final class UserSettings {
         }
     }
     
-    static var result: String! {
+    static var userActivity: String! {
         get {
-            return UserDefaults.standard.string(forKey: SettingsKeys.result.rawValue)
+            return UserDefaults.standard.string(forKey: SettingsKeys.userActivity.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.userActivity.rawValue
+            if let activity = newValue {
+                print("Активность \(activity) добавлена в \(key)")
+                defaults.set(activity, forKey: key)
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var result: Int! {
+        get {
+            return UserDefaults.standard.integer(forKey: SettingsKeys.result.rawValue)
         } set {
             let defaults = UserDefaults.standard
             let key = SettingsKeys.result.rawValue

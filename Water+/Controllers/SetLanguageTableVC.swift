@@ -16,6 +16,14 @@ class SetLanguageTableVC: UITableViewController {
     let lang = LanguagesScreen()
     var selectedArray = NSMutableArray()
     
+    var availableLanguages: [String] {
+        var availableLanguages = Bundle.main.localizations
+        if let indexOfBase = availableLanguages.firstIndex(of: "Base") {
+            availableLanguages.remove(at: indexOfBase)
+        }
+        return availableLanguages
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        self.tabBarController?.navigationItem.title = "Язк"
@@ -36,11 +44,16 @@ class SetLanguageTableVC: UITableViewController {
         tableView.delegate = self
         tableView.rowHeight = 50
         tableView.tableFooterView = UIView()
+        
+        availableLanguages.map {
+            Locale.current.localizedString(forLanguageCode: $0)!
+        }
     }
     
     @IBAction func unwindSegueFromLanguage(segue: UIStoryboardSegue) {
         
     }
+    
     
 
     // MARK: - Table view data source
@@ -79,7 +92,8 @@ class SetLanguageTableVC: UITableViewController {
         case "Немецкий":
             print("Deutsche")
         case "Французский":
-            print("Français")
+            print("france")
+            
         case "Итальянский":
             print("Italiano")
         default:

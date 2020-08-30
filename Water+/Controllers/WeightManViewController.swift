@@ -35,10 +35,18 @@ class WeightManViewController: UIViewController, UITextFieldDelegate {
          nextButtonOutlet.layer.shadowRadius = 1.0
          nextButtonOutlet.layer.shadowOpacity = 0.5
         
-        if UserDefaults.standard.bool(forKey: "weightManButtonPressed") == true {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-            navigationController?.pushViewController(vc, animated: false)
+        if UserDefaults.standard.bool(forKey: "weightSet") {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainViewController = mainStoryboard.instantiateViewController(identifier: "ActivityView")
+            navigationController?.pushViewController(mainViewController, animated: false)
         }
+        print(UserSettings.userWeight)
+        
+//        if UserDefaults.standard.bool(forKey: "weightSet") == true {
+//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let mainViewController = mainStoryboard.instantiateViewController(identifier: "MainViewController")
+//            navigationController?.pushViewController(mainViewController, animated: false)
+//        }
         
         textFieldOutlet.delegate = self
         //вызываем наблюдателя для наблюдения за появлением клавиатуры
@@ -89,6 +97,9 @@ class WeightManViewController: UIViewController, UITextFieldDelegate {
             }
          }
         UserSettings.userWeight = textFieldOutlet.text
+        print(UserSettings.userWeight)
+        //UserSettings.checkUserWeight = "weightSet"
+        UserDefaults.standard.set(true, forKey: "weightSet")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,8 +108,10 @@ class WeightManViewController: UIViewController, UITextFieldDelegate {
             let destinationVC = segue.destination as! ActivityManViewController
             //записываем вес в переменную
             weightMan = Double(textFieldOutlet.text!) ?? 0
+            UserSettings.userWeight = textFieldOutlet.text!
             //в передаваемый View записываем вес
-            destinationVC.weightMan = weightMan
+            //destinationVC.weightMan = weightMan
+            destinationVC.weightMan = Double(UserSettings.userWeight)
             print(weightMan)
         }
     }

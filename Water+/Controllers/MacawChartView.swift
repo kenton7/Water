@@ -84,8 +84,10 @@ class MacawCharts: MacawView {
         dateFormatter.dateFormat = "EEEE"
         currentDay = dateFormatter.string(from: Date()).capitalized
         print(currentDay!)
-        let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
-        resultOfDay = percentOfResult
+        //let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
+        //let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress)
+        let percentOfResult = (UserSettings.addedVolume * 100) / delegate.maxProgress!
+        resultOfDay = Double(percentOfResult)
         print(percentOfResult)
         return dateFormatter.string(from: Date()).capitalized
     }
@@ -129,31 +131,33 @@ class MacawCharts: MacawView {
         dateFormatter.dateFormat = "EEEE"
         currentDay = dateFormatter.string(from: Date()).capitalized
         print(currentDay!)
-        let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
+        //let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
+//        let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress)
+        let percentOfResult = (UserSettings.addedVolume * 100) / delegate.maxProgress!
         //resultOfDay = percentOfResult
         print(percentOfResult)
         
         switch currentDay {
         case "Monday", "Понедельник":
-            monday = percentOfResult
+            monday = Double(percentOfResult)
             UserSettings.monday = monday
         case "Tuesday", "Вторник":
-            tuesday = percentOfResult
+            tuesday = Double(percentOfResult)
             UserSettings.tuesday = tuesday
         case "Wednesday", "Среда":
-            wednesday = percentOfResult
+            wednesday = Double(percentOfResult)
             UserSettings.wednesday = wednesday
         case "Thursday", "Четверг":
-            thursday = percentOfResult
+            thursday = Double(percentOfResult)
             UserSettings.thursday = thursday
         case "Пятница", "Friday", "Vendredi":
-            friday = percentOfResult
+            friday = Double(percentOfResult)
             UserSettings.friday = friday
         case "Saturday", "Суббота":
-            saturday = percentOfResult
+            saturday = Double(percentOfResult)
             UserSettings.saturday = saturday
         case "Sunday", "Воскресенье":
-            sunday = percentOfResult
+            sunday = Double(percentOfResult)
             UserSettings.sunday = sunday
         default:
             break
