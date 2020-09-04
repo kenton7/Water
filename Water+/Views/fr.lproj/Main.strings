@@ -1,9 +1,9 @@
 
 /* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "0E9-oF-7Pd"; */
-"0E9-oF-7Pd.title" = "Retour à";
+"0E9-oF-7Pd.title" = "Назад";
 
 /* Class = "UIButton"; normalTitle = "Продолжить"; ObjectID = "0uf-s6-9yc"; */
-"0uf-s6-9yc.normalTitle" = "Procéder";
+"0uf-s6-9yc.normalTitle" = "Продолжить";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "17Z-wc-ah5"; */
 "17Z-wc-ah5.text" = "Label";
@@ -12,208 +12,199 @@
 "1LB-aF-5Fa.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Продолжить"; ObjectID = "1S6-7y-VsF"; */
-"1S6-7y-VsF.normalTitle" = "Procéder";
-
-/* Class = "UIBarButtonItem"; title = "Отменить"; ObjectID = "1z0-cz-pFG"; */
-"1z0-cz-pFG.title" = "Annuler";
+"1S6-7y-VsF.normalTitle" = "Продолжить";
 
 /* Class = "UIBarButtonItem"; title = "Отменить"; ObjectID = "21V-CR-Eoj"; */
-"21V-CR-Eoj.title" = "Annuler";
+"21V-CR-Eoj.title" = "Отменить";
 
 /* Class = "UINavigationItem"; title = "Дневная норма"; ObjectID = "2R1-c0-7Cv"; */
-"2R1-c0-7Cv.title" = "Taux journalier";
+"2R1-c0-7Cv.title" = "Дневная норма";
 
 /* Class = "UIBarButtonItem"; title = "Сохранить"; ObjectID = "2pZ-Ah-RRy"; */
-"2pZ-Ah-RRy.title" = "Sauver";
+"2pZ-Ah-RRy.title" = "Сохранить";
 
 /* Class = "UITabBarItem"; title = "Главная"; ObjectID = "3dJ-nM-4Y1"; */
-"3dJ-nM-4Y1.title" = "Accueil";
+"3dJ-nM-4Y1.title" = "Главная";
 
 /* Class = "UIButton"; normalTitle = "Продолжить"; ObjectID = "7An-9i-mj3"; */
-"7An-9i-mj3.normalTitle" = "Procéder";
+"7An-9i-mj3.normalTitle" = "Продолжить";
+
+/* Class = "UINavigationItem"; title = "Уведомления"; ObjectID = "7Th-ym-RGe"; */
+"7Th-ym-RGe.title" = "Уведомления";
 
 /* Class = "UILabel"; text = "Введите свой вес"; ObjectID = "8c6-e4-WIQ"; */
-"8c6-e4-WIQ.text" = "Entrez votre poids";
+"8c6-e4-WIQ.text" = "Введите свой вес";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "9ZS-tp-X8U"; */
 "9ZS-tp-X8U.text" = "Label";
 
 /* Class = "UILabel"; text = "Ваша текущая норма (Мл):"; ObjectID = "Aun-Ck-Os5"; */
-"Aun-Ck-Os5.text" = "Votre taux actuel (ml):";
+"Aun-Ck-Os5.text" = "Ваша текущая норма (Мл):";
 
 /* Class = "UINavigationItem"; title = "О приложении"; ObjectID = "AyN-as-e61"; */
-"AyN-as-e61.title" = "À propos de l'appli";
-
-/* Class = "UITabBarItem"; title = "Календарь"; ObjectID = "BCp-8X-coE"; */
-"BCp-8X-coE.title" = "Le calendrier";
-
+"AyN-as-e61.title" = "О приложении";
 
 /* Class = "UIButton"; normalTitle = "Добавить"; ObjectID = "CPf-oD-BEk"; */
-"CPf-oD-BEk.normalTitle" = "Ajouter à";
+"CPf-oD-BEk.normalTitle" = "Добавить";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "Cq4-yl-GA6"; */
 "Cq4-yl-GA6.text" = "Label";
 
 /* Class = "UILabel"; text = "Кг"; ObjectID = "EHe-9f-E6p"; */
-"EHe-9f-E6p.text" = "Kg";
+"EHe-9f-E6p.text" = "Кг";
 
 /* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "EQg-uI-Cuj"; */
-"EQg-uI-Cuj.title" = "Retour à";
+"EQg-uI-Cuj.title" = "Назад";
 
 /* Class = "UIButton"; normalTitle = "Уведомления"; ObjectID = "Eqc-4c-hs2"; */
-"Eqc-4c-hs2.normalTitle" = "l'avis";
+"Eqc-4c-hs2.normalTitle" = "Уведомления";
 
 /* Class = "UILabel"; text = "Вы не добавили ни одного напитка"; ObjectID = "GE8-0U-ITo"; */
-"GE8-0U-ITo.text" = "Vous n'avez ajouté aucune boisson";
+"GE8-0U-ITo.text" = "Вы не добавили ни одного напитка";
 
 /* Class = "UITextField"; placeholder = "Ваш вес"; ObjectID = "HGw-mz-Hv1"; */
-"HGw-mz-Hv1.placeholder" = "Votre poids";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "IEG-Jp-V8c"; */
-"IEG-Jp-V8c.normalTitle" = "Button";
+"HGw-mz-Hv1.placeholder" = "Ваш вес";
 
 /* Class = "UIBarButtonItem"; title = "Сохранить"; ObjectID = "Iqb-Uw-Uix"; */
-"Iqb-Uw-Uix.title" = "Sauver";
+"Iqb-Uw-Uix.title" = "Сохранить";
 
 /* Class = "UIButton"; normalTitle = "Изменить вес"; ObjectID = "Jbt-jR-TRv"; */
-"Jbt-jR-TRv.normalTitle" = "Changer de poids";
-
-/* Class = "UITableViewSection"; headerTitle = "Оформление"; ObjectID = "JjS-Cv-35F"; */
-"JjS-Cv-35F.headerTitle" = "La décoration";
+"Jbt-jR-TRv.normalTitle" = "Изменить вес";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "JtT-Nb-OBg"; */
 "JtT-Nb-OBg.text" = "Label";
 
 /* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "Mpf-rW-0xX"; */
-"Mpf-rW-0xX.title" = "Retour à";
+"Mpf-rW-0xX.title" = "Назад";
 
 /* Class = "UILabel"; text = "Укажите свой вес"; ObjectID = "N3h-Aq-tZr"; */
-"N3h-Aq-tZr.text" = "Entrez votre poids";
+"N3h-Aq-tZr.text" = "Укажите свой вес";
 
 /* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "NBt-XR-NyY"; */
-"NBt-XR-NyY.title" = "Retour à";
+"NBt-XR-NyY.title" = "Назад";
 
 /* Class = "UIButton"; normalTitle = "Дневная норма"; ObjectID = "Nvu-d9-u7D"; */
-"Nvu-d9-u7D.normalTitle" = "Taux journalier";
+"Nvu-d9-u7D.normalTitle" = "Дневная норма";
+
+/* Class = "UINavigationItem"; title = "Календарь"; ObjectID = "O2y-sz-ApN"; */
+"O2y-sz-ApN.title" = "Календарь";
 
 /* Class = "UILabel"; text = "Ваш текущий вес (Кг):"; ObjectID = "OLO-rE-xDj"; */
-"OLO-rE-xDj.text" = "Votre poids actuel (Kg):";
+"OLO-rE-xDj.text" = "Ваш текущий вес (Кг):";
 
 /* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "OUm-6W-ulg"; */
-"OUm-6W-ulg.title" = "Retour à";
+"OUm-6W-ulg.title" = "Назад";
 
 /* Class = "UILabel"; text = "Ваш уровень активности"; ObjectID = "OaD-Cq-sxz"; */
-"OaD-Cq-sxz.text" = "Votre niveau d'activité";
+"OaD-Cq-sxz.text" = "Ваш уровень активности";
 
 /* Class = "UIButton"; normalTitle = "Продолжить"; ObjectID = "Oui-0N-yID"; */
-"Oui-0N-yID.normalTitle" = "Procéder";
+"Oui-0N-yID.normalTitle" = "Продолжить";
 
 /* Class = "UIButton"; normalTitle = "Средний"; ObjectID = "PEK-B7-gox"; */
-"PEK-B7-gox.normalTitle" = "Milieu";
+"PEK-B7-gox.normalTitle" = "Средний";
 
 /* Class = "UITextField"; placeholder = "Введите свой вес"; ObjectID = "Q4v-RS-8gT"; */
-"Q4v-RS-8gT.placeholder" = "Entrez votre poids";
+"Q4v-RS-8gT.placeholder" = "Введите свой вес";
 
 /* Class = "UINavigationItem"; title = "Язык"; ObjectID = "QKp-71-s5q"; */
-"QKp-71-s5q.title" = "Langue";
+"QKp-71-s5q.title" = "Язык";
 
 /* Class = "UINavigationItem"; title = "Настройки"; ObjectID = "QgJ-Sj-Vdt"; */
-"QgJ-Sj-Vdt.title" = "Paramètres";
-
-"7Kr-vg-IYd.title" = "Lalalalal";
+"QgJ-Sj-Vdt.title" = "Настройки";
 
 /* Class = "UINavigationItem"; title = "Напишите нам"; ObjectID = "QuC-S7-JRi"; */
-"QuC-S7-JRi.title" = "Écrivez-nous";
+"QuC-S7-JRi.title" = "Напишите нам";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "RLM-8y-aWw"; */
 "RLM-8y-aWw.text" = "Label";
 
 /* Class = "UISegmentedControl"; TgQ-yj-U1W.segmentTitles[0] = "По дням"; ObjectID = "TgQ-yj-U1W"; */
-"TgQ-yj-U1W.segmentTitles[0]" = "Par jours";
+"TgQ-yj-U1W.segmentTitles[0]" = "По дням";
 
 /* Class = "UISegmentedControl"; TgQ-yj-U1W.segmentTitles[1] = "По неделям"; ObjectID = "TgQ-yj-U1W"; */
-"TgQ-yj-U1W.segmentTitles[1]" = "Par semaine";
+"TgQ-yj-U1W.segmentTitles[1]" = "По неделям";
 
 /* Class = "UIButton"; normalTitle = "freepik"; ObjectID = "Tn8-OR-lfD"; */
 "Tn8-OR-lfD.normalTitle" = "freepik";
 
 /* Class = "UINavigationItem"; title = "Ваш вес"; ObjectID = "Uda-Hl-qw9"; */
-"Uda-Hl-qw9.title" = "Votre poids";
+"Uda-Hl-qw9.title" = "Ваш вес";
 
 /* Class = "UILabel"; text = "Ваш уровень активности"; ObjectID = "VUt-3c-AOX"; */
-"VUt-3c-AOX.text" = "Votre niveau d'activité";
+"VUt-3c-AOX.text" = "Ваш уровень активности";
 
 /* Class = "UIButton"; normalTitle = "Низкий"; ObjectID = "WNP-cL-hI3"; */
-"WNP-cL-hI3.normalTitle" = "Faible";
+"WNP-cL-hI3.normalTitle" = "Низкий";
 
 /* Class = "UIButton"; normalTitle = "О приложении"; ObjectID = "Wff-Ct-TA7"; */
-"Wff-Ct-TA7.normalTitle" = "À propos de l'appli";
+"Wff-Ct-TA7.normalTitle" = "О приложении";
 
 /* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "ZgZ-fT-7eR"; */
-"ZgZ-fT-7eR.title" = "Retour à";
+"ZgZ-fT-7eR.title" = "Назад";
 
 /* Class = "UIButton"; normalTitle = "Написать разработчикам"; ObjectID = "aZA-F6-RWd"; */
-"aZA-F6-RWd.normalTitle" = "Ecrire aux développeurs";
+"aZA-F6-RWd.normalTitle" = "Написать разработчикам";
 
 /* Class = "UIButton"; normalTitle = "Средний"; ObjectID = "agi-Aj-VRO"; */
-"agi-Aj-VRO.normalTitle" = "Milieu";
+"agi-Aj-VRO.normalTitle" = "Средний";
 
 /* Class = "UILabel"; text = "Ваша норма"; ObjectID = "arZ-bx-wbW"; */
-"arZ-bx-wbW.text" = "Votre norme";
+"arZ-bx-wbW.text" = "Ваша норма";
 
 /* Class = "UIBarButtonItem"; title = "Сохранить"; ObjectID = "bKo-FE-KdP"; */
-"bKo-FE-KdP.title" = "Sauver";
+"bKo-FE-KdP.title" = "Сохранить";
 
 /* Class = "UITextField"; placeholder = "Введите свою норму в миллилитрах"; ObjectID = "br6-V1-w1u"; */
-"br6-V1-w1u.placeholder" = "Entrez votre taux en millilitres";
+"br6-V1-w1u.placeholder" = "Введите свою норму в миллилитрах";
 
 /* Class = "UIBarButtonItem"; title = "Закрыть"; ObjectID = "cT4-on-Q3X"; */
-"cT4-on-Q3X.title" = "Fermer";
+"cT4-on-Q3X.title" = "Закрыть";
 
 /* Class = "UIButton"; normalTitle = "Высокий"; ObjectID = "coJ-zA-1O5"; */
-"coJ-zA-1O5.normalTitle" = "Grand";
+"coJ-zA-1O5.normalTitle" = "Высокий";
 
 /* Class = "UIBarButtonItem"; title = "Закрыть"; ObjectID = "cwl-Cl-22m"; */
-"cwl-Cl-22m.title" = "Fermer";
+"cwl-Cl-22m.title" = "Закрыть";
 
 /* Class = "UILabel"; text = "Здесь Вы можете изменить свою дневную норму"; ObjectID = "dPw-1O-GeK"; */
-"dPw-1O-GeK.text" = "Ici, vous pouvez modifier votre tarif journalier";
+"dPw-1O-GeK.text" = "Здесь Вы можете изменить свою дневную норму";
 
 /* Class = "UITabBarItem"; title = "Статистика"; ObjectID = "dVv-Cf-eGY"; */
-"dVv-Cf-eGY.title" = "Statistiques";
-
-/* Class = "UIButton"; normalTitle = "Тёмная тема"; ObjectID = "eg8-gR-NGW"; */
-"eg8-gR-NGW.normalTitle" = "Thème sombre";
+"dVv-Cf-eGY.title" = "Статистика";
 
 /* Class = "UIButton"; normalTitle = "Добавить"; ObjectID = "ene-bo-m11"; */
-"ene-bo-m11.normalTitle" = "Ajouter à";
+"ene-bo-m11.normalTitle" = "Добавить";
 
 /* Class = "UIButton"; normalTitle = "Язык"; ObjectID = "etD-Nd-5Yc"; */
-"etD-Nd-5Yc.normalTitle" = "Langue";
+"etD-Nd-5Yc.normalTitle" = "Язык";
+
+/* Class = "UINavigationItem"; title = "Главная"; ObjectID = "f0p-Xc-2K0"; */
+"f0p-Xc-2K0.title" = "Главная";
 
 /* Class = "UITabBarItem"; title = "Настройки"; ObjectID = "fSw-hZ-oER"; */
-"fSw-hZ-oER.title" = "Paramètres";
+"fSw-hZ-oER.title" = "Настройки";
 
 /* Class = "UILabel"; text = "Кг"; ObjectID = "gV4-TU-C37"; */
-"gV4-TU-C37.text" = "Kg";
+"gV4-TU-C37.text" = "Кг";
 
 /* Class = "UITableViewSection"; headerTitle = "О нас"; ObjectID = "hF9-ir-ASy"; */
-"hF9-ir-ASy.headerTitle" = "À propos de nous";
+"hF9-ir-ASy.headerTitle" = "О нас";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "iFJ-2h-JkP"; */
 "iFJ-2h-JkP.text" = "Label";
 
 /* Class = "UIBarButtonItem"; title = "Отправить"; ObjectID = "ilk-qD-wqb"; */
-"ilk-qD-wqb.title" = "Envoyer le message";
+"ilk-qD-wqb.title" = "Отправить";
 
 /* Class = "UILabel"; text = "Укажите свой вес"; ObjectID = "kbA-hZ-skZ"; */
-"kbA-hZ-skZ.text" = "Entrez votre poids";
+"kbA-hZ-skZ.text" = "Укажите свой вес";
 
 /* Class = "UIButton"; normalTitle = "Высокий"; ObjectID = "lRu-AZ-qgR"; */
-"lRu-AZ-qgR.normalTitle" = "Grand";
+"lRu-AZ-qgR.normalTitle" = "Высокий";
 
 /* Class = "UILabel"; text = "Ваш прогресс (Мл)"; ObjectID = "leg-QX-vnu"; */
-"leg-QX-vnu.text" = "Votre progression (Ml)";
+"leg-QX-vnu.text" = "Ваш прогресс (Мл)";
 
 /* Class = "UIButton"; normalTitle = "surang"; ObjectID = "mnu-9e-7Ag"; */
 "mnu-9e-7Ag.normalTitle" = "surang";
@@ -222,43 +213,40 @@
 "nJy-Fd-6Oj.normalTitle" = "smalllikeart";
 
 /* Class = "UILabel"; text = "Укажите свой пол"; ObjectID = "nrN-kH-vkk"; */
-"nrN-kH-vkk.text" = "УIndiquez votre sexe";
+"nrN-kH-vkk.text" = "Укажите свой пол";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nre-XK-RbH"; */
 "nre-XK-RbH.normalTitle" = "Button";
 
 /* Class = "UITabBarItem"; title = "Главная"; ObjectID = "oxC-hA-pSU"; */
-"oxC-hA-pSU.title" = "Accueil";
+"oxC-hA-pSU.title" = "Главная";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "qay-Es-RxV"; */
 "qay-Es-RxV.text" = "0";
 
 /* Class = "UIButton"; normalTitle = "Продолжить"; ObjectID = "rhe-8v-B1o"; */
-"rhe-8v-B1o.normalTitle" = "Procéder";
+"rhe-8v-B1o.normalTitle" = "Продолжить";
 
 /* Class = "UITextField"; placeholder = "Ваш вес"; ObjectID = "rpu-P3-KGr"; */
-"rpu-P3-KGr.placeholder" = "Votre poids";
+"rpu-P3-KGr.placeholder" = "Ваш вес";
 
 /* Class = "UILabel"; text = "Здесь Вы можете изменить свой вес. Ваша дневная норма будет пересчитана в соответствии с новым весом"; ObjectID = "rqH-j5-hcf"; */
-"rqH-j5-hcf.text" = "Ici, vous pouvez modifier votre poids. Votre allocation journalière sera recalculée en fonction de votre nouveau poids";
+"rqH-j5-hcf.text" = "Здесь Вы можете изменить свой вес. Ваша дневная норма будет пересчитана в соответствии с новым весом";
 
 /* Class = "UIButton"; normalTitle = "Оценить приложение"; ObjectID = "s0z-F4-e7s"; */
-"s0z-F4-e7s.normalTitle" = "Application de taux";
+"s0z-F4-e7s.normalTitle" = "Оценить приложение";
 
 /* Class = "UINavigationItem"; title = "Уведомления"; ObjectID = "sl6-Mf-a3G"; */
-"sl6-Mf-a3G.title" = "Notifications";
+"sl6-Mf-a3G.title" = "Уведомления";
 
 /* Class = "UIButton"; normalTitle = "Низкий"; ObjectID = "t2U-JU-ikq"; */
-"t2U-JU-ikq.normalTitle" = "Faible";
+"t2U-JU-ikq.normalTitle" = "Низкий";
 
 /* Class = "UITableViewSection"; headerTitle = "Основные"; ObjectID = "t7M-Q2-46P"; */
-"t7M-Q2-46P.headerTitle" = "Le principal";
-
-/* Class = "UIBarButtonItem"; title = "Отменить"; ObjectID = "tRS-mz-ZA5"; */
-"tRS-mz-ZA5.title" = "Annuler";
+"t7M-Q2-46P.headerTitle" = "Основные";
 
 /* Class = "UIBarButtonItem"; title = "Отменить"; ObjectID = "v78-WP-Xjf"; */
-"v78-WP-Xjf.title" = "Annuler";
+"v78-WP-Xjf.title" = "Отменить";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vQb-Wk-0kF"; */
 "vQb-Wk-0kF.normalTitle" = "Button";
@@ -267,13 +255,13 @@
 "vS0-uQ-bXk.normalTitle" = "good-ware";
 
 /* Class = "UILabel"; text = "Введите свою норму"; ObjectID = "wuI-C3-V01"; */
-"wuI-C3-V01.text" = "Entrez votre tarif";
+"wuI-C3-V01.text" = "Введите свою норму";
 
 /* Class = "UIBarButtonItem"; title = "Сохранить"; ObjectID = "wzI-jR-T1k"; */
-"wzI-jR-T1k.title" = "Sauver";
+"wzI-jR-T1k.title" = "Сохранить";
 
 /* Class = "UILabel"; text = "Ваша дневная норма выпитой воды"; ObjectID = "ytW-hw-P17"; */
-"ytW-hw-P17.text" = "Votre apport quotidien en eau";
+"ytW-hw-P17.text" = "Ваша дневная норма выпитой воды";
 
 /* Class = "UILabel"; text = "Icons made by: "; ObjectID = "zax-OK-8xn"; */
 "zax-OK-8xn.text" = "Icons made by: ";
