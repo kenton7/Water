@@ -15,6 +15,7 @@ class SetLanguageTableVC: UITableViewController {
     
     let lang = LanguagesScreen()
     var selectedArray = NSMutableArray()
+    let settingsVC = SettingsVC()
     
     var availableLanguages: [String] {
         var availableLanguages = Bundle.main.localizations
@@ -45,14 +46,18 @@ class SetLanguageTableVC: UITableViewController {
         tableView.rowHeight = 50
         tableView.tableFooterView = UIView()
         
-        availableLanguages.map {
-            Locale.current.localizedString(forLanguageCode: $0)!
-        }
     }
     
     @IBAction func unwindSegueFromLanguage(segue: UIStoryboardSegue) {
         
     }
+    
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+//        LocalizationSystem.sharedInstance.setLanguage(languageCode: "fr")
+//        viewDidLoad()
+//        self.present(settingsVC, animated: true, completion: nil)
+    }
+    
     
     
 
@@ -92,8 +97,15 @@ class SetLanguageTableVC: UITableViewController {
         case "Немецкий":
             print("Deutsche")
         case "Французский":
+            if LocalizationSystem.sharedInstance.getLanguage() == "ru"
+            {
+                LocalizationSystem.sharedInstance.setLanguage(languageCode: "fr")
+            } else {
+                LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
+            }
+            //viewDidLoad()
+            self.reloadInputViews()
             print("france")
-            
         case "Итальянский":
             print("Italiano")
         default:

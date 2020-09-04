@@ -34,6 +34,12 @@ class SettingsVC: UITableViewController {
         tableView.tableFooterView = UIView()
     }
     
+    func setupDarkMode() {
+        view.backgroundColor = .tertiarySystemBackground
+        navigationController?.navigationBar.barTintColor = .tertiarySystemBackground
+        tabBarController?.tabBar.barTintColor = .tertiarySystemBackground
+    }
+    
     
     @IBAction func editDaillyNormalPressed(_ sender: UIButton) {
         
@@ -60,6 +66,10 @@ class SettingsVC: UITableViewController {
     @IBAction func unwindToSettingsC(segue: UIStoryboardSegue) {
         
      }
+    
+    @IBAction func setupDarkMode(_ sender: UISwitch) {
+        //sender.addTarget(self, action: #selector(turnOnDarkMode), for: .touchUpInside)
+    }
     
     
     
@@ -141,3 +151,4 @@ class SettingsVC: UITableViewController {
     //
     //    }
 }
+

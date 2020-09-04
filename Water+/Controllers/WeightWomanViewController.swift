@@ -16,8 +16,8 @@ class WeightWomanViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldOutlet: UITextField!
     @IBOutlet weak var nextButtonOutlet: UIButton!
     
-       override func viewDidLoad() {
-         super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: textFieldOutlet.frame.height - 2, width: textFieldOutlet.frame.width, height: 2)
@@ -29,17 +29,23 @@ class WeightWomanViewController: UIViewController, UITextFieldDelegate {
         nextButtonOutlet?.isUserInteractionEnabled = false
         nextButtonOutlet?.alpha = 0.5
         
-         nextButtonOutlet.layer.cornerRadius = 25
-         nextButtonOutlet.layer.shadowColor = UIColor.black.cgColor
-         nextButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-         nextButtonOutlet.layer.masksToBounds = false
-         nextButtonOutlet.layer.shadowRadius = 1.0
-         nextButtonOutlet.layer.shadowOpacity = 0.5
+        nextButtonOutlet.layer.cornerRadius = 25
+        nextButtonOutlet.layer.shadowColor = UIColor.black.cgColor
+        nextButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        nextButtonOutlet.layer.masksToBounds = false
+        nextButtonOutlet.layer.shadowRadius = 1.0
+        nextButtonOutlet.layer.shadowOpacity = 0.5
+        
+        if UserDefaults.standard.bool(forKey: "weightSet") {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainViewController = mainStoryboard.instantiateViewController(identifier: "ActivityView")
+            navigationController?.pushViewController(mainViewController, animated: false)
+        }
         //вызываем наблюдателя для наблюдения за появлением клавиатуры
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         //наблюдатель для наблюдения за скрытием клавиатуры
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-     }
+    }
     
     //функция отображения клавиатуры и подъема элементов на View
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -59,9 +65,9 @@ class WeightWomanViewController: UIViewController, UITextFieldDelegate {
     //функция, которая без выбора веса не дает нажать на кнопку "продолжить"
     //проверка на пустоту TextField
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
         let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-
+        
         if !text.isEmpty{
             nextButtonOutlet?.isUserInteractionEnabled = true
             nextButtonOutlet?.alpha = 1.0
@@ -80,25 +86,26 @@ class WeightWomanViewController: UIViewController, UITextFieldDelegate {
                 //присваиваем главной переменной вес
                 weightWoman = weight
             }
-         }
+        }
         UserSettings.userWeight = textFieldOutlet.text
-        print(UserSettings.userWeight)
+        UserDefaults.standard.set(true, forKey: "weightSet")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.activityLevelWoman {
             //кастим сегвей для дальнейшей передачи информации
             let destinationVC = segue.destination as! ActivityWomanViewController
-                //записываем вес в переменную
-                weightWoman = Double(textFieldOutlet.text!) ?? 0
-                //в передаваемый View записываем вес
-                destinationVC.weightWoman = weightWoman
-                print(weightWoman)
-            }
+            //записываем вес в переменную
+            weightWoman = Double(textFieldOutlet.text!) ?? 0
+            UserSettings.userWeight = textFieldOutlet.text!
+            //в передаваемый View записываем вес
+            destinationVC.weightWoman = Double(UserSettings.userWeight)
+            print(weightWoman)
+        }
     }
     //убираем клавиатуру
-      override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-          self.view.endEditing(true)
-      }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
 }

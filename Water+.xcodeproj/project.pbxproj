@@ -16,9 +16,11 @@
 		09448349247C372A00FD1040 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09448348247C372A00FD1040 /* SceneDelegate.swift */; };
 		0952DF442495024C00ACDA6B /* MililetersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0952DF432495024C00ACDA6B /* MililetersViewController.swift */; };
 		0952DF4824950AA800ACDA6B /* MilimetersScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0952DF4724950AA800ACDA6B /* MilimetersScreen.swift */; };
+		09599BF524FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */; };
+		09599BF724FD7F0900BC6C69 /* NotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09599BF624FD7F0900BC6C69 /* NotificationsCell.swift */; };
+		09599BF9250035E600BC6C69 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09599BF8250035E600BC6C69 /* Localization.swift */; };
 		095E27A024F01AC800B0BFC4 /* WriteToUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E279F24F01AC800B0BFC4 /* WriteToUsVC.swift */; };
 		095E870B248816460046F404 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E870A248816460046F404 /* StatisticViewController.swift */; };
-		095E870D248816680046F404 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E870C248816680046F404 /* CalendarViewController.swift */; };
 		095E871124881AFF0046F404 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E871024881AFF0046F404 /* SettingsScreen.swift */; };
 		095E8713248839F50046F404 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E8712248839F50046F404 /* SettingsCell.swift */; };
 		095E871724896EAF0046F404 /* MacawChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E871624896EAF0046F404 /* MacawChartView.swift */; };
@@ -59,9 +61,13 @@
 		09448348247C372A00FD1040 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0952DF432495024C00ACDA6B /* MililetersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MililetersViewController.swift; sourceTree = "<group>"; };
 		0952DF4724950AA800ACDA6B /* MilimetersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilimetersScreen.swift; sourceTree = "<group>"; };
+		09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewTableViewController.swift; sourceTree = "<group>"; };
+		09599BF624FD7F0900BC6C69 /* NotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCell.swift; sourceTree = "<group>"; };
+		09599BF8250035E600BC6C69 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		09599BFB25003D0700BC6C69 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		09599BFC25003D0700BC6C69 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		095E279F24F01AC800B0BFC4 /* WriteToUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteToUsVC.swift; sourceTree = "<group>"; };
 		095E870A248816460046F404 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
-		095E870C248816680046F404 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		095E871024881AFF0046F404 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		095E8712248839F50046F404 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		095E871624896EAF0046F404 /* MacawChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacawChartView.swift; sourceTree = "<group>"; };
@@ -71,9 +77,6 @@
 		0961AFAD24B3AF0F005A51BD /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		097794A7249EAB930091F547 /* AddedDrinksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedDrinksCollectionViewCell.swift; sourceTree = "<group>"; };
 		09826B8624EE8A4F00EBF532 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localize.strings; sourceTree = "<group>"; };
-		09826B8924EE8D4100EBF532 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		09826B8A24EE8D4100EBF532 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		09826B8B24EE8D4100EBF532 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localize.strings; sourceTree = "<group>"; };
 		09826B8D24EEB65B00EBF532 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		09826B8E24EEBE1700EBF532 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		09826B8F24EEBE1700EBF532 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -84,8 +87,6 @@
 		09826B9424EECD6300EBF532 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
 		09826B9524EECD6300EBF532 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		09826B9624EECD6300EBF532 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localize.strings; sourceTree = "<group>"; };
-		09826B9724EFC3D900EBF532 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Main.strings"; sourceTree = "<group>"; };
-		09826B9824EFC3D900EBF532 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0984F311247183BC0039749D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0984F31524718E580039749D /* ActivityManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManViewController.swift; sourceTree = "<group>"; };
 		0984F3192471AE9D0039749D /* CalculateWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateWater.swift; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 			children = (
 				09F5183D24715A1E00DFB0C7 /* Main.storyboard */,
 				095E8712248839F50046F404 /* SettingsCell.swift */,
+				09599BF624FD7F0900BC6C69 /* NotificationsCell.swift */,
 				095E871A248D34140046F404 /* CollectionViewCell.swift */,
 				097794A7249EAB930091F547 /* AddedDrinksCollectionViewCell.swift */,
 				0925E91324A61B8F00639973 /* ProgressBarView.swift */,
@@ -148,6 +150,7 @@
 				0952DF4724950AA800ACDA6B /* MilimetersScreen.swift */,
 				090C6BDB24B3BA3F00E5C12A /* LanguageScreen.swift */,
 				0923BDE224CB3B280042453C /* DaysOfWeek.swift */,
+				09599BF8250035E600BC6C69 /* Localization.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,7 +201,6 @@
 				0984F31D2471C1A90039749D /* ResultViewController.swift */,
 				0984F3212472E5740039749D /* MainViewController.swift */,
 				0984F32524732D480039749D /* AddDrinksViewController.swift */,
-				095E870C248816680046F404 /* CalendarViewController.swift */,
 				095E870A248816460046F404 /* StatisticViewController.swift */,
 				095E871624896EAF0046F404 /* MacawChartView.swift */,
 				0952DF432495024C00ACDA6B /* MililetersViewController.swift */,
@@ -208,6 +210,7 @@
 				0998247524C2EF990006204A /* SetNewWeightVC.swift */,
 				09EB599224C4719F00968BCE /* AboutUsVC.swift */,
 				095E279F24F01AC800B0BFC4 /* WriteToUsVC.swift */,
+				09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -273,11 +276,10 @@
 			knownRegions = (
 				en,
 				Base,
-				fr,
 				ru,
 				de,
 				it,
-				"en-GB",
+				fr,
 			);
 			mainGroup = 09F5182B24715A1E00DFB0C7;
 			productRefGroup = 09F5183524715A1E00DFB0C7 /* Products */;
@@ -352,20 +354,22 @@
 			files = (
 				09EB599324C4719F00968BCE /* AboutUsVC.swift in Sources */,
 				0984F312247183BC0039749D /* Constants.swift in Sources */,
+				09599BF524FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift in Sources */,
 				095E871B248D34140046F404 /* CollectionViewCell.swift in Sources */,
 				0984F32624732D480039749D /* AddDrinksViewController.swift in Sources */,
+				09599BF9250035E600BC6C69 /* Localization.swift in Sources */,
 				0984F3222472E5750039749D /* MainViewController.swift in Sources */,
 				0984F31C2471BFBB0039749D /* Water.swift in Sources */,
 				0998247624C2EF990006204A /* SetNewWeightVC.swift in Sources */,
 				0923BDE324CB3B280042453C /* DaysOfWeek.swift in Sources */,
 				097794A8249EAB930091F547 /* AddedDrinksCollectionViewCell.swift in Sources */,
 				09F5183C24715A1E00DFB0C7 /* WelcomeViewController.swift in Sources */,
-				095E870D248816680046F404 /* CalendarViewController.swift in Sources */,
 				095E871124881AFF0046F404 /* SettingsScreen.swift in Sources */,
 				0925E91424A61B8F00639973 /* ProgressBarView.swift in Sources */,
 				095E27A024F01AC800B0BFC4 /* WriteToUsVC.swift in Sources */,
 				09448349247C372A00FD1040 /* SceneDelegate.swift in Sources */,
 				0952DF442495024C00ACDA6B /* MililetersViewController.swift in Sources */,
+				09599BF724FD7F0900BC6C69 /* NotificationsCell.swift in Sources */,
 				0932E4B824AFD54100E84C5E /* SettingsVC.swift in Sources */,
 				09F5184D24716B7200DFB0C7 /* WeightManViewController.swift in Sources */,
 				0984F32824732E2A0039749D /* Drinks.swift in Sources */,
@@ -395,7 +399,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				09826B8624EE8A4F00EBF532 /* en */,
-				09826B8B24EE8D4100EBF532 /* fr */,
 				09826B9024EEBE1700EBF532 /* ru */,
 				09826B9324EECD5C00EBF532 /* de */,
 				09826B9624EECD6300EBF532 /* it */,
@@ -407,12 +410,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				09F5183E24715A1E00DFB0C7 /* Base */,
-				09826B8924EE8D4100EBF532 /* fr */,
 				09826B8D24EEB65B00EBF532 /* en */,
 				09826B8E24EEBE1700EBF532 /* ru */,
 				09826B9124EECD5B00EBF532 /* de */,
 				09826B9424EECD6300EBF532 /* it */,
-				09826B9724EFC3D900EBF532 /* en-GB */,
+				09599BFB25003D0700BC6C69 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -421,11 +423,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				09F5184324715A2100DFB0C7 /* Base */,
-				09826B8A24EE8D4100EBF532 /* fr */,
 				09826B8F24EEBE1700EBF532 /* ru */,
 				09826B9224EECD5C00EBF532 /* de */,
 				09826B9524EECD6300EBF532 /* it */,
-				09826B9824EFC3D900EBF532 /* en-GB */,
+				09599BFC25003D0700BC6C69 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

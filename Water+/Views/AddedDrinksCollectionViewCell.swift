@@ -20,41 +20,30 @@ class AddedDrinksCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 100.0/2.0
-        imageView.backgroundColor = .white
+        imageView.backgroundColor = .tertiarySystemBackground
         imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor.init(red: 30/255, green: 144/255, blue: 255/255, alpha: 1).cgColor
+        imageView.backgroundColor = .tertiarySystemBackground
         return imageView
     }()
-    
-    let descriptionDrink: UILabel = {
-        let description = UILabel()
-        description.translatesAutoresizingMaskIntoConstraints = false
-        description.textColor = .black
-        description.textAlignment = .center
-        description.font = UIFont(name: "Avenir-Heavy", size: 13)
-        return description
-    }()
-    
-    
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(circleAddedDrinksImages)
-        contentView.addSubview(descriptionDrink)
-        
-        setupConstraints()
+
+        //setupConstraints()
         //contentView.addSubview(drinkName)
     }
     
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            descriptionDrink.topAnchor.constraint(equalTo: circleAddedDrinksImages.bottomAnchor, constant: 5),
-            descriptionDrink.centerXAnchor.constraint(equalTo: centerXAnchor),
-            descriptionDrink.leadingAnchor.constraint(equalTo: leadingAnchor),
-            descriptionDrink.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
-    }
+//    func setupConstraints() {
+//        NSLayoutConstraint.activate([
+//            descriptionDrink.topAnchor.constraint(equalTo: circleAddedDrinksImages.bottomAnchor, constant: 5),
+//            descriptionDrink.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            descriptionDrink.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            descriptionDrink.trailingAnchor.constraint(equalTo: trailingAnchor)
+//        ])
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -64,7 +53,6 @@ class AddedDrinksCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         circleAddedDrinksImages.frame = contentView.bounds
-        descriptionDrink.bounds = contentView.frame
     }
     
     public func configure(with name: String) {
@@ -75,7 +63,6 @@ class AddedDrinksCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         circleAddedDrinksImages.image = nil
-        descriptionDrink.text = nil
     }
 }
 

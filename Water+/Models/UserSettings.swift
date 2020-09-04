@@ -19,7 +19,6 @@ final class UserSettings {
         case userProgress
         case savingPercentDailyResult
         case alert
-        case checkUserWeight
         
         case monday
         case tuesday
@@ -45,20 +44,20 @@ final class UserSettings {
         }
     }
     
-    static var checkUserWeight: String! {
-        get {
-            return UserDefaults.standard.string(forKey: SettingsKeys.checkUserWeight.rawValue)
-        } set {
-            let defaults = UserDefaults.standard
-            let key = SettingsKeys.checkUserWeight.rawValue
-            if let check = newValue {
-                print("Вес \(check) был выбран \(key)")
-                defaults.set(check, forKey: key)
-            } else {
-                defaults.removeObject(forKey: key)
-            }
-        }
-    }
+//    static var checkUserWeight: String! {
+//        get {
+//            return UserDefaults.standard.string(forKey: SettingsKeys.checkUserWeight.rawValue)
+//        } set {
+//            let defaults = UserDefaults.standard
+//            let key = SettingsKeys.checkUserWeight.rawValue
+//            if let check = newValue {
+//                print("Вес \(check) был выбран \(key)")
+//                defaults.set(check, forKey: key)
+//            } else {
+//                defaults.removeObject(forKey: key)
+//            }
+//        }
+//    }
     
     
     static var userWeight: String! {
@@ -83,7 +82,7 @@ final class UserSettings {
             let defaults = UserDefaults.standard
             let key = SettingsKeys.userActivity.rawValue
             if let activity = newValue {
-                print("Активность \(activity) добавлена в \(key)")
+                print(" Экран активности \(activity) показан, \(key)")
                 defaults.set(activity, forKey: key)
             } else {
                 defaults.removeObject(forKey: key)

@@ -12,12 +12,12 @@ import Macaw
 
 class MacawCharts: MacawView {
     
-    static let daysOfWeek = chartsData()
+    static var daysOfWeek = chartsData()
     static let maxValue = 100
     static let maxValueLineHeight = 100
     static let lineWidth: Double = 350
     static let dataDivisor = Double(maxValue / maxValueLineHeight)
-    static let adjustedData: [Double] = daysOfWeek.map({ $0.viewCount / dataDivisor })
+    static var adjustedData: [Double] = daysOfWeek.map({ $0.viewCount / dataDivisor })
     //static let data: [Double] = daysOfWeek.map({$0.resultOfDay / dataDivisor})
     static var animations: [Animation] = []
     var resultOfDay: Double = 0
@@ -36,6 +36,17 @@ class MacawCharts: MacawView {
         var items: [Node] = addYAxisItems() + addXAxisItems()
         items.append(createBars())
         return Group(contents: items, place: .identity)
+    }
+    
+    public func updateData(newData : [StatisticScreen]) {
+        MacawCharts.daysOfWeek = newData
+        updateDisplay()
+    }
+    
+    public func updateDisplay() {
+        let chart = MacawCharts.createChart()
+        self.node = Group(contents: [chart])
+        MacawCharts.adjustedData = MacawCharts.daysOfWeek.map({$0.viewCount / MacawCharts.dataDivisor})
     }
     
     private static func addYAxisItems() -> [Node] {
@@ -83,7 +94,7 @@ class MacawCharts: MacawView {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         currentDay = dateFormatter.string(from: Date()).capitalized
-        print(currentDay!)
+        //print(currentDay!)
         //let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
         //let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress)
         let percentOfResult = (UserSettings.addedVolume * 100) / delegate.maxProgress!
@@ -141,7 +152,7 @@ class MacawCharts: MacawView {
         case "Monday", "Понедельник":
             monday = Double(percentOfResult)
             UserSettings.monday = monday
-        case "Tuesday", "Вторник":
+        case "Вторник", "Tuesday":
             tuesday = Double(percentOfResult)
             UserSettings.tuesday = tuesday
         case "Wednesday", "Среда":

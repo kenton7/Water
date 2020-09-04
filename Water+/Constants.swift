@@ -24,6 +24,7 @@ struct K {
     static let savedDailyNormal = "savedDailyNormal"
     static let savedNewWeight = "savedNewWeight"
     static let languageCell = "languageCell"
+    static let notificationsCell = "notificationsCell"
     static let fromLanguage = "fromLanguage"
     static let backToSettingsVC = "settingsVC"
 }

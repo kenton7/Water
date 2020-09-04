@@ -33,14 +33,10 @@ class WriteToUsVC: UIViewController, MFMailComposeViewControllerDelegate {
             let alert = UIAlertController(title: "😞", message: "Невозможно отправить сообщение", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
                 self.animateOut()
-                //self.present(self.mainVC, animated: true, completion: nil)
-                //self.present(MainViewController(), animated: true, completion: nil)
-
             }))
             present(alert, animated: true, completion: nil)
             animateIn()
             let url = URL(string: "mailto:" + emailAddress)
-            //UIApplication.shared.openURL(url!)
             UIApplication.shared.canOpenURL(url!)
             return
         }

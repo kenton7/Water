@@ -86,6 +86,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         //progressBar.maxProgress = Float(maxProgress)
         progressBar.maxProgress = Float(UserSettings.result)
         progressBar.progressLayer.strokeEnd = CGFloat(UserSettings.userProgress)
+        progressBar.backgroundColor = .tertiarySystemBackground
         progress = Float(UserSettings.addedVolume)
         print(progress)
         resetDataEveryNight()
@@ -225,7 +226,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
             addedDrinksCollectionView?.showsHorizontalScrollIndicator = false
             addedDrinksCollectionView?.delegate = self
             addedDrinksCollectionView?.dataSource = self
-            addedDrinksCollectionView?.backgroundColor = .systemBackground
+            addedDrinksCollectionView?.backgroundColor = .tertiarySystemBackground
             addedDrinksCollectionView?.register(AddedDrinksCollectionViewCell.self, forCellWithReuseIdentifier: K.identifierAddedDrinksCollectionView)
             guard let collectionViewDrinks = addedDrinksCollectionView else { return }
             UserDefaults.standard.set(addedDrinksArray, forKey: "savedArray")
@@ -252,7 +253,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = addedDrinksCollectionView?.dequeueReusableCell(withReuseIdentifier: K.identifierAddedDrinksCollectionView, for: indexPath) as! AddedDrinksCollectionViewCell
-        cell.descriptionDrink.text = addedDrinksArray[indexPath.row]
+        //cell.descriptionDrink.text = addedDrinksArray[indexPath.row]
         
         cell.configure(with: addedDrinksArray[indexPath.row])
         return cell

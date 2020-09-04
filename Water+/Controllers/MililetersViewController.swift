@@ -36,6 +36,8 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
     }
     @IBOutlet weak var pickerViewOutlet: UIPickerView!
     @IBOutlet weak var addButtonOutlet: UIButton!
+    @IBOutlet weak var descr: UILabel!
+    
     
     var arrayVolumes = [""]
     var volumeFromMilimetersVC = 0.0
@@ -61,6 +63,7 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
         addButtonOutlet.layer.masksToBounds = false
         addButtonOutlet.layer.shadowRadius = 1.0
         addButtonOutlet.layer.shadowOpacity = 0.5
+        descr.layer.cornerRadius = 25
     }
     
     

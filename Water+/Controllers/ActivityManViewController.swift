@@ -33,13 +33,6 @@ class ActivityManViewController: UIViewController {
             let mainViewController = mainStoryboard.instantiateViewController(identifier: "BackToMainView")
             navigationController?.pushViewController(mainViewController, animated: false)
         }
-        
-//        if UserDefaults.standard.bool(forKey: "activitySet") == true {
-//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let mainViewController = mainStoryboard.instantiateViewController(identifier: "MainViewController")
-//            navigationController?.pushViewController(mainViewController, animated: false)
-//        }
-        
     }
     
     @IBAction func fewButtonPressed(_ sender: UIButton) {

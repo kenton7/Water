@@ -27,6 +27,11 @@ class ActivityWomanViewController: UIViewController {
         
         boundButtons()
         
+        if UserDefaults.standard.bool(forKey: "activitySet") {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainViewController = mainStoryboard.instantiateViewController(identifier: "BackToMainView")
+            navigationController?.pushViewController(mainViewController, animated: false)
+        }
     }
     
     @IBAction func fewButtonPressed(_ sender: UIButton) {
@@ -36,7 +41,7 @@ class ActivityWomanViewController: UIViewController {
         nextButtonOutlet.isUserInteractionEnabled = true
         nextButtonOutlet.alpha = 1.0
         selectedButtonTag = fewButtonOutlet.tag
-        activityFew = calcWater.calculateWaterForWoman(weight: weightWoman ?? 0)
+        activityFew = calcWater.calculateWaterForWoman(weight: Double(UserSettings.userWeight) ?? 0)
         print(activityFew)
     }
     
@@ -47,7 +52,7 @@ class ActivityWomanViewController: UIViewController {
         nextButtonOutlet.isUserInteractionEnabled = true
         nextButtonOutlet.alpha = 1.0
         selectedButtonTag = mediumButtonOutlet.tag
-        activityMedium = calcWater.calculateMediumActivity(weight: weightWoman ?? 0)
+        activityMedium = calcWater.calculateMediumActivity(weight: Double(UserSettings.userWeight) ?? 0)
         print(activityMedium)
     }
     
@@ -58,11 +63,12 @@ class ActivityWomanViewController: UIViewController {
         nextButtonOutlet.isUserInteractionEnabled = true
         nextButtonOutlet.alpha = 1.0
         selectedButtonTag = manyButtonOutlet.tag
-        activityHard = calcWater.calculateHardActivity(weight: weightWoman ?? 0)
+        activityHard = calcWater.calculateHardActivity(weight: Double(UserSettings.userWeight) ?? 0)
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-
+        UserSettings.userActivity = "activitySet"
+        UserDefaults.standard.set(true, forKey: "activitySet")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,15 +79,15 @@ class ActivityWomanViewController: UIViewController {
             case 4:
                 destinationVC.activityFewResult = activityFew
                 destinationVC.resultString = String(format: "%.0f", activityFew)
-                //destinationVC.resultString = Float(activityFew)
+                UserSettings.result = Int(destinationVC.resultString)
             case 5:
                 destinationVC.activityMediumResult = activityMedium
                 destinationVC.resultString = String(format: "%.0f", activityMedium * 1000)
-                //destinationVC.resultString = Float(activityMedium * 1000)
+                UserSettings.result = Int(destinationVC.resultString)
             case 6:
                 destinationVC.activityHardResult = activityHard
                 destinationVC.resultString = String(format: "%.0f", activityHard * 1000)
-                //destinationVC.resultString = Float(activityHard * 1000)
+                UserSettings.result = Int(destinationVC.resultString)
             default:
                 break
             }

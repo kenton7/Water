@@ -21,9 +21,9 @@ class StatisticViewController: UIViewController {
     
      override func viewDidLoad() {
            super.viewDidLoad()
-        segmentedControllOutlet.setTitle("По месяцам", forSegmentAt: 2)
         chartView.contentMode = .scaleAspectFit
         MacawCharts.playAnimations()
+        chartView.backgroundColor = .tertiarySystemBackground
         self.reloadInputViews()
         
     }
@@ -33,6 +33,8 @@ class StatisticViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.title = "Статистика"
+        chartView.updateData(newData: MacawCharts.chartsData())
+        MacawCharts.playAnimations()
     }
     
     

@@ -40,13 +40,6 @@ class WeightManViewController: UIViewController, UITextFieldDelegate {
             let mainViewController = mainStoryboard.instantiateViewController(identifier: "ActivityView")
             navigationController?.pushViewController(mainViewController, animated: false)
         }
-        print(UserSettings.userWeight)
-        
-//        if UserDefaults.standard.bool(forKey: "weightSet") == true {
-//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let mainViewController = mainStoryboard.instantiateViewController(identifier: "MainViewController")
-//            navigationController?.pushViewController(mainViewController, animated: false)
-//        }
         
         textFieldOutlet.delegate = self
         //вызываем наблюдателя для наблюдения за появлением клавиатуры
@@ -86,19 +79,15 @@ class WeightManViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func nextPressed(_ sender: UIButton) {
-        //UserSettings.userWeight = "weightSet"
         
         if sender.isSelected {
             //записываем вес в TextField и проверяем на nil
             if let weight = Double(textFieldOutlet.text!) {
                 //присваиваем главной переменной вес
-                //weightMan = calculateWater.calculateWaterForMan(weight: weight)
                 weightMan = weight
             }
          }
         UserSettings.userWeight = textFieldOutlet.text
-        print(UserSettings.userWeight)
-        //UserSettings.checkUserWeight = "weightSet"
         UserDefaults.standard.set(true, forKey: "weightSet")
     }
     
