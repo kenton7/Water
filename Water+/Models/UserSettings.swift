@@ -174,7 +174,7 @@ final class UserSettings {
             return UserDefaults.standard.double(forKey: SettingsKeys.tuesday.rawValue)
         } set {
             let defaults = UserDefaults.standard
-            let key = SettingsKeys.monday.rawValue
+            let key = SettingsKeys.tuesday.rawValue
             if let tuesday = newValue {
                 print("Результат в процентах \(tuesday) добавлен в \(key)")
                 defaults.set(tuesday, forKey: key)

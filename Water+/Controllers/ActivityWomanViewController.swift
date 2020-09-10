@@ -124,7 +124,6 @@ class ActivityWomanViewController: UIViewController {
         manyButtonOutlet.layer.masksToBounds = false
         manyButtonOutlet.layer.shadowRadius = 1.0
         manyButtonOutlet.layer.shadowOpacity = 0.5
-        
     }
     
 }

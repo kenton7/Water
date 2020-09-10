@@ -38,11 +38,13 @@ class MacawCharts: MacawView {
         return Group(contents: items, place: .identity)
     }
     
+    //фукнция обновления инфы
     public func updateData(newData : [StatisticScreen]) {
         MacawCharts.daysOfWeek = newData
         updateDisplay()
     }
     
+    //функция для обновления чарта с новыми данными без перезапуска приложения
     public func updateDisplay() {
         let chart = MacawCharts.createChart()
         self.node = Group(contents: [chart])
@@ -65,8 +67,8 @@ class MacawCharts: MacawView {
             newNodes.append(valueLine)
             newNodes.append(valueText)
         }
-        
-        let yAxis = Line(x1: 0, y1: -10, x2: 0, y2: yAxisHeight).stroke(fill: Color.black.with(a: 0.25))
+        //let yAxis = Line(x1: 0, y1: -10, x2: 0, y2: yAxisHeight).stroke(fill: Color.black.with(a: 0.25))
+        let yAxis = Line(x1: 0, y1: 0, x2: 0, y2: yAxisHeight).stroke(fill: Color.black.with(a: 0.25))
         newNodes.append(yAxis)
         
         return newNodes
@@ -83,8 +85,8 @@ class MacawCharts: MacawView {
             valueText.fill = Color.black
             newNodes.append(valueText)
         }
-        
-        let xAxis = Line(x1: 0, y1: chartBaseY, x2: lineWidth + 10, y2: chartBaseY).stroke(fill: Color.black.with(a: 0.25))
+        //let xAxis = Line(x1: 0, y1: chartBaseY, x2: lineWidth + 10, y2: chartBaseY).stroke(fill: Color.black.with(a: 0.25))
+        let xAxis = Line(x1: 0, y1: chartBaseY, x2: lineWidth, y2: chartBaseY).stroke(fill: Color.black.with(a: 0.25))
         newNodes.append(xAxis)
         
         return newNodes
@@ -149,25 +151,25 @@ class MacawCharts: MacawView {
         print(percentOfResult)
         
         switch currentDay {
-        case "Monday", "Понедельник":
+        case "Понедельник":
             monday = Double(percentOfResult)
             UserSettings.monday = monday
-        case "Вторник", "Tuesday":
+        case "Вторник":
             tuesday = Double(percentOfResult)
             UserSettings.tuesday = tuesday
-        case "Wednesday", "Среда":
+        case "Среда":
             wednesday = Double(percentOfResult)
             UserSettings.wednesday = wednesday
-        case "Thursday", "Четверг":
+        case "Четверг":
             thursday = Double(percentOfResult)
             UserSettings.thursday = thursday
-        case "Пятница", "Friday", "Vendredi":
+        case "Пятница":
             friday = Double(percentOfResult)
             UserSettings.friday = friday
-        case "Saturday", "Суббота":
+        case "Суббота":
             saturday = Double(percentOfResult)
             UserSettings.saturday = saturday
-        case "Sunday", "Воскресенье":
+        case "Воскресенье":
             sunday = Double(percentOfResult)
             UserSettings.sunday = sunday
         default:

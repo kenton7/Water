@@ -13,8 +13,9 @@ class AddedDrinksCollectionViewCell: UICollectionViewCell {
     
     static let identifier = K.identifierAddedDrinksCollectionView
     let drinks = Drinks()
+    let main = MainViewController()
     
-    private let circleAddedDrinksImages: UIImageView = {
+    let circleAddedDrinksImages: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
@@ -38,10 +39,11 @@ class AddedDrinksCollectionViewCell: UICollectionViewCell {
     
 //    func setupConstraints() {
 //        NSLayoutConstraint.activate([
-//            descriptionDrink.topAnchor.constraint(equalTo: circleAddedDrinksImages.bottomAnchor, constant: 5),
-//            descriptionDrink.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            descriptionDrink.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            descriptionDrink.trailingAnchor.constraint(equalTo: trailingAnchor)
+//            //circleAddedDrinksImages.topAnchor.constraint(equalTo: circleAddedDrinksImages.topAnchor, constant: 5),
+//            circleAddedDrinksImages.bottomAnchor.constraint(equalTo: main.progressBar.topAnchor, constant: 10),
+//            circleAddedDrinksImages.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            circleAddedDrinksImages.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            circleAddedDrinksImages.trailingAnchor.constraint(equalTo: trailingAnchor)
 //        ])
 //    }
     

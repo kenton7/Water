@@ -14,6 +14,10 @@ class ProgressBarView: UIView {
     var shapeLayer: CAShapeLayer!
     var progressLayer: CAShapeLayer!
     var maxProgress: Float!
+    let colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
+    let startingPoint = CGPoint(x: 0, y: 0)
+    let endingPoint = CGPoint(x: 1, y: 1)
+    let cornerRadiusOfMyView = CGFloat(20)
         
         override init(frame: CGRect) {
             super.init(frame: frame)
@@ -45,6 +49,7 @@ class ProgressBarView: UIView {
             progressLayer.fillColor = nil
             progressLayer.strokeColor = UIColor.init(red: 30/255, green: 144/255, blue: 255/255, alpha: 1).cgColor
             progressLayer.strokeEnd = 0
+            
 
             self.layer.addSublayer(shapeLayer)
             self.layer.addSublayer(progressLayer)
@@ -59,13 +64,15 @@ class ProgressBarView: UIView {
         }
     
 func updateProgress(with value: Float) {
-    if value > maxProgress! {
+    if value > Float(UserSettings.result!) {
         progressLayer.strokeEnd = 1.0
             return
         }
-    progressLayer.strokeEnd = CGFloat(value / maxProgress!)
+    progressLayer.strokeEnd = CGFloat(value / Float(UserSettings.result))
+    //progressLayer.strokeEnd = CGFloat(value / maxProgress!)
     UserSettings.userProgress = Float(progressLayer.strokeEnd)
     }
 }
+
 
 

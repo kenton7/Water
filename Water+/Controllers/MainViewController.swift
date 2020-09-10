@@ -15,6 +15,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     var maxProgress = UserSettings.result
     
     private var progress: Float = 0
+    var progress2: Float = 0
     var resultString = ""
     var delegate: MililetersVCDelegate?
     let defaults = UserDefaults.standard
@@ -71,7 +72,6 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         addButtonOutlet.layer.cornerRadius = 25
         addButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         addButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -190,8 +190,20 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         volume += value
     }
     
+    
     public func newDaily(_ value: String) {
         newNormal = value
+        let floatNewValue = Int(newNormal)
+        let result = progress / Float(floatNewValue!)
+        progress = Float(UserSettings.addedVolume)
+        //progressBar.progressLayer.strokeEnd = CGFloat(result)
+        UserSettings.userProgress = Float(UserSettings.addedVolume / floatNewValue!)
+        let newProgress = UserSettings.userProgress - result
+        UserSettings.userProgress = newProgress
+        DispatchQueue.main.async {
+            self.progressBar.progressLayer.strokeEnd = CGFloat(result)
+        }
+        print(progress)
         print(newNormal)
     }
     
