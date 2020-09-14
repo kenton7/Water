@@ -23,10 +23,6 @@ class MacawCharts: MacawView {
     var resultOfDay: Double = 0
     var currentDay: String?
     let delegate = MainViewController()
-    static var thursday: Double = 0
-    
-    
-    
     
         required init?(coder aDecoder: NSCoder) {
             super.init(node: MacawCharts.createChart(), coder: aDecoder)
@@ -61,14 +57,13 @@ class MacawCharts: MacawView {
         
         for i in 1...maxLines {
             let y = yAxisHeight - (Double(i) * lineSpacing)
-            let valueLine = Line(x1: -5, y1: y, x2: lineWidth, y2: y).stroke(fill: Color.black.with(a: 0.10))
+            let valueLine = Line(x1: -5, y1: y, x2: lineWidth, y2: y).stroke(fill: Color.gray.with(a: 0.10))
             let valueText = Text(text: "\(i * lineInterval)", align: .max, baseline: .mid, place: .move(dx: -10, dy: y))
-            valueText.fill = Color.black
+            valueText.fill = Color.gray
             newNodes.append(valueLine)
             newNodes.append(valueText)
         }
-        //let yAxis = Line(x1: 0, y1: -10, x2: 0, y2: yAxisHeight).stroke(fill: Color.black.with(a: 0.25))
-        let yAxis = Line(x1: 0, y1: 0, x2: 0, y2: yAxisHeight).stroke(fill: Color.black.with(a: 0.25))
+        let yAxis = Line(x1: 0, y1: 0, x2: 0, y2: yAxisHeight).stroke(fill: Color.gray.with(a: 0.25))
         newNodes.append(yAxis)
         
         return newNodes
@@ -82,11 +77,10 @@ class MacawCharts: MacawView {
         for i in 1...adjustedData.count {
             let x = (Double(i) * 50)
             let valueText = Text(text: daysOfWeek[i - 1].showNumber, align: .max, baseline: .mid, place: .move(dx: x, dy: chartBaseY + 15))
-            valueText.fill = Color.black
+            valueText.fill = Color.gray
             newNodes.append(valueText)
         }
-        //let xAxis = Line(x1: 0, y1: chartBaseY, x2: lineWidth + 10, y2: chartBaseY).stroke(fill: Color.black.with(a: 0.25))
-        let xAxis = Line(x1: 0, y1: chartBaseY, x2: lineWidth, y2: chartBaseY).stroke(fill: Color.black.with(a: 0.25))
+        let xAxis = Line(x1: 0, y1: chartBaseY, x2: lineWidth, y2: chartBaseY).stroke(fill: Color.gray.with(a: 0.25))
         newNodes.append(xAxis)
         
         return newNodes
@@ -96,9 +90,6 @@ class MacawCharts: MacawView {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         currentDay = dateFormatter.string(from: Date()).capitalized
-        //print(currentDay!)
-        //let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
-        //let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress)
         let percentOfResult = (UserSettings.addedVolume * 100) / delegate.maxProgress!
         resultOfDay = Double(percentOfResult)
         print(percentOfResult)
@@ -108,12 +99,15 @@ class MacawCharts: MacawView {
     private static func createBars() -> Group {
         
         let fill = LinearGradient(degree: 90, from: .blue, to: .aqua)
-        //let fill = LinearGradient(degree: 90, from: Color.blue, to: Color.blue.with(a: 0.33))
         let items = adjustedData.map { _ in Group() }
         
         animations = items.enumerated().map {(i: Int, item: Group) in
             item.contentsVar.animation(delay: Double(i) * 0.1) { t in
-                let height = adjustedData[i] * t * 2
+                var height = adjustedData[i] * t * 2
+                print(height)
+                if height > Double(maxValueLineHeight) {
+                    height = 100 * 2
+                }
                 let rect = Rect(x: Double(i) * 50 + 25, y: 200 - height, w: 25, h: height)
                 return [rect.fill(with: fill)]
             }
@@ -135,7 +129,7 @@ class MacawCharts: MacawView {
         var monday: Double?
         var tuesday: Double?
         var wednesday: Double?
-        //var thursday: Double?
+        var thursday: Double?
         var friday: Double?
         var saturday: Double?
         var sunday: Double?
@@ -144,10 +138,7 @@ class MacawCharts: MacawView {
         dateFormatter.dateFormat = "EEEE"
         currentDay = dateFormatter.string(from: Date()).capitalized
         print(currentDay!)
-        //let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress!)
-//        let percentOfResult = Double(Float(UserSettings.addedVolume * 100) / delegate.maxProgress)
         let percentOfResult = (UserSettings.addedVolume * 100) / delegate.maxProgress!
-        //resultOfDay = percentOfResult
         print(percentOfResult)
         
         switch currentDay {
@@ -176,7 +167,6 @@ class MacawCharts: MacawView {
             break
         }
         
-
         let mondayForChart = StatisticScreen(showNumber: "Пн", viewCount: UserSettings.monday)
         let tuesdayForChart = StatisticScreen(showNumber: "Вт", viewCount: UserSettings.tuesday)
         let wednesdayForChart = StatisticScreen(showNumber: "Ср", viewCount: UserSettings.wednesday)

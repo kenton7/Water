@@ -13,7 +13,7 @@ class StatisticViewController: UIViewController {
     
     
     @IBOutlet weak var segmentedControllOutlet: UISegmentedControl!
-    @IBOutlet weak private var chartView: MacawCharts!
+    @IBOutlet weak var chartView: MacawCharts!
     var currentDay: String?
     let delegate = MainViewController()
     var resultOfDay = 0

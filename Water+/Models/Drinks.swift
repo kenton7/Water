@@ -12,4 +12,5 @@ struct Drinks {
     var drinkName: String?
     var imageName: String?
     var description: String?
+    var coefficient: String?
 }

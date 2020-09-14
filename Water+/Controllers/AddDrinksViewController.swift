@@ -16,98 +16,102 @@ class AddDrinksViewController: UIViewController {
        var water = Drinks()
         water.drinkName = "Вода"
         water.imageName = "water"
-        water.description = "1 мл * 1"
+        water.description = "Коэффициент гидрации = 100%"
         
         var greenTea = Drinks()
         greenTea.drinkName = "Зелёный \nчай"
         greenTea.imageName = "greenTea"
-        greenTea.description = "1 * 0.8"
+        greenTea.description = "Коэффициент гидрации = 100%"
         
         var blackTea = Drinks()
         blackTea.drinkName = "Чёрный \nчай"
         blackTea.imageName = "blackTea"
-        blackTea.description = "1 мл * 0.8"
+        blackTea.description = "Коэффициент гидрации = 100%"
         
         var coffee = Drinks()
         coffee.drinkName = "Кофе"
         coffee.imageName = "coffee"
-        coffee.description = "1 мл * 0.3"
+        coffee.description = "Коэффициент гидрации = 90%"
         
         var cola = Drinks()
         cola.drinkName = "Кола"
         cola.imageName = "cola"
+        cola.description = "Коэффициент гидрации = 89%"
         
         var dietCola = Drinks()
         dietCola.drinkName = "Кола Zero"
         dietCola.imageName = "dietCola"
+        dietCola.description = "Коэффициент гидрации = 100%"
         
         var milk = Drinks()
         milk.drinkName = "Молоко"
         milk.imageName = "milk"
-        milk.description = "Молоко не влияет на водный баланс"
+        milk.description = "Коэффициент гидрации = 88%"
         
         var appleJuice = Drinks()
         appleJuice.drinkName = "Яблочный \nсок"
         appleJuice.imageName = "appleJuice"
-        appleJuice.description = "Не влияет на водный баланс"
+        appleJuice.description = "Коэффициент гидрации = 88%"
         
         var orangeJuice = Drinks()
         orangeJuice.drinkName = "Апельсин. \nсок"
         orangeJuice.imageName = "orangeJuice"
-        orangeJuice.description = "Не влияет на водный баланс"
+        orangeJuice.description = "Коэффициент гидрации = 89%"
         
         var kefir = Drinks()
         kefir.drinkName = "Кефир"
         kefir.imageName = "kefir"
-        kefir.description = "Не влияет на водный баланс"
+        kefir.description = "Коэффициент гидрации = 91%"
         
         var wine = Drinks()
         wine.drinkName = "Вино"
         wine.imageName = "wine"
-        wine.description = "1 * (-0.8)"
+        wine.description = "Коэффициент гидрации вина рассчитывается по формуле: \n1 мл * (-0.8)"
         
         var beer = Drinks()
         beer.drinkName = "Пиво"
         beer.imageName = "beer"
-        beer.description = "1 * (-0.5)"
+        beer.description = "Коэффициент гидрации = 91%"
         
         var noAcloholBeer = Drinks()
         noAcloholBeer.drinkName = "Пиво \nбезалкогол."
         noAcloholBeer.imageName = "noAlcoholBeer"
+        noAcloholBeer.description = "Коэффициент гидрации = 94%"
         
         var hardAlcohol = Drinks()
         hardAlcohol.drinkName = "Крепкий \nалкоголь"
         hardAlcohol.imageName = "hardAlcohol"
-        hardAlcohol.description = "1 мл * (-1.8)"
+        hardAlcohol.description = "Коэффициент гидрации крепкого алкоголя расчитывается по формуле: \n1 мл * (-1.8)"
         
         var energetic = Drinks()
         energetic.drinkName = "Энергетик"
         energetic.imageName = "energyDrink"
-        energetic.description = "1 * (-0.8)"
+        energetic.description = "Коэффициент гидрации энергетика рассчитывается по формуле: \n1 мл * (-0.8)"
         
         var limonad = Drinks()
         limonad.drinkName = "Лимонад"
         limonad.imageName = "lemonade"
-        limonad.description = "1 * (-0.4)"
+        limonad.description = "Коэффициент гидрации лимонада рассчитывается по формуле: \n1 мл * (-0.4)"
         
         var kvass = Drinks()
         kvass.drinkName = "Квас"
         kvass.imageName = "kvass"
-        kvass.description = "1 * (-0.4)"
+        kvass.description = "Коэффициент гидрации кваса рассчитывается по формуле: \n1 мл * (-0.4)"
         
         var smoothie = Drinks()
         smoothie.drinkName = "Смузи"
         smoothie.imageName = "smoothie"
+        smoothie.description = "Коэффициент гидрации = 85%"
         
         var compote = Drinks()
         compote.drinkName = "Компот"
         compote.imageName = "compote"
-        compote.description = "Не влияет на водный баланс"
+        compote.description = "Коэффициент гидрации = 87%"
         
         var cocoa = Drinks()
         cocoa.drinkName = "Какао"
         cocoa.imageName = "cocoa"
-        cocoa.description = "Не влияет на водный баланс"
+        cocoa.description = "Коэффициент гидрации = 90%"
 
         return [water, greenTea, blackTea, cocoa, coffee, cola, milk, kefir, wine, beer, smoothie, kvass, dietCola, compote, limonad, energetic, noAcloholBeer, appleJuice, hardAlcohol, orangeJuice]
     }()

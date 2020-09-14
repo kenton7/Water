@@ -33,7 +33,6 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     var currentDay: String?
     var resultOfDay = 0
     let drinks = Drinks()
-
     
     //переменная с computed property для получения новых данных
     var volume: Int = 0 {
@@ -71,7 +70,8 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print(UserSettings.result!)
         addButtonOutlet.layer.cornerRadius = 25
         addButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         addButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -87,6 +87,11 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         progressBar.maxProgress = Float(UserSettings.result)
         progressBar.progressLayer.strokeEnd = CGFloat(UserSettings.userProgress)
         progressBar.backgroundColor = .tertiarySystemBackground
+        if progressBar.progressLayer.strokeEnd >= 1.0 {
+            progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+        } else {
+            progressBar.progressLayer.strokeColor = UIColor.init(red: 30/255, green: 144/255, blue: 255/255, alpha: 1).cgColor
+        }
         progress = Float(UserSettings.addedVolume)
         print(progress)
         resetDataEveryNight()
@@ -168,6 +173,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
             progressBar.progressLayer.strokeEnd = 0
             print(volume)
             addedDrinksArray.removeAll()
+            UserSettings.alert = false
         }
     }
     

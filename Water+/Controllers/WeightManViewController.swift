@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class WeightManViewController: UIViewController, UITextFieldDelegate {
     
@@ -37,9 +38,10 @@ class WeightManViewController: UIViewController, UITextFieldDelegate {
         
         if UserDefaults.standard.bool(forKey: "weightSet") {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainViewController = mainStoryboard.instantiateViewController(identifier: "ActivityView")
+            let mainViewController = mainStoryboard.instantiateViewController(identifier: "ActivityManView")
             navigationController?.pushViewController(mainViewController, animated: false)
         }
+        
         
         textFieldOutlet.delegate = self
         //вызываем наблюдателя для наблюдения за появлением клавиатуры
@@ -87,6 +89,7 @@ class WeightManViewController: UIViewController, UITextFieldDelegate {
                 weightMan = weight
             }
          }
+        
         UserSettings.userWeight = textFieldOutlet.text
         UserDefaults.standard.set(true, forKey: "weightSet")
     }

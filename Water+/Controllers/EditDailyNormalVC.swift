@@ -77,8 +77,6 @@ class EditDailyNormalVC: UIViewController, UITextFieldDelegate {
         DispatchQueue.main.async {
             vc?.maxProgress = Int(self.newMaxProgress)
         }
-        
-        //delegateMainVC.resultValue.text = UserSettings.result
     }
 
     //убираем клавиатуру

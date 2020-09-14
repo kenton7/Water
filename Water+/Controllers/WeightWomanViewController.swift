@@ -38,7 +38,7 @@ class WeightWomanViewController: UIViewController, UITextFieldDelegate {
         
         if UserDefaults.standard.bool(forKey: "weightSet") {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainViewController = mainStoryboard.instantiateViewController(identifier: "ActivityView")
+            let mainViewController = mainStoryboard.instantiateViewController(identifier: "ActivityWomanView")
             navigationController?.pushViewController(mainViewController, animated: false)
         }
         //вызываем наблюдателя для наблюдения за появлением клавиатуры

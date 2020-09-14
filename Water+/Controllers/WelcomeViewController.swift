@@ -11,6 +11,7 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     var calculateWater = CalculateWater()
+
     
     //скрываем nav bar на первом view
     override func viewWillAppear(_ animated: Bool) {
@@ -22,34 +23,32 @@ class WelcomeViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.bool(forKey: "SexSelected") {
+        if UserDefaults.standard.bool(forKey: "ManSelected") {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let mainViewController = mainStoryboard.instantiateViewController(identifier: "WeightManVC")
             navigationController?.pushViewController(mainViewController, animated: false)
         }
         
-//        if UserDefaults.standard.bool(forKey: "SexSelected") == true {
-//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let mainViewController = mainStoryboard.instantiateViewController(identifier: "MainViewController")
-//            navigationController?.pushViewController(mainViewController, animated: false)
-//        }
+        if UserDefaults.standard.bool(forKey: "WomanSelected") {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainViewController = mainStoryboard.instantiateViewController(identifier: "WeightWomanVC")
+            navigationController?.pushViewController(mainViewController, animated: false)
+        }
     }
 
     @IBAction func manSelected(_ sender: UIButton) {
-        //UserSettings.userSex = "SexSelected"
-        UserSettings.userSex = "SexSelected"
-        UserDefaults.standard.set(true, forKey: "SexSelected")
+        UserSettings.userSex = "ManSelected"
+        UserDefaults.standard.set(true, forKey: "ManSelected")
     }
     
     @IBAction func womanSelected(_ sender: UIButton) {
         //UserSettings.userSex = "SexSelected"
-        UserSettings.userSex = "SexSelected"
-        UserDefaults.standard.set(true, forKey: "SexSelected")
+        UserSettings.userSex = "WomanSelected"
+        UserDefaults.standard.set(true, forKey: "WomanSelected")
     }
 }
 

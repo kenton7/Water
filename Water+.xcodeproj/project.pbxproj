@@ -41,6 +41,8 @@
 		0984F32624732D480039749D /* AddDrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F32524732D480039749D /* AddDrinksViewController.swift */; };
 		0984F32824732E2A0039749D /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F32724732E2A0039749D /* Drinks.swift */; };
 		0998247624C2EF990006204A /* SetNewWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998247524C2EF990006204A /* SetNewWeightVC.swift */; };
+		099FA0FD250C04CF000C6F25 /* AboutDrinksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FA0FC250C04CF000C6F25 /* AboutDrinksVC.swift */; };
+		099FA0FF250C07A0000C6F25 /* ScrollViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FA0FE250C07A0000C6F25 /* ScrollViewVC.swift */; };
 		09EB599324C4719F00968BCE /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB599224C4719F00968BCE /* AboutUsVC.swift */; };
 		09F5183824715A1E00DFB0C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5183724715A1E00DFB0C7 /* AppDelegate.swift */; };
 		09F5183C24715A1E00DFB0C7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5183B24715A1E00DFB0C7 /* WelcomeViewController.swift */; };
@@ -98,6 +100,8 @@
 		0984F32524732D480039749D /* AddDrinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrinksViewController.swift; sourceTree = "<group>"; };
 		0984F32724732E2A0039749D /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
 		0998247524C2EF990006204A /* SetNewWeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewWeightVC.swift; sourceTree = "<group>"; };
+		099FA0FC250C04CF000C6F25 /* AboutDrinksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDrinksVC.swift; sourceTree = "<group>"; };
+		099FA0FE250C07A0000C6F25 /* ScrollViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewVC.swift; sourceTree = "<group>"; };
 		09EB599224C4719F00968BCE /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		09F5183424715A1E00DFB0C7 /* Water+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F5183724715A1E00DFB0C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				097794A7249EAB930091F547 /* AddedDrinksCollectionViewCell.swift */,
 				0925E91324A61B8F00639973 /* ProgressBarView.swift */,
 				0961AFAD24B3AF0F005A51BD /* LanguageCell.swift */,
+				099FA0FE250C07A0000C6F25 /* ScrollViewVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				09EB599224C4719F00968BCE /* AboutUsVC.swift */,
 				095E279F24F01AC800B0BFC4 /* WriteToUsVC.swift */,
 				09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */,
+				099FA0FC250C04CF000C6F25 /* AboutDrinksVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 				0984F32624732D480039749D /* AddDrinksViewController.swift in Sources */,
 				09599BF9250035E600BC6C69 /* Localization.swift in Sources */,
 				0984F3222472E5750039749D /* MainViewController.swift in Sources */,
+				099FA0FF250C07A0000C6F25 /* ScrollViewVC.swift in Sources */,
 				0984F31C2471BFBB0039749D /* Water.swift in Sources */,
 				0998247624C2EF990006204A /* SetNewWeightVC.swift in Sources */,
 				0923BDE324CB3B280042453C /* DaysOfWeek.swift in Sources */,
@@ -369,6 +376,7 @@
 				095E27A024F01AC800B0BFC4 /* WriteToUsVC.swift in Sources */,
 				09448349247C372A00FD1040 /* SceneDelegate.swift in Sources */,
 				0952DF442495024C00ACDA6B /* MililetersViewController.swift in Sources */,
+				099FA0FD250C04CF000C6F25 /* AboutDrinksVC.swift in Sources */,
 				09599BF724FD7F0900BC6C69 /* NotificationsCell.swift in Sources */,
 				0932E4B824AFD54100E84C5E /* SettingsVC.swift in Sources */,
 				09F5184D24716B7200DFB0C7 /* WeightManViewController.swift in Sources */,
@@ -485,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -540,7 +548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -565,7 +573,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ilyakuznetsov.Water-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -584,7 +592,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ilyakuznetsov.Water-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

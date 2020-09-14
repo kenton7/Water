@@ -15,17 +15,17 @@ protocol SectionType: CustomStringConvertible {
 enum SettingsSections: Int, CaseIterable, CustomStringConvertible {
     
     case General
-    case Customization
+    //case Customization
     case About
     
     var description: String {
         switch self {
         case .General:
             return "Основные"
-        case .Customization:
-            return "Оформление"
+//        case .Customization:
+//            return "Оформление"
         case .About:
-            return "О нас"
+            return "Другое"
         }
     }
 }
@@ -52,17 +52,17 @@ enum GeneralOptions: Int, CaseIterable, SectionType {
     }
 }
 
-enum CustomizationOptions: Int, CaseIterable, CustomStringConvertible {
-    
-    case darkTheme
-    
-    var description: String {
-        switch self {
-        case .darkTheme:
-            return "Тёмная тема"
-        }
-    }
-}
+//enum CustomizationOptions: Int, CaseIterable, CustomStringConvertible {
+//
+//    case darkTheme
+//
+//    var description: String {
+//        switch self {
+//        case .darkTheme:
+//            return "Тёмная тема"
+//        }
+//    }
+//}
 
 enum AboutOptions: Int, CaseIterable, SectionType {
     var containsSwitch: Bool { return false }
@@ -70,11 +70,14 @@ enum AboutOptions: Int, CaseIterable, SectionType {
     case rateApp
     case writeToSupport
     case aboutAppllication
+    case infoAboutDrinks
     
     var description: String {
         switch self {
         case .aboutAppllication:
             return "О приложении"
+        case .infoAboutDrinks:
+            return "Информация о напитках"
         case .rateApp:
             return "Оценить приложение"
         case .writeToSupport:

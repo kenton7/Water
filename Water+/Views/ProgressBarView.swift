@@ -56,8 +56,8 @@ class ProgressBarView: UIView {
         }
         
         private func createCirclePath() {
-            let x = self.frame.width/2
-            let y = self.frame.height/2
+            let x = self.frame.width / 2
+            let y = self.frame.height / 2
             let center = CGPoint(x: x, y: y)
             bgPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true)
             bgPath.close()
@@ -66,6 +66,9 @@ class ProgressBarView: UIView {
 func updateProgress(with value: Float) {
     if value > Float(UserSettings.result!) {
         progressLayer.strokeEnd = 1.0
+        progressLayer.strokeColor = UIColor.green.cgColor
+        progressLayer.strokeColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+        UserSettings.userProgress = Float(progressLayer.strokeEnd)
             return
         }
     progressLayer.strokeEnd = CGFloat(value / Float(UserSettings.result))

@@ -56,7 +56,9 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
         pickerViewOutlet.delegate = self
         //textField.delegate = self
         self.transitioningDelegate = self
-
+        
+        //volumeFromMilimetersVC = Double(volume.volumeArray[0])
+        //drinksToMainVC.append(drinks?.imageName ?? "nil")
         addButtonOutlet.layer.cornerRadius = 25
         addButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         addButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -76,11 +78,7 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
         vc?.delegate = self
         vc?.addVolume(Int(volumeFromMilimetersVC))
         vc?.addedDrinksArray.insert(contentsOf: drinksToMainVC, at: 0)
-        //vc?.updateProgress(with: Float(vc?.volume ?? 0))
-        //vc?.updateProgress(with: Float(vc?.volume ?? 0))
         vc?.updateProgress(with: Float(volumeFromMilimetersVC))
-        //vc?.updateProgress(with: progressToMainVC)
-    
     }
     
 }
@@ -118,7 +116,7 @@ extension MililetersViewController: UIPickerViewDelegate, UIPickerViewDataSource
         case "Чёрный \nчай":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
         case "Какао":
-            volumeFromMilimetersVC = Double(volume.volumeArray[row])
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.9
         case "Кофе":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.9
         case "Кола":
