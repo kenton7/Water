@@ -13,9 +13,7 @@ class SetNewWeightVC: UIViewController, UITextFieldDelegate {
     var changedWeight = ""
     var calcWater = CalculateWater()
     var newDaily = 0
-    let resultVC = ResultViewController()
-    let activity = ActivityManViewController()
-    
+
     @IBOutlet weak var currentWeightOutlet: UILabel!
     @IBOutlet weak var newWeightTextField: UITextField!
     @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
@@ -65,6 +63,8 @@ class SetNewWeightVC: UIViewController, UITextFieldDelegate {
         if UserDefaults.standard.bool(forKey: "activityFewSaved") {
             DispatchQueue.main.async {
                 let newResult = Double(self.calcWater.calculateWaterForMan(weight: changedWeightDouble))
+                UserSettings.result = Int.init(newResult)
+                vc?.newDaily(String(UserSettings.result))
                 UserSettings.result = Int.init(newResult)
                 vc?.resultValue.text = String(UserSettings.result)
                 vc?.newDaily(String(UserSettings.result))

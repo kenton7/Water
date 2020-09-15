@@ -83,17 +83,15 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     
         addedDrinksCollectionView?.delegate = self
         addedDrinksCollectionView?.dataSource = self
-        //progressBar.maxProgress = Float(maxProgress)
         progressBar.maxProgress = Float(UserSettings.result)
         progressBar.progressLayer.strokeEnd = CGFloat(UserSettings.userProgress)
         progressBar.backgroundColor = .tertiarySystemBackground
         if progressBar.progressLayer.strokeEnd >= 1.0 {
-            progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+            progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         } else {
             progressBar.progressLayer.strokeColor = UIColor.init(red: 30/255, green: 144/255, blue: 255/255, alpha: 1).cgColor
         }
         progress = Float(UserSettings.addedVolume)
-        print(progress)
         resetDataEveryNight()
         
         print(progressBar.progressLayer.strokeEnd)
@@ -199,13 +197,11 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     
     public func newDaily(_ value: String) {
         newNormal = value
+        print(newNormal)
         let floatNewValue = Int(newNormal)
-        let result = progress / Float(floatNewValue!)
         progress = Float(UserSettings.addedVolume)
-        //progressBar.progressLayer.strokeEnd = CGFloat(result)
-        UserSettings.userProgress = Float(UserSettings.addedVolume / floatNewValue!)
-        let newProgress = UserSettings.userProgress - result
-        UserSettings.userProgress = newProgress
+        let result = progress / Float(floatNewValue!)
+        UserSettings.userProgress = result
         DispatchQueue.main.async {
             self.progressBar.progressLayer.strokeEnd = CGFloat(result)
         }

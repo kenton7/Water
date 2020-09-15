@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            self.window?.rootViewController = navigationController
 //            self.window?.makeKeyAndVisible()
 //        }
+        let targetLang = UserDefaults.standard.object(forKey: "selectedLanguage") as? String
+        Bundle.setLanguage((targetLang != nil) ? targetLang! : "en")
         
     
         if UserDefaults.standard.bool(forKey: "SexSelected") && UserDefaults.standard.bool(forKey: "weightSet") && UserDefaults.standard.bool(forKey: "activitySet") && UserDefaults.standard.bool(forKey: "resultShowed") {

@@ -1035,7 +1035,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwI-lY-cT2">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="27.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <state key="normal" title="О напитках">
+                                                            <state key="normal" title="Политика конфиденциальности">
                                                                 <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             </state>
                                                             <connections>
@@ -1457,10 +1457,10 @@
             </objects>
             <point key="canvasLocation" x="7406" y="4920"/>
         </scene>
-        <!--О напитках-->
+        <!--Политика конфиденциальности-->
         <scene sceneID="TAd-kQ-Npa">
             <objects>
-                <viewController id="kaR-8l-SnN" customClass="AboutDrinksVC" customModule="Water_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kaR-8l-SnN" customClass="PrivacyPolic" customModule="Water_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0X5-yI-H7J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1546,7 +1546,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kZ3-8L-IuX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="О напитках" id="O5w-ju-55s">
+                    <navigationItem key="navigationItem" title="Политика конфиденциальности" id="O5w-ju-55s">
                         <barButtonItem key="leftBarButtonItem" title="Закрыть" id="Mny-6t-OtG">
                             <color key="tintColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

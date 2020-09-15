@@ -27,19 +27,19 @@ class SetLanguageTableVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.tabBarController?.navigationItem.title = "Язк"
-//        self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
+        //        self.tabBarController?.navigationItem.title = "Язк"
+        //        self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
+        //        self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.isNavigationBarHidden = true
-//        self.tabBarController?.navigationController?.isNavigationBarHidden = false
+        //        navigationController?.isNavigationBarHidden = true
+        //        self.tabBarController?.navigationController?.isNavigationBarHidden = false
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -53,20 +53,20 @@ class SetLanguageTableVC: UITableViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-//        LocalizationSystem.sharedInstance.setLanguage(languageCode: "fr")
-//        viewDidLoad()
-//        self.present(settingsVC, animated: true, completion: nil)
+        //        LocalizationSystem.sharedInstance.setLanguage(languageCode: "fr")
+        //        viewDidLoad()
+        //        self.present(settingsVC, animated: true, completion: nil)
     }
     
     
     
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lang.languagesArray.count
     }
@@ -81,7 +81,7 @@ class SetLanguageTableVC: UITableViewController {
         } else {
             cell.accessoryType = .none
         }
-
+        
         return cell
     }
     
@@ -91,23 +91,50 @@ class SetLanguageTableVC: UITableViewController {
         
         switch lang.languagesArray[indexPath.row] {
         case "Русский":
-            print("Русский")
-        case "Английский":
-            print("English")
-        case "Немецкий":
-            print("Deutsche")
-        case "Французский":
-            if LocalizationSystem.sharedInstance.getLanguage() == "ru"
-            {
-                LocalizationSystem.sharedInstance.setLanguage(languageCode: "fr")
-            } else {
-                LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
+            let alertRu = UIAlertController(title: "Перезапустите приложение", message: "", preferredStyle: .alert)
+            let ru = UIAlertAction(title: "Ок", style: .default) { (alert) in
+                Bundle.setLanguage("ru")
+                UserDefaults.standard.set("ru", forKey: "selectedLanguage")
+                self.navigationController?.popToRootViewController(animated: true)
             }
-            //viewDidLoad()
-            self.reloadInputViews()
-            print("france")
+            alertRu.addAction(ru)
+            self.present(alertRu, animated: true, completion: nil)
+        case "Английский":
+            let alertEn = UIAlertController(title: "Restart the app", message: "", preferredStyle: .alert)
+            let en = UIAlertAction(title: "Ok", style: .default) { (alert) in
+                Bundle.setLanguage("en")
+                UserDefaults.standard.set("en", forKey: "selectedLanguage")
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            alertEn.addAction(en)
+            self.present(alertEn, animated: true, completion: nil)
+        case "Немецкий":
+            let alertDe = UIAlertController(title: "Starten Sie die Anwendung neu", message: "", preferredStyle: .alert)
+            let de = UIAlertAction(title: "Ok", style: .default) { (alert) in
+                Bundle.setLanguage("de")
+                UserDefaults.standard.set("de", forKey: "selectedLanguage")
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            alertDe.addAction(de)
+            self.present(alertDe, animated: true, completion: nil)
+        case "Французский":
+            let alertFr = UIAlertController(title: "Redémarrez l'application", message: "", preferredStyle: .alert)
+            let fr = UIAlertAction(title: "Ok", style: .default) { (alert) in
+                Bundle.setLanguage("fr")
+                UserDefaults.standard.set("fr", forKey: "selectedLanguage")
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            alertFr.addAction(fr)
+            self.present(alertFr, animated: true, completion: nil)
         case "Итальянский":
-            print("Italiano")
+            let alertIt = UIAlertController(title: "Riavvia l'applicazione", message: "", preferredStyle: .alert)
+            let it = UIAlertAction(title: "Ok", style: .default) { (alert) in
+                Bundle.setLanguage("it")
+                UserDefaults.standard.set("it", forKey: "selectedLanguage")
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            alertIt.addAction(it)
+            self.present(alertIt, animated: true, completion: nil)
         default:
             break
         }
@@ -116,7 +143,29 @@ class SetLanguageTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
     }
+    
+}
 
+//MARK: Localization configure bundle
+extension Bundle {
+    class func setLanguage(_ language: String) {
+        var onceToken: Int = 0
+        
+        if (onceToken == 0) {
+            /* TODO: move below code to a static variable initializer (dispatch_once is deprecated) */
+            object_setClass(Bundle.main, PrivateBundle.self)
+        }
+        onceToken = 1
+        objc_setAssociatedObject(Bundle.main, &associatedLanguageBundle, (language != nil) ? Bundle(path: Bundle.main.path(forResource: language, ofType: "lproj") ?? "") : nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+}
+private var associatedLanguageBundle:Character = "0"
+
+class PrivateBundle: Bundle {
+    override func localizedString(forKey key: String, value: String?, table tableName: String?) -> String {
+        let bundle: Bundle? = objc_getAssociatedObject(self, &associatedLanguageBundle) as? Bundle
+        return (bundle != nil) ? (bundle!.localizedString(forKey: key, value: value, table: tableName)) : (super.localizedString(forKey: key, value: value, table: tableName))
+    }
 }
 
 

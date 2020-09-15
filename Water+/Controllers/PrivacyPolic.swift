@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutDrinksVC: UIViewController {
+class PrivacyPolic: UIViewController {
     
     var drinks = Drinks()
     

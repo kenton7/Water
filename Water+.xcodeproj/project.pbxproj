@@ -41,7 +41,7 @@
 		0984F32624732D480039749D /* AddDrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F32524732D480039749D /* AddDrinksViewController.swift */; };
 		0984F32824732E2A0039749D /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F32724732E2A0039749D /* Drinks.swift */; };
 		0998247624C2EF990006204A /* SetNewWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998247524C2EF990006204A /* SetNewWeightVC.swift */; };
-		099FA0FD250C04CF000C6F25 /* AboutDrinksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FA0FC250C04CF000C6F25 /* AboutDrinksVC.swift */; };
+		099FA0FD250C04CF000C6F25 /* PrivacyPolic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FA0FC250C04CF000C6F25 /* PrivacyPolic.swift */; };
 		099FA0FF250C07A0000C6F25 /* ScrollViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FA0FE250C07A0000C6F25 /* ScrollViewVC.swift */; };
 		09EB599324C4719F00968BCE /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB599224C4719F00968BCE /* AboutUsVC.swift */; };
 		09F5183824715A1E00DFB0C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5183724715A1E00DFB0C7 /* AppDelegate.swift */; };
@@ -61,13 +61,13 @@
 		0932E4B724AFD54100E84C5E /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		094483462479701900FD1040 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		09448348247C372A00FD1040 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0948833125114E68008B92A5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		0948833225114E68008B92A5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0952DF432495024C00ACDA6B /* MililetersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MililetersViewController.swift; sourceTree = "<group>"; };
 		0952DF4724950AA800ACDA6B /* MilimetersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilimetersScreen.swift; sourceTree = "<group>"; };
 		09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewTableViewController.swift; sourceTree = "<group>"; };
 		09599BF624FD7F0900BC6C69 /* NotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCell.swift; sourceTree = "<group>"; };
 		09599BF8250035E600BC6C69 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
-		09599BFB25003D0700BC6C69 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		09599BFC25003D0700BC6C69 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		095E279F24F01AC800B0BFC4 /* WriteToUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteToUsVC.swift; sourceTree = "<group>"; };
 		095E870A248816460046F404 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		095E871024881AFF0046F404 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		0984F32524732D480039749D /* AddDrinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrinksViewController.swift; sourceTree = "<group>"; };
 		0984F32724732E2A0039749D /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
 		0998247524C2EF990006204A /* SetNewWeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewWeightVC.swift; sourceTree = "<group>"; };
-		099FA0FC250C04CF000C6F25 /* AboutDrinksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDrinksVC.swift; sourceTree = "<group>"; };
+		099FA0FC250C04CF000C6F25 /* PrivacyPolic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolic.swift; sourceTree = "<group>"; };
 		099FA0FE250C07A0000C6F25 /* ScrollViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewVC.swift; sourceTree = "<group>"; };
 		09EB599224C4719F00968BCE /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		09F5183424715A1E00DFB0C7 /* Water+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +216,7 @@
 				09EB599224C4719F00968BCE /* AboutUsVC.swift */,
 				095E279F24F01AC800B0BFC4 /* WriteToUsVC.swift */,
 				09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */,
-				099FA0FC250C04CF000C6F25 /* AboutDrinksVC.swift */,
+				099FA0FC250C04CF000C6F25 /* PrivacyPolic.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -376,7 +376,7 @@
 				095E27A024F01AC800B0BFC4 /* WriteToUsVC.swift in Sources */,
 				09448349247C372A00FD1040 /* SceneDelegate.swift in Sources */,
 				0952DF442495024C00ACDA6B /* MililetersViewController.swift in Sources */,
-				099FA0FD250C04CF000C6F25 /* AboutDrinksVC.swift in Sources */,
+				099FA0FD250C04CF000C6F25 /* PrivacyPolic.swift in Sources */,
 				09599BF724FD7F0900BC6C69 /* NotificationsCell.swift in Sources */,
 				0932E4B824AFD54100E84C5E /* SettingsVC.swift in Sources */,
 				09F5184D24716B7200DFB0C7 /* WeightManViewController.swift in Sources */,
@@ -422,7 +422,7 @@
 				09826B8E24EEBE1700EBF532 /* ru */,
 				09826B9124EECD5B00EBF532 /* de */,
 				09826B9424EECD6300EBF532 /* it */,
-				09599BFB25003D0700BC6C69 /* fr */,
+				0948833125114E68008B92A5 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -434,7 +434,7 @@
 				09826B8F24EEBE1700EBF532 /* ru */,
 				09826B9224EECD5C00EBF532 /* de */,
 				09826B9524EECD6300EBF532 /* it */,
-				09599BFC25003D0700BC6C69 /* fr */,
+				0948833225114E68008B92A5 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
