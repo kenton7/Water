@@ -63,6 +63,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.title = "Главная"
+        //self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
         
         checkAddedDrinksAndUpdateLabel()
         print(addedDrinksArray)
@@ -121,6 +122,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
                 alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
                     //в замыкании вызываем функцию, которая по нажатию на кнопку на алерте убирает блюр
                     self.animateOut()
+                    self.progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
                 }))
                 //показываем алерт
                 present(alertController, animated: true, completion: nil)

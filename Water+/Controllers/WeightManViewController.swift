@@ -35,6 +35,7 @@ class WeightManViewController: UIViewController, UITextFieldDelegate {
          nextButtonOutlet.layer.masksToBounds = false
          nextButtonOutlet.layer.shadowRadius = 1.0
          nextButtonOutlet.layer.shadowOpacity = 0.5
+        navigationController?.navigationItem.backButtonTitle = "Пол"
         
         if UserDefaults.standard.bool(forKey: "weightSet") {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

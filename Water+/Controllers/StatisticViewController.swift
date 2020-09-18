@@ -22,9 +22,7 @@ class StatisticViewController: UIViewController {
      override func viewDidLoad() {
            super.viewDidLoad()
         chartView.contentMode = .scaleAspectFit
-        MacawCharts.playAnimations()
         chartView.backgroundColor = .tertiarySystemBackground
-        self.reloadInputViews()
         
     }
     
@@ -37,6 +35,11 @@ class StatisticViewController: UIViewController {
         MacawCharts.playAnimations()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        chartView.updateData(newData: MacawCharts.chartsData())
+//        MacawCharts.playAnimations()
+    }
     
 }
 

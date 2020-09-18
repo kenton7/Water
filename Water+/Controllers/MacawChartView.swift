@@ -105,8 +105,8 @@ class MacawCharts: MacawView {
             item.contentsVar.animation(delay: Double(i) * 0.1) { t in
                 var height = adjustedData[i] * t * 2
                 print(height)
-                if height > Double(maxValueLineHeight) {
-                    height = 100 * 2
+                if height > 200 {
+                    height = 200
                 }
                 let rect = Rect(x: Double(i) * 50 + 25, y: 200 - height, w: 25, h: height)
                 return [rect.fill(with: fill)]
@@ -122,7 +122,6 @@ class MacawCharts: MacawView {
     }
     
     static func chartsData() -> [StatisticScreen] {
-        //var resultOfDay: Double = 0
         var currentDay: String?
         let delegate = MainViewController()
         let dateFormatter = DateFormatter()
@@ -133,8 +132,7 @@ class MacawCharts: MacawView {
         var friday: Double?
         var saturday: Double?
         var sunday: Double?
-        
-        
+         
         dateFormatter.dateFormat = "EEEE"
         currentDay = dateFormatter.string(from: Date()).capitalized
         print(currentDay!)
@@ -142,25 +140,25 @@ class MacawCharts: MacawView {
         print(percentOfResult)
         
         switch currentDay {
-        case "Понедельник":
+        case "Monday":
             monday = Double(percentOfResult)
             UserSettings.monday = monday
-        case "Вторник":
+        case "Tuesday":
             tuesday = Double(percentOfResult)
             UserSettings.tuesday = tuesday
-        case "Среда":
+        case "Wednesday":
             wednesday = Double(percentOfResult)
             UserSettings.wednesday = wednesday
-        case "Четверг":
+        case "Thursday":
             thursday = Double(percentOfResult)
             UserSettings.thursday = thursday
-        case "Пятница":
+        case "Friday":
             friday = Double(percentOfResult)
             UserSettings.friday = friday
-        case "Суббота":
+        case "Saturday":
             saturday = Double(percentOfResult)
             UserSettings.saturday = saturday
-        case "Воскресенье":
+        case "Sunday":
             sunday = Double(percentOfResult)
             UserSettings.sunday = sunday
         default:

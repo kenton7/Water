@@ -9,7 +9,9 @@
 import UIKit
 
 class NotificationsTableViewTableViewController: UITableViewController {
-
+    
+    @IBOutlet weak var timeLabelOutlet: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,29 +23,34 @@ class NotificationsTableViewTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 5
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "fromCell", for: indexPath)
+        let timeLabel = cell.viewWithTag(2) as? UILabel
+        if let label = cell.viewWithTag(1) as? UILabel {
+            if indexPath.row == 0 {
+                label.text = "С"
+                timeLabel?.text = "9:00"
+            } else if indexPath.row == 1 {
+                label.text = "До"
+                timeLabel?.text = "23:00"
+            } else {
+                label.text = "Промежуток"
+                timeLabel?.text = "1 час"
+            }
+        }
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return 3
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.backgroundColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
-        let title = UILabel()
-        title.font = UIFont.boldSystemFont(ofSize: 16)
-        title.textColor = .white
-        title.text = SettingsSections(rawValue: section)?.description
-        view.addSubview(title)
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        title.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
-        
-        return view
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            
+        }
     }
+    
 }

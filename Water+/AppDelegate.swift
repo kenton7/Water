@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController = UINavigationController()
     let defaults = UserDefaults.standard
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -49,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()
         }
+        registerForPushNotifications()
         return true
     }
     
@@ -65,6 +68,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+
+    
+    func registerForPushNotifications() {
+      UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+        (granted, error) in
+        print("Permission granted: \(granted)")
+
+        guard granted else { return }
+        self.getNotificationSettings()
+      }
+    }
+    
+    func getNotificationSettings() {
+      UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+        print("Notification settings: \(settings)")
+        guard settings.authorizationStatus == .authorized else { return }
+        UIApplication.shared.registerForRemoteNotifications()
+      }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+      let tokenParts = deviceToken.map { data -> String in
+        return String(format: "%02.2hhx", data)
+      }
+      
+      let token = tokenParts.joined()
+      print("Device Token: \(token)")
+    }
+
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+      print("Failed to register: \(error)")
     }
 }
 

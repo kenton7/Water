@@ -22,7 +22,13 @@ enum AnimationType {
 
 class BasicAnimation: Animation {
 
-    weak var node: Node?
+    weak var node: Node? {
+        didSet {
+            if !(self is CombineAnimation || self is AnimationSequence || self is EmptyAnimation) {
+                node?.animations.append(self)
+            }
+        }
+    }
     weak var nodeRenderer: NodeRenderer?
     var type = AnimationType.unknown
     let ID: String
@@ -95,6 +101,8 @@ class BasicAnimation: Animation {
         }
 
         removeFunc?()
+        node?.animations.removeAll { $0 === self }
+        nodeRenderer?.freeLayer()
     }
 
     override open func pause() {
@@ -106,6 +114,8 @@ class BasicAnimation: Animation {
         }
 
         removeFunc?()
+        node?.animations.removeAll { $0 === self }
+        nodeRenderer?.freeLayer()
     }
 
     override func state() -> AnimationState {

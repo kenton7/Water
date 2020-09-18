@@ -17,29 +17,18 @@ class SetLanguageTableVC: UITableViewController {
     var selectedArray = NSMutableArray()
     let settingsVC = SettingsVC()
     
-    var availableLanguages: [String] {
-        var availableLanguages = Bundle.main.localizations
-        if let indexOfBase = availableLanguages.firstIndex(of: "Base") {
-            availableLanguages.remove(at: indexOfBase)
-        }
-        return availableLanguages
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        self.tabBarController?.navigationItem.title = "Язк"
-        //        self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //        self.tabBarController?.navigationController?.setNavigationBarHidden(false, animated: false)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        navigationController?.isNavigationBarHidden = true
-        //        self.tabBarController?.navigationController?.isNavigationBarHidden = false
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -53,13 +42,8 @@ class SetLanguageTableVC: UITableViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        //        LocalizationSystem.sharedInstance.setLanguage(languageCode: "fr")
-        //        viewDidLoad()
-        //        self.present(settingsVC, animated: true, completion: nil)
+        
     }
-    
-    
-    
     
     // MARK: - Table view data source
     
@@ -156,10 +140,10 @@ extension Bundle {
             object_setClass(Bundle.main, PrivateBundle.self)
         }
         onceToken = 1
-        objc_setAssociatedObject(Bundle.main, &associatedLanguageBundle, (language != nil) ? Bundle(path: Bundle.main.path(forResource: language, ofType: "lproj") ?? "") : nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        objc_setAssociatedObject(Bundle.main, &associatedLanguageBundle, (language != nil) ? Bundle(path: Bundle.main.path(forResource: language, ofType: "lproj") ?? ""): nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
 }
-private var associatedLanguageBundle:Character = "0"
+private var associatedLanguageBundle: Character = "0"
 
 class PrivateBundle: Bundle {
     override func localizedString(forKey key: String, value: String?, table tableName: String?) -> String {
