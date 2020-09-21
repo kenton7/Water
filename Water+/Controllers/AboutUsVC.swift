@@ -12,11 +12,13 @@ import Foundation
 class AboutUsVC: UIViewController {
 
     @IBOutlet weak var textViewOutlet: UITextView!
+    @IBOutlet weak var imageViewOutlet: UIImageView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageViewOutlet.image = UIImage(named: "Icon")
         
     }
 }

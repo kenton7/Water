@@ -18,11 +18,13 @@ class WriteToUsVC: UIViewController, MFMailComposeViewControllerDelegate {
         return view
     }()
     let mainVC = MainViewController()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        openEmail("mwrv95@gmail.com")
+        openEmail("waterplusapp@gmail.com")
         setupVisualEffectView()
     }
 
@@ -30,7 +32,7 @@ class WriteToUsVC: UIViewController, MFMailComposeViewControllerDelegate {
     func openEmail(_ emailAddress: String) {
         //если юзер не установил свой акк в iOS Mail app
         if !MFMailComposeViewController.canSendMail() {
-            let alert = UIAlertController(title: "😞", message: "Невозможно отправить сообщение", preferredStyle: .alert)
+            let alert = UIAlertController(title: "😞", message: "Невозможно отправить сообщение, потому что Вы не авторизованы в стандартном приложении iOS Mail. Напишите нам на почту waterplusapp@gmail.com", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
                 self.animateOut()
             }))

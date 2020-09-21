@@ -15,11 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
     var navigationController: UINavigationController = UINavigationController()
     let defaults = UserDefaults.standard
+    let dateFormatter = DateFormatter()
+    let modalInternalVCDelegate = ModalIntervalVC()
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        self.dateFormatter.dateFormat = "HH:mm"
+        modalInternalVCDelegate.scheduleNotification(inSeconds: Double(UserSettings.userIntervalNotif ?? 60), text: "Не забудь выпить воды!") { (success) in
+            if success {
+                print("success")
+            } else {
+                print("failed")
+            }
+        }
+        
 
 //        if (UserSettings.userSex != nil) && (UserSettings.checkUserWeight != nil) && (UserSettings.userActivity != nil) {
 //            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -79,6 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         guard granted else { return }
         self.getNotificationSettings()
+        self.createNotification()
       }
     }
     
@@ -89,6 +102,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UIApplication.shared.registerForRemoteNotifications()
       }
     }
+    
+    public func createNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Не забудь выпить воды!"
+        //Set the trigger of the notification -- here a timer.
+        //Устанавливаем триггер на уведомления (в секундах)
+        if UserSettings.userIntervalNotif == 0 {
+            UserSettings.userIntervalNotif = 3600
+        }
+        print(UserSettings.userIntervalNotif!)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(UserSettings.userIntervalNotif!), repeats: true)
+        
+        
+
+        //Set the request for the notification from the above
+        let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
+        // UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+             UNUserNotificationCenter.current().add(request) { (error) in
+                 if error != nil {
+                     print("Add notification error: \(String(describing: error?.localizedDescription))")
+                 }
+             }
+        func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+            print("did recieve notif")
+        }
+        
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            completionHandler([.alert, .sound, .badge])
+        }
+    }
+    
+    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
       let tokenParts = deviceToken.map { data -> String in

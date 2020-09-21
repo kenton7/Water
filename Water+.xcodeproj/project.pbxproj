@@ -19,6 +19,7 @@
 		09599BF524FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */; };
 		09599BF724FD7F0900BC6C69 /* NotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09599BF624FD7F0900BC6C69 /* NotificationsCell.swift */; };
 		09599BF9250035E600BC6C69 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09599BF8250035E600BC6C69 /* Localization.swift */; };
+		0959C0D425176CC5008EDC1A /* FromTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0959C0D325176CC5008EDC1A /* FromTableViewCell.swift */; };
 		095E27A024F01AC800B0BFC4 /* WriteToUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E279F24F01AC800B0BFC4 /* WriteToUsVC.swift */; };
 		095E870B248816460046F404 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E870A248816460046F404 /* StatisticViewController.swift */; };
 		095E871124881AFF0046F404 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E871024881AFF0046F404 /* SettingsScreen.swift */; };
@@ -40,6 +41,18 @@
 		0984F3242472FC010039749D /* ActivityWomanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F3232472FC010039749D /* ActivityWomanViewController.swift */; };
 		0984F32624732D480039749D /* AddDrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F32524732D480039749D /* AddDrinksViewController.swift */; };
 		0984F32824732E2A0039749D /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F32724732E2A0039749D /* Drinks.swift */; };
+		098C89EB25162CE400655ED8 /* FromVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89EA25162CE400655ED8 /* FromVC.swift */; };
+		098C89EE251630D200655ED8 /* ModalToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89ED251630D200655ED8 /* ModalToVC.swift */; };
+		098C89F22516482700655ED8 /* ModalIntervalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89F12516482700655ED8 /* ModalIntervalVC.swift */; };
+		098C89F52516485800655ED8 /* FromModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89F42516485800655ED8 /* FromModel.swift */; };
+		098C89F82516486D00655ED8 /* ToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89F72516486D00655ED8 /* ToModel.swift */; };
+		098C89FB2516487800655ED8 /* IntervalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89FA2516487700655ED8 /* IntervalModel.swift */; };
+		098C89FE25168C0E00655ED8 /* ModalFromVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89FD25168C0E00655ED8 /* ModalFromVC.swift */; };
+		098C8A0125168C5F00655ED8 /* HalfModalInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C8A0025168C5F00655ED8 /* HalfModalInteractiveTransition.swift */; };
+		098C8A0425168C8500655ED8 /* HalfModalTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C8A0325168C8500655ED8 /* HalfModalTransitionAnimator.swift */; };
+		098C8A0725168CC500655ED8 /* HalfModalTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C8A0625168CC500655ED8 /* HalfModalTransitioningDelegate.swift */; };
+		098C8A0A25168D2500655ED8 /* HalfModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C8A0925168D2500655ED8 /* HalfModalPresentationController.swift */; };
+		098C8A0D25168F0200655ED8 /* AppNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C8A0C25168F0200655ED8 /* AppNavController.swift */; };
 		0998247624C2EF990006204A /* SetNewWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998247524C2EF990006204A /* SetNewWeightVC.swift */; };
 		099FA0FD250C04CF000C6F25 /* PrivacyPolic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FA0FC250C04CF000C6F25 /* PrivacyPolic.swift */; };
 		099FA0FF250C07A0000C6F25 /* ScrollViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FA0FE250C07A0000C6F25 /* ScrollViewVC.swift */; };
@@ -79,6 +92,7 @@
 		09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewTableViewController.swift; sourceTree = "<group>"; };
 		09599BF624FD7F0900BC6C69 /* NotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCell.swift; sourceTree = "<group>"; };
 		09599BF8250035E600BC6C69 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		0959C0D325176CC5008EDC1A /* FromTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromTableViewCell.swift; sourceTree = "<group>"; };
 		095E279F24F01AC800B0BFC4 /* WriteToUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteToUsVC.swift; sourceTree = "<group>"; };
 		095E870A248816460046F404 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		095E871024881AFF0046F404 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
@@ -101,6 +115,18 @@
 		0984F3232472FC010039749D /* ActivityWomanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityWomanViewController.swift; sourceTree = "<group>"; };
 		0984F32524732D480039749D /* AddDrinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrinksViewController.swift; sourceTree = "<group>"; };
 		0984F32724732E2A0039749D /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
+		098C89EA25162CE400655ED8 /* FromVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromVC.swift; sourceTree = "<group>"; };
+		098C89ED251630D200655ED8 /* ModalToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalToVC.swift; sourceTree = "<group>"; };
+		098C89F12516482700655ED8 /* ModalIntervalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalIntervalVC.swift; sourceTree = "<group>"; };
+		098C89F42516485800655ED8 /* FromModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromModel.swift; sourceTree = "<group>"; };
+		098C89F72516486D00655ED8 /* ToModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToModel.swift; sourceTree = "<group>"; };
+		098C89FA2516487700655ED8 /* IntervalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalModel.swift; sourceTree = "<group>"; };
+		098C89FD25168C0E00655ED8 /* ModalFromVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalFromVC.swift; sourceTree = "<group>"; };
+		098C8A0025168C5F00655ED8 /* HalfModalInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalInteractiveTransition.swift; sourceTree = "<group>"; };
+		098C8A0325168C8500655ED8 /* HalfModalTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalTransitionAnimator.swift; sourceTree = "<group>"; };
+		098C8A0625168CC500655ED8 /* HalfModalTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalTransitioningDelegate.swift; sourceTree = "<group>"; };
+		098C8A0925168D2500655ED8 /* HalfModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalPresentationController.swift; sourceTree = "<group>"; };
+		098C8A0C25168F0200655ED8 /* AppNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavController.swift; sourceTree = "<group>"; };
 		0998247524C2EF990006204A /* SetNewWeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewWeightVC.swift; sourceTree = "<group>"; };
 		0998805125150D680019D612 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		0998805325150D680019D612 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -136,6 +162,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09311F862516B29F00A62A5C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				098C8A0925168D2500655ED8 /* HalfModalPresentationController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		09311F872516B2B300A62A5C /* Transitioning */ = {
+			isa = PBXGroup;
+			children = (
+				098C8A0025168C5F00655ED8 /* HalfModalInteractiveTransition.swift */,
+				098C8A0325168C8500655ED8 /* HalfModalTransitionAnimator.swift */,
+				098C8A0625168CC500655ED8 /* HalfModalTransitioningDelegate.swift */,
+			);
+			path = Transitioning;
+			sourceTree = "<group>";
+		};
 		0984F3172471A6810039749D /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +191,7 @@
 				0925E91324A61B8F00639973 /* ProgressBarView.swift */,
 				0961AFAD24B3AF0F005A51BD /* LanguageCell.swift */,
 				099FA0FE250C07A0000C6F25 /* ScrollViewVC.swift */,
+				0959C0D325176CC5008EDC1A /* FromTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +209,9 @@
 				090C6BDB24B3BA3F00E5C12A /* LanguageScreen.swift */,
 				0923BDE224CB3B280042453C /* DaysOfWeek.swift */,
 				09599BF8250035E600BC6C69 /* Localization.swift */,
+				098C89F42516485800655ED8 /* FromModel.swift */,
+				098C89F72516486D00655ED8 /* ToModel.swift */,
+				098C89FA2516487700655ED8 /* IntervalModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +285,13 @@
 				095E279F24F01AC800B0BFC4 /* WriteToUsVC.swift */,
 				09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */,
 				099FA0FC250C04CF000C6F25 /* PrivacyPolic.swift */,
+				098C8A0C25168F0200655ED8 /* AppNavController.swift */,
+				098C89EA25162CE400655ED8 /* FromVC.swift */,
+				098C89FD25168C0E00655ED8 /* ModalFromVC.swift */,
+				098C89ED251630D200655ED8 /* ModalToVC.swift */,
+				098C89F12516482700655ED8 /* ModalIntervalVC.swift */,
+				09311F862516B29F00A62A5C /* Presentation */,
+				09311F872516B2B300A62A5C /* Transitioning */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -384,22 +439,31 @@
 				0984F32624732D480039749D /* AddDrinksViewController.swift in Sources */,
 				09599BF9250035E600BC6C69 /* Localization.swift in Sources */,
 				0984F3222472E5750039749D /* MainViewController.swift in Sources */,
+				098C8A0125168C5F00655ED8 /* HalfModalInteractiveTransition.swift in Sources */,
 				099FA0FF250C07A0000C6F25 /* ScrollViewVC.swift in Sources */,
 				0984F31C2471BFBB0039749D /* Water.swift in Sources */,
 				0998247624C2EF990006204A /* SetNewWeightVC.swift in Sources */,
 				0923BDE324CB3B280042453C /* DaysOfWeek.swift in Sources */,
+				098C8A0A25168D2500655ED8 /* HalfModalPresentationController.swift in Sources */,
 				097794A8249EAB930091F547 /* AddedDrinksCollectionViewCell.swift in Sources */,
+				098C89F82516486D00655ED8 /* ToModel.swift in Sources */,
+				098C8A0725168CC500655ED8 /* HalfModalTransitioningDelegate.swift in Sources */,
+				098C8A0425168C8500655ED8 /* HalfModalTransitionAnimator.swift in Sources */,
+				098C8A0D25168F0200655ED8 /* AppNavController.swift in Sources */,
 				09F5183C24715A1E00DFB0C7 /* WelcomeViewController.swift in Sources */,
+				098C89F52516485800655ED8 /* FromModel.swift in Sources */,
 				095E871124881AFF0046F404 /* SettingsScreen.swift in Sources */,
 				0925E91424A61B8F00639973 /* ProgressBarView.swift in Sources */,
 				095E27A024F01AC800B0BFC4 /* WriteToUsVC.swift in Sources */,
 				09448349247C372A00FD1040 /* SceneDelegate.swift in Sources */,
 				0952DF442495024C00ACDA6B /* MililetersViewController.swift in Sources */,
+				0959C0D425176CC5008EDC1A /* FromTableViewCell.swift in Sources */,
 				099FA0FD250C04CF000C6F25 /* PrivacyPolic.swift in Sources */,
 				09599BF724FD7F0900BC6C69 /* NotificationsCell.swift in Sources */,
 				0932E4B824AFD54100E84C5E /* SettingsVC.swift in Sources */,
 				09F5184D24716B7200DFB0C7 /* WeightManViewController.swift in Sources */,
 				0984F32824732E2A0039749D /* Drinks.swift in Sources */,
+				098C89EE251630D200655ED8 /* ModalToVC.swift in Sources */,
 				0984F31624718E580039749D /* ActivityManViewController.swift in Sources */,
 				0918A79024B0BFCE0035B3CF /* EditDailyNormalVC.swift in Sources */,
 				0952DF4824950AA800ACDA6B /* MilimetersScreen.swift in Sources */,
@@ -409,11 +473,15 @@
 				09F5183824715A1E00DFB0C7 /* AppDelegate.swift in Sources */,
 				0984F31E2471C1A90039749D /* ResultViewController.swift in Sources */,
 				095E8719248972010046F404 /* StatisticScreen.swift in Sources */,
+				098C89FB2516487800655ED8 /* IntervalModel.swift in Sources */,
+				098C89FE25168C0E00655ED8 /* ModalFromVC.swift in Sources */,
 				0961AFAC24B3AEEE005A51BD /* SetLanguageTableVC.swift in Sources */,
 				0984F3242472FC010039749D /* ActivityWomanViewController.swift in Sources */,
 				095E870B248816460046F404 /* StatisticViewController.swift in Sources */,
 				0984F3202471C7BD0039749D /* WeightWomanViewController.swift in Sources */,
+				098C89EB25162CE400655ED8 /* FromVC.swift in Sources */,
 				0961AFAE24B3AF0F005A51BD /* LanguageCell.swift in Sources */,
+				098C89F22516482700655ED8 /* ModalIntervalVC.swift in Sources */,
 				094483472479701900FD1040 /* UserSettings.swift in Sources */,
 				095E871724896EAF0046F404 /* MacawChartView.swift in Sources */,
 			);

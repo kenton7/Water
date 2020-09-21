@@ -27,6 +27,10 @@ final class UserSettings {
         case friday
         case saturday
         case sunday
+        
+        case userNotifFrom
+        case userNotifTo
+        case userIntervalNotif
     }
     
     static var userSex: String! {
@@ -43,22 +47,6 @@ final class UserSettings {
             }
         }
     }
-    
-//    static var checkUserWeight: String! {
-//        get {
-//            return UserDefaults.standard.string(forKey: SettingsKeys.checkUserWeight.rawValue)
-//        } set {
-//            let defaults = UserDefaults.standard
-//            let key = SettingsKeys.checkUserWeight.rawValue
-//            if let check = newValue {
-//                print("Вес \(check) был выбран \(key)")
-//                defaults.set(check, forKey: key)
-//            } else {
-//                defaults.removeObject(forKey: key)
-//            }
-//        }
-//    }
-    
     
     static var userWeight: String! {
         get {
@@ -274,6 +262,54 @@ final class UserSettings {
             if let alert = newValue {
                 print("Алерт показан: \(alert). Данные записаны в \(key)")
                 defaults.set(alert, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var userNotifFrom: String! {
+        get {
+            return UserDefaults.standard.string(forKey: SettingsKeys.userNotifFrom.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.userNotifFrom.rawValue
+            if let userNotifFrom = newValue {
+                print("Дата начала отправки уведомлений \(userNotifFrom) добавлена в \(key)")
+                defaults.set(userNotifFrom, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var userNotifTo: String! {
+        get {
+            return UserDefaults.standard.string(forKey: SettingsKeys.userNotifTo.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.userNotifTo.rawValue
+            if let userNotifTo = newValue {
+                print("Дата начала отправки уведомлений \(userNotifTo) добавлена в \(key)")
+                defaults.set(userNotifTo, forKey: key)
+                UserDefaults.standard.synchronize()
+            } else {
+                defaults.removeObject(forKey: key)
+            }
+        }
+    }
+    
+    static var userIntervalNotif: Int! {
+        get {
+            return UserDefaults.standard.integer(forKey: SettingsKeys.userIntervalNotif.rawValue)
+        } set {
+            let defaults = UserDefaults.standard
+            let key = SettingsKeys.userIntervalNotif.rawValue
+            if let userIntervalNotif = newValue {
+                print("Дата начала отправки уведомлений \(userIntervalNotif) добавлена в \(key)")
+                defaults.set(userIntervalNotif, forKey: key)
                 UserDefaults.standard.synchronize()
             } else {
                 defaults.removeObject(forKey: key)

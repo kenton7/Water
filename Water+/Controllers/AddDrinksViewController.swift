@@ -168,51 +168,7 @@ extension AddDrinksViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let drinks = drinksArray[indexPath.row]
-        
-        switch drinks.drinkName {
-        case "Вода":
-            print("Вода")
-        case "Зелёный \nчай":
-            print("Зелёный чай")
-        case "Чёрный \nчай":
-            print("Чёрный чай")
-        case "Какао":
-            print("Какао")
-        case "Кофе":
-            print("Кофе")
-        case "Кола":
-            print("Кола")
-        case "Молоко":
-            print("Молоко")
-        case "Кефир":
-            print("Кефир")
-        case "Вино":
-            print("Вино")
-        case "Пиво":
-            print("Пиво")
-        case "Смузи":
-            print("Смузи")
-        case "Квас":
-            print("Квас")
-        case "Кола Zero":
-            print("Кола Zero")
-        case "Компот":
-            print("Компот")
-        case "Лимонад":
-            print("Лимонад")
-        case "Энергетик":
-            print("Энергетик")
-        case "Пиво \nбезалкогол.":
-            print("Пиво безалкогольное")
-        case "Яблочный \nсок":
-            print("Яблочный сок")
-        case "Крепкий \nалкоголь":
-            print("Крепкий алкоголь")
-        case "Апельсин. \nсок":
-            print("Апельсиновый сок")
-        default:
-            break
-        }
+
         
         self.performSegue(withIdentifier: K.milimetersView, sender: drinks)
     }

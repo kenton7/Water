@@ -53,7 +53,7 @@ class EditDailyNormalVC: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: K.BackToMainView, sender: self)
+        //performSegue(withIdentifier: K.BackToMainView, sender: self)
         DispatchQueue.main.async {
             self.currentDailyNormal.text = self.customNormalTextField.text
         }
