@@ -9,5 +9,5 @@
 import Foundation
 
 struct From {
-   // let data: Date = []
+   //let fromModel = []
 }

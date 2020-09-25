@@ -34,7 +34,6 @@ class ResultViewController: UIViewController {
         nextButtonOutlet.layer.masksToBounds = false
         nextButtonOutlet.layer.shadowRadius = 1.0
         nextButtonOutlet.layer.shadowOpacity = 0.5
-        //UserSettings.result = Int(resultString)
         resultValue.text = String(UserSettings.result)
         print(resultString)
     }
@@ -49,7 +48,6 @@ class ResultViewController: UIViewController {
 
             switch selectedButtonTag {
             case 7:
-                //destinationVC.resultString = String(UserSettings.result)
                 destinationVC.resultString = String(format: "%0.f", UserSettings.result)
             default:
                 break

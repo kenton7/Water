@@ -17,16 +17,6 @@ class SetLanguageTableVC: UITableViewController {
     var selectedArray = NSMutableArray()
     let settingsVC = SettingsVC()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

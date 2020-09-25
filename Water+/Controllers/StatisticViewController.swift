@@ -34,13 +34,6 @@ class StatisticViewController: UIViewController {
         chartView.updateData(newData: MacawCharts.chartsData())
         MacawCharts.playAnimations()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        chartView.updateData(newData: MacawCharts.chartsData())
-//        MacawCharts.playAnimations()
-    }
-    
 }
 
 

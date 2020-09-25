@@ -292,7 +292,7 @@ final class UserSettings {
             let defaults = UserDefaults.standard
             let key = SettingsKeys.userNotifTo.rawValue
             if let userNotifTo = newValue {
-                print("Дата начала отправки уведомлений \(userNotifTo) добавлена в \(key)")
+                print("Уведомления отправляются до: \(userNotifTo). Результат добавлен в \(key)")
                 defaults.set(userNotifTo, forKey: key)
                 UserDefaults.standard.synchronize()
             } else {

@@ -44,7 +44,6 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
     var drinks: Drinks?
     var volume = MilimetersScreen()
     var delegate: MililetersVCDelegate?
-    //var main = MainViewController()
     var addDrinks = AddDrinksViewController()
     var drinksToMainVC: [String] = []
     var progressToMainVC: Float = 0.0
@@ -54,11 +53,8 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
         
         pickerViewOutlet.dataSource = self
         pickerViewOutlet.delegate = self
-        //textField.delegate = self
         self.transitioningDelegate = self
         
-        //volumeFromMilimetersVC = Double(volume.volumeArray[0])
-        //drinksToMainVC.append(drinks?.imageName ?? "nil")
         addButtonOutlet.layer.cornerRadius = 25
         addButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         addButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)

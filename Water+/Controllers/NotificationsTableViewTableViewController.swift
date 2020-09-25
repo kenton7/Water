@@ -25,8 +25,6 @@ class NotificationsTableViewTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.rowHeight = 60
         tableView.tableFooterView = UIView()
-        //tableView.register(UITableViewCell.self.classForCoder(), forCellReuseIdentifier: "fromCell")
-        
     }
     
     @IBAction func fromPressed(_ sender: UIButton) {

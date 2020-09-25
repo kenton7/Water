@@ -17,20 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     let defaults = UserDefaults.standard
     let dateFormatter = DateFormatter()
     let modalInternalVCDelegate = ModalIntervalVC()
-    
+    let modalFromVCDelegate = ModalFromVC()
+    var currentTimeOnDeviceForStop = ""
+    var currentTimeOnDevice = ""
+    let date = Date()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         self.dateFormatter.dateFormat = "HH:mm"
-        modalInternalVCDelegate.scheduleNotification(inSeconds: Double(UserSettings.userIntervalNotif ?? 60), text: "Не забудь выпить воды!") { (success) in
-            if success {
-                print("success")
-            } else {
-                print("failed")
-            }
-        }
+        let result = dateFormatter.string(from: date)
+        currentTimeOnDevice = result
         
 
 //        if (UserSettings.userSex != nil) && (UserSettings.checkUserWeight != nil) && (UserSettings.userActivity != nil) {
@@ -64,6 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.window?.makeKeyAndVisible()
         }
         registerForPushNotifications()
+        startSendingNotifications()
+        stopSendingNotifications()
         return true
     }
     
@@ -82,7 +82,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-
+    /*
+     //        typealias TimeOfDay = (hour: Int, minute: Int, second: Int)
+     //        var calendar = Calendar.autoupdatingCurrent
+     //        calendar.timeZone = .current
+     //        let strings: [String] = [currentTimeOnDevice, UserSettings.userNotifTo]
+     //        print(strings)
+     //        let timesOfDay: [TimeOfDay] = strings.map({ (string) -> TimeOfDay in
+     //            let components = calendar.dateComponents([.hour, .minute, .second], from: dateFormatter.date(from: string)!)
+     //            return (hour: components.hour!, minute: components.minute!, second: components.second!)
+     //        })
+     //        print(timesOfDay)
+             
+     //        if timesOfDay[0] >= timesOfDay[1] {
+     //            print("noitifcations turned off")
+     //            DispatchQueue.main.async {
+     //                UIApplication.shared.unregisterForRemoteNotifications()
+     //            }
+     //        } else {
+     //            return
+     //        }*/
     
     func registerForPushNotifications() {
       UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
@@ -92,6 +111,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         guard granted else { return }
         self.getNotificationSettings()
         self.createNotification()
+        self.startSendingNotifications()
+        self.stopSendingNotifications()
       }
     }
     
@@ -99,14 +120,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
       UNUserNotificationCenter.current().getNotificationSettings { (settings) in
         print("Notification settings: \(settings)")
         guard settings.authorizationStatus == .authorized else { return }
-        UIApplication.shared.registerForRemoteNotifications()
+        DispatchQueue.main.async {
+            UIApplication.shared.registerForRemoteNotifications()
+        }
       }
     }
     
     public func createNotification() {
+        //stopSendingNotifications()
+        //startSendingNotifications()
         let content = UNMutableNotificationContent()
         content.title = "Не забудь выпить воды!"
-        //Set the trigger of the notification -- here a timer.
         //Устанавливаем триггер на уведомления (в секундах)
         if UserSettings.userIntervalNotif == 0 {
             UserSettings.userIntervalNotif = 3600
@@ -114,11 +138,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print(UserSettings.userIntervalNotif!)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(UserSettings.userIntervalNotif!), repeats: true)
         
-        
-
-        //Set the request for the notification from the above
+        //Создаем реквест на уведомление
         let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
-        // UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
              UNUserNotificationCenter.current().add(request) { (error) in
                  if error != nil {
                      print("Add notification error: \(String(describing: error?.localizedDescription))")
@@ -133,6 +154,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
+    func startSendingNotifications() {
+        let date = Date()
+        dateFormatter.dateFormat = "HH:mm"
+        let result = dateFormatter.string(from: date)
+        currentTimeOnDevice = result
+        print(currentTimeOnDevice)
+        
+        let date1 = dateFormatter.date(from: UserSettings.userNotifFrom ?? currentTimeOnDevice)
+        let date2 = dateFormatter.date(from: result)
+        
+        let userTime = 60 * Calendar.current.component(.hour, from: date1!) + Calendar.current.component(.minute, from: date1!)
+        let currentTime = 60 * Calendar.current.component(.hour, from: date2!) + Calendar.current.component(.minute, from: date2!)
+        print(userTime)
+        print(currentTime)
+        if currentTime < userTime {
+            DispatchQueue.main.async {
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                print("start notofications turned off")
+            }
+        } else {
+            createNotification()
+        }
+    }
+    
+    func stopSendingNotifications() {
+        
+        let date = Date()
+        dateFormatter.dateFormat = "HH:mm"
+        let result = dateFormatter.string(from: date)
+        currentTimeOnDeviceForStop = result
+        print(currentTimeOnDeviceForStop)
+        let date1 = dateFormatter.date(from: UserSettings.userNotifTo ?? currentTimeOnDevice)
+        let date2 = dateFormatter.date(from: result)
+        
+        let userTime = 60 * Calendar.current.component(.hour, from: date1!) + Calendar.current.component(.minute, from: date1!)
+        let currentTime = 60 * Calendar.current.component(.hour, from: date2!) + Calendar.current.component(.minute, from: date2!)
+        print(userTime)
+        print(currentTime)
+        if currentTime >= userTime {
+            DispatchQueue.main.async {
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                print("stop notifications turned off")
+            }
+        } else {
+            createNotification()
+        }
+    }
     
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -149,5 +217,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
       print("Failed to register: \(error)")
     }
 }
-
 

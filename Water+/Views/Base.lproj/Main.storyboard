@@ -2222,6 +2222,9 @@
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="yd4-Gq-AAP">
                                 <rect key="frame" x="0.0" y="165.5" width="414" height="216"/>
                                 <locale key="locale" localeIdentifier="ru"/>
+                                <connections>
+                                    <action selector="datePickerAction:" destination="SmH-xb-ln4" eventType="valueChanged" id="rm9-aq-al2"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WZh-Rv-kvg"/>

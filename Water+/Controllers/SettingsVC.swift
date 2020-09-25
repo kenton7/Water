@@ -28,7 +28,6 @@ class SettingsVC: UITableViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        //tableView.register(SettingsCell.self, forCellReuseIdentifier: K.cellIdentifier)
         tableView.rowHeight = 60
         //убираем пустые ячейки в таблице
         tableView.tableFooterView = UIView()

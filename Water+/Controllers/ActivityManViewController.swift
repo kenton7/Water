@@ -42,7 +42,6 @@ class ActivityManViewController: UIViewController {
         nextButtonOutlet.isUserInteractionEnabled = true
         nextButtonOutlet.alpha = 1.0
         selectedButtonTag = sender.tag
-        //activityFew = calcWater.calculateWaterForMan(weight: weightMan ?? 0)
         activityFew = calcWater.calculateWaterForMan(weight: Double(UserSettings.userWeight) ?? 0)
         print(activityFew)
     }
@@ -71,7 +70,6 @@ class ActivityManViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        //UserSettings.userActivity = "activitySet"
         UserSettings.userActivity = "activityManSet"
         UserDefaults.standard.set(true, forKey: "activityManSet")
     }
@@ -87,21 +85,18 @@ class ActivityManViewController: UIViewController {
                 UserSettings.result = Int(destinationVC.resultString)
                 UserDefaults.standard.bool(forKey: "activityFewSaved")
                 UserDefaults.standard.set(true, forKey: "activityFewSaved")
-            //destinationVC.resultString = Float(activityFew)
             case 2:
                 destinationVC.activityMediumResult = activityMedium
                 destinationVC.resultString = String(format: "%.0f", activityMedium * 1000)
                 UserSettings.result = Int(destinationVC.resultString)
                 UserDefaults.standard.bool(forKey: "activityMediumSaved")
                 UserDefaults.standard.set(true, forKey: "activityMediumSaved")
-            //destinationVC.resultString = Float(activityMedium * 1000)
             case 3:
                 destinationVC.activityHardResult = activityHard
                 destinationVC.resultString = String(format: "%.0f", activityHard * 1000)
                 UserSettings.result = Int(destinationVC.resultString)
                 UserDefaults.standard.bool(forKey: "activityHardSaved")
                 UserDefaults.standard.set(true, forKey: "activityHardSaved")
-            //destinationVC.resultString = Float(activityHard * 1000)
             default:
                 break
             }

@@ -103,7 +103,6 @@ class WeightManViewController: UIViewController, UITextFieldDelegate {
             weightMan = Double(textFieldOutlet.text!) ?? 0
             UserSettings.userWeight = textFieldOutlet.text!
             //в передаваемый View записываем вес
-            //destinationVC.weightMan = weightMan
             destinationVC.weightMan = Double(UserSettings.userWeight)
             print(weightMan)
         }

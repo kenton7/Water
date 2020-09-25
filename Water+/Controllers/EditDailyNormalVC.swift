@@ -18,12 +18,6 @@ class EditDailyNormalVC: UIViewController, UITextFieldDelegate {
     var newDailyFromEditDailyVC = 0
     var newMaxProgress: Float = 0.0
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +28,6 @@ class EditDailyNormalVC: UIViewController, UITextFieldDelegate {
         bottomLine.backgroundColor = UIColor.init(red: 30/255, green: 144/255, blue: 255/255, alpha: 1).cgColor
         customNormalTextField.borderStyle = .none
         customNormalTextField.layer.addSublayer(bottomLine)
-
         currentDailyNormal.text = String(UserSettings.result)
     }
     
@@ -53,7 +46,6 @@ class EditDailyNormalVC: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        //performSegue(withIdentifier: K.BackToMainView, sender: self)
         DispatchQueue.main.async {
             self.currentDailyNormal.text = self.customNormalTextField.text
         }

@@ -63,7 +63,6 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.title = "Главная"
-        //self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
         
         checkAddedDrinksAndUpdateLabel()
         print(addedDrinksArray)
@@ -269,7 +268,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = addedDrinksCollectionView?.dequeueReusableCell(withReuseIdentifier: K.identifierAddedDrinksCollectionView, for: indexPath) as! AddedDrinksCollectionViewCell
-        //cell.descriptionDrink.text = addedDrinksArray[indexPath.row]
         
         cell.configure(with: addedDrinksArray[indexPath.row])
         return cell

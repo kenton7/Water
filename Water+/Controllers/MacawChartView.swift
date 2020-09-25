@@ -18,7 +18,6 @@ class MacawCharts: MacawView {
     static let lineWidth: Double = 350
     static let dataDivisor = Double(maxValue / maxValueLineHeight)
     static var adjustedData: [Double] = daysOfWeek.map({ $0.viewCount / dataDivisor })
-    //static let data: [Double] = daysOfWeek.map({$0.resultOfDay / dataDivisor})
     static var animations: [Animation] = []
     var resultOfDay: Double = 0
     var currentDay: String?
@@ -114,8 +113,6 @@ class MacawCharts: MacawView {
         }
         return items.group()
     }
-    
-    
     
     static func playAnimations() {
         animations.combine().play()

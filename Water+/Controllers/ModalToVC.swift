@@ -11,6 +11,7 @@ import UIKit
 class ModalToVC: UIViewController, HalfModalPresentable {
     
     let dateFormatter = DateFormatter()
+    let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     @IBOutlet weak var timeLabelOutlet: UILabel!
     @IBOutlet weak var datePickerOutlet: UIDatePicker!
     
@@ -22,14 +23,13 @@ class ModalToVC: UIViewController, HalfModalPresentable {
     }
     
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
-        DispatchQueue.main.async {
-            self.dateFormatter.dateFormat = "HH:mm"
-            UserSettings.userNotifTo = self.dateFormatter.string(from: self.datePickerOutlet.date)
-            self.timeLabelOutlet.text = "Уведомления отправляются до: \(UserSettings.userNotifTo!)"
-        }
+        dateFormatter.dateFormat = "HH:mm"
+        UserSettings.userNotifTo = dateFormatter.string(from: datePickerOutlet.date)
+        appDelegate?.stopSendingNotifications()
         if let delegate = navigationController?.transitioningDelegate as? HalfModalTransitioningDelegate {
             delegate.interactiveDismiss = false
         }
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func closePressed(_ sender: UIBarButtonItem) {

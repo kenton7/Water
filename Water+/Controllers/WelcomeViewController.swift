@@ -46,7 +46,6 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func womanSelected(_ sender: UIButton) {
-        //UserSettings.userSex = "SexSelected"
         UserSettings.userSex = "WomanSelected"
         UserDefaults.standard.set(true, forKey: "WomanSelected")
     }

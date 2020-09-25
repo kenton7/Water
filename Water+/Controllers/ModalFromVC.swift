@@ -12,6 +12,8 @@ import UserNotifications
 class ModalFromVC: UIViewController, HalfModalPresentable {
     
     let dateFormatter = DateFormatter()
+    var date = UIDatePicker()
+    let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     
     @IBOutlet weak var datePickerOutlet: UIDatePicker!
     @IBOutlet weak var currentTimeOutlet: UILabel!
@@ -21,28 +23,29 @@ class ModalFromVC: UIViewController, HalfModalPresentable {
         currentTimeOutlet.text = "Уведомления отправляются с: \(UserSettings.userNotifFrom ?? " ")"
     }
     
-    func scheduleNotification(inSeconds seconds: TimeInterval, text: String, completion: (Bool) -> ()) {
-     
-        removeNotification(withIdentifiers:["Bear"])
-        
-        let date = Date(timeIntervalSinceNow: seconds)
-        print (Date())
-        print(date)
-        
-        let content = UNMutableNotificationContent()
-        content.title = "Текст"
-        content.body = "Текст"
-        content.sound = UNNotificationSound.default
-        
-        let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents([.month, .day, .hour, .minute, .second], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
-        let request = UNNotificationRequest(identifier: "Bear", content: content, trigger: trigger)
-        
-        let center = UNUserNotificationCenter.current()
-        center.add(request, withCompletionHandler: nil)
-        
-    }
+//    func scheduleNotification(inSeconds seconds: TimeInterval, text: String, completion: (Bool) -> ()) {
+//     
+//        removeNotification(withIdentifiers:["notifStart"])
+//        
+//        let date = Date(timeIntervalSinceNow: seconds)
+//        print (Date())
+//        print(date)
+//        
+//        let content = UNMutableNotificationContent()
+//        content.title = "Текст"
+//        content.sound = UNNotificationSound.default
+//        
+//        let calendar = Calendar.current
+//        let components = calendar.dateComponents([.hour, .minute], from: date)
+//        print(components)
+//        
+//        
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+//        let request = UNNotificationRequest(identifier: "notifStart", content: content, trigger: trigger)
+//        
+//        let center = UNUserNotificationCenter.current()
+//        center.add(request, withCompletionHandler: nil)
+//    }
     
     func removeNotification(withIdentifiers identifiers: [String]) {
         let center = UNUserNotificationCenter.current()
@@ -51,24 +54,26 @@ class ModalFromVC: UIViewController, HalfModalPresentable {
     
     
     @IBAction func saveButtonTapped(sender: UIButton) {
-        DispatchQueue.main.async {
-            //let timeNotifFrom: Date = self.datePickerOutlet.date
             self.dateFormatter.dateFormat = "HH:mm"
+            
             UserSettings.userNotifFrom = self.dateFormatter.string(from: self.datePickerOutlet.date)
-//            let content = UNMutableNotificationContent()
-//            content.title = "Не забудь выпить воды!"
-//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(UserSettings.userNotifFrom)! * 3600, repeats: true)
-//            let request = UNNotificationRequest(identifier: "notificationStart", content: content, trigger: trigger)
-//            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        appDelegate?.startSendingNotifications()
+            print(UserSettings.userNotifFrom!)
             self.currentTimeOutlet.text = "Уведомления отправляются с: \(UserSettings.userNotifFrom!)"
-        }
         if let delegate = navigationController?.transitioningDelegate as? HalfModalTransitioningDelegate {
             delegate.interactiveDismiss = false
         }
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func datePickerAction(_ sender: UIDatePicker) {
+        
+    }
+    
+    
 }
 

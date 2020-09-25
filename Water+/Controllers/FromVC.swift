@@ -12,9 +12,13 @@ class FromVC: UIViewController {
     
     
     var halfModalTransitioningDelegate: HalfModalTransitioningDelegate?
+    @IBAction func datePickerOutlet(_ sender: UIDatePicker) {
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
