@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		090C6BDC24B3BA3F00E5C12A /* LanguageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090C6BDB24B3BA3F00E5C12A /* LanguageScreen.swift */; };
 		0918A79024B0BFCE0035B3CF /* EditDailyNormalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918A78F24B0BFCE0035B3CF /* EditDailyNormalVC.swift */; };
-		0923BDE324CB3B280042453C /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0923BDE224CB3B280042453C /* DaysOfWeek.swift */; };
 		0925E91424A61B8F00639973 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925E91324A61B8F00639973 /* ProgressBarView.swift */; };
 		0932E4B824AFD54100E84C5E /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0932E4B724AFD54100E84C5E /* SettingsVC.swift */; };
 		094483472479701900FD1040 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094483462479701900FD1040 /* UserSettings.swift */; };
@@ -44,8 +43,6 @@
 		098C89EB25162CE400655ED8 /* FromVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89EA25162CE400655ED8 /* FromVC.swift */; };
 		098C89EE251630D200655ED8 /* ModalToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89ED251630D200655ED8 /* ModalToVC.swift */; };
 		098C89F22516482700655ED8 /* ModalIntervalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89F12516482700655ED8 /* ModalIntervalVC.swift */; };
-		098C89F52516485800655ED8 /* FromModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89F42516485800655ED8 /* FromModel.swift */; };
-		098C89F82516486D00655ED8 /* ToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89F72516486D00655ED8 /* ToModel.swift */; };
 		098C89FB2516487800655ED8 /* IntervalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89FA2516487700655ED8 /* IntervalModel.swift */; };
 		098C89FE25168C0E00655ED8 /* ModalFromVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C89FD25168C0E00655ED8 /* ModalFromVC.swift */; };
 		098C8A0125168C5F00655ED8 /* HalfModalInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C8A0025168C5F00655ED8 /* HalfModalInteractiveTransition.swift */; };
@@ -55,7 +52,7 @@
 		098C8A0D25168F0200655ED8 /* AppNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C8A0C25168F0200655ED8 /* AppNavController.swift */; };
 		0998247624C2EF990006204A /* SetNewWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998247524C2EF990006204A /* SetNewWeightVC.swift */; };
 		099FA0FD250C04CF000C6F25 /* PrivacyPolic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FA0FC250C04CF000C6F25 /* PrivacyPolic.swift */; };
-		099FA0FF250C07A0000C6F25 /* ScrollViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FA0FE250C07A0000C6F25 /* ScrollViewVC.swift */; };
+		09C4D631251E80F000B0C028 /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D630251E80F000B0C028 /* DaysOfWeek.swift */; };
 		09EB599324C4719F00968BCE /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB599224C4719F00968BCE /* AboutUsVC.swift */; };
 		09F5183824715A1E00DFB0C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5183724715A1E00DFB0C7 /* AppDelegate.swift */; };
 		09F5183C24715A1E00DFB0C7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5183B24715A1E00DFB0C7 /* WelcomeViewController.swift */; };
@@ -82,7 +79,6 @@
 /* Begin PBXFileReference section */
 		090C6BDB24B3BA3F00E5C12A /* LanguageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageScreen.swift; sourceTree = "<group>"; };
 		0918A78F24B0BFCE0035B3CF /* EditDailyNormalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDailyNormalVC.swift; sourceTree = "<group>"; };
-		0923BDE224CB3B280042453C /* DaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfWeek.swift; sourceTree = "<group>"; };
 		0925E91324A61B8F00639973 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		0932E4B724AFD54100E84C5E /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		094483462479701900FD1040 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -118,8 +114,6 @@
 		098C89EA25162CE400655ED8 /* FromVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromVC.swift; sourceTree = "<group>"; };
 		098C89ED251630D200655ED8 /* ModalToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalToVC.swift; sourceTree = "<group>"; };
 		098C89F12516482700655ED8 /* ModalIntervalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalIntervalVC.swift; sourceTree = "<group>"; };
-		098C89F42516485800655ED8 /* FromModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromModel.swift; sourceTree = "<group>"; };
-		098C89F72516486D00655ED8 /* ToModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToModel.swift; sourceTree = "<group>"; };
 		098C89FA2516487700655ED8 /* IntervalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalModel.swift; sourceTree = "<group>"; };
 		098C89FD25168C0E00655ED8 /* ModalFromVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalFromVC.swift; sourceTree = "<group>"; };
 		098C8A0025168C5F00655ED8 /* HalfModalInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalInteractiveTransition.swift; sourceTree = "<group>"; };
@@ -135,7 +129,7 @@
 		0998805B25150D690019D612 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09988066251510A20019D612 /* Water+.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Water+.entitlements"; sourceTree = "<group>"; };
 		099FA0FC250C04CF000C6F25 /* PrivacyPolic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolic.swift; sourceTree = "<group>"; };
-		099FA0FE250C07A0000C6F25 /* ScrollViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewVC.swift; sourceTree = "<group>"; };
+		09C4D630251E80F000B0C028 /* DaysOfWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DaysOfWeek.swift; path = "Water/Water+/Models/DaysOfWeek.swift"; sourceTree = SOURCE_ROOT; };
 		09EB599224C4719F00968BCE /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		09F5183424715A1E00DFB0C7 /* Water+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F5183724715A1E00DFB0C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,7 +184,6 @@
 				097794A7249EAB930091F547 /* AddedDrinksCollectionViewCell.swift */,
 				0925E91324A61B8F00639973 /* ProgressBarView.swift */,
 				0961AFAD24B3AF0F005A51BD /* LanguageCell.swift */,
-				099FA0FE250C07A0000C6F25 /* ScrollViewVC.swift */,
 				0959C0D325176CC5008EDC1A /* FromTableViewCell.swift */,
 			);
 			path = Views;
@@ -206,11 +199,9 @@
 				095E871024881AFF0046F404 /* SettingsScreen.swift */,
 				095E8718248972010046F404 /* StatisticScreen.swift */,
 				0952DF4724950AA800ACDA6B /* MilimetersScreen.swift */,
+				09C4D630251E80F000B0C028 /* DaysOfWeek.swift */,
 				090C6BDB24B3BA3F00E5C12A /* LanguageScreen.swift */,
-				0923BDE224CB3B280042453C /* DaysOfWeek.swift */,
 				09599BF8250035E600BC6C69 /* Localization.swift */,
-				098C89F42516485800655ED8 /* FromModel.swift */,
-				098C89F72516486D00655ED8 /* ToModel.swift */,
 				098C89FA2516487700655ED8 /* IntervalModel.swift */,
 			);
 			path = Models;
@@ -440,18 +431,14 @@
 				09599BF9250035E600BC6C69 /* Localization.swift in Sources */,
 				0984F3222472E5750039749D /* MainViewController.swift in Sources */,
 				098C8A0125168C5F00655ED8 /* HalfModalInteractiveTransition.swift in Sources */,
-				099FA0FF250C07A0000C6F25 /* ScrollViewVC.swift in Sources */,
 				0984F31C2471BFBB0039749D /* Water.swift in Sources */,
 				0998247624C2EF990006204A /* SetNewWeightVC.swift in Sources */,
-				0923BDE324CB3B280042453C /* DaysOfWeek.swift in Sources */,
 				098C8A0A25168D2500655ED8 /* HalfModalPresentationController.swift in Sources */,
 				097794A8249EAB930091F547 /* AddedDrinksCollectionViewCell.swift in Sources */,
-				098C89F82516486D00655ED8 /* ToModel.swift in Sources */,
 				098C8A0725168CC500655ED8 /* HalfModalTransitioningDelegate.swift in Sources */,
 				098C8A0425168C8500655ED8 /* HalfModalTransitionAnimator.swift in Sources */,
 				098C8A0D25168F0200655ED8 /* AppNavController.swift in Sources */,
 				09F5183C24715A1E00DFB0C7 /* WelcomeViewController.swift in Sources */,
-				098C89F52516485800655ED8 /* FromModel.swift in Sources */,
 				095E871124881AFF0046F404 /* SettingsScreen.swift in Sources */,
 				0925E91424A61B8F00639973 /* ProgressBarView.swift in Sources */,
 				095E27A024F01AC800B0BFC4 /* WriteToUsVC.swift in Sources */,
@@ -482,6 +469,7 @@
 				098C89EB25162CE400655ED8 /* FromVC.swift in Sources */,
 				0961AFAE24B3AF0F005A51BD /* LanguageCell.swift in Sources */,
 				098C89F22516482700655ED8 /* ModalIntervalVC.swift in Sources */,
+				09C4D631251E80F000B0C028 /* DaysOfWeek.swift in Sources */,
 				094483472479701900FD1040 /* UserSettings.swift in Sources */,
 				095E871724896EAF0046F404 /* MacawChartView.swift in Sources */,
 			);

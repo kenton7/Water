@@ -766,19 +766,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TgQ-yj-U1W">
-                                <rect key="frame" x="20" y="119" width="374" height="32"/>
-                                <color key="backgroundColor" red="0.17563086750000001" green="0.62363618610000005" blue="0.99611920119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="1dY-ts-QZB"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="374" id="i2y-XY-B1m"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="По дням"/>
-                                    <segment title="По месяцам"/>
-                                </segments>
-                            </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emQ-J0-lLy" customClass="MacawCharts" customModule="Water_" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emQ-J0-lLy" customClass="MacawCharts" customModule="Water_" customModuleProvider="target">
                                 <rect key="frame" x="19" y="261" width="375" height="375"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                 <constraints>
@@ -789,19 +777,14 @@
                         <viewLayoutGuide key="safeArea" id="zaL-ht-2so"/>
                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="emQ-J0-lLy" firstAttribute="top" secondItem="TgQ-yj-U1W" secondAttribute="bottom" constant="111" id="3dO-M3-F9l"/>
                             <constraint firstItem="zaL-ht-2so" firstAttribute="bottom" secondItem="emQ-J0-lLy" secondAttribute="bottom" constant="177" id="O4J-yy-0zb"/>
-                            <constraint firstItem="TgQ-yj-U1W" firstAttribute="top" secondItem="zaL-ht-2so" secondAttribute="top" constant="31" id="SMe-ky-XuN"/>
-                            <constraint firstItem="zaL-ht-2so" firstAttribute="trailing" secondItem="TgQ-yj-U1W" secondAttribute="trailing" constant="20" id="VzC-n5-MaH"/>
                             <constraint firstItem="emQ-J0-lLy" firstAttribute="leading" secondItem="zaL-ht-2so" secondAttribute="leading" constant="19" id="ZFj-aL-KCO"/>
                             <constraint firstItem="zaL-ht-2so" firstAttribute="trailing" secondItem="emQ-J0-lLy" secondAttribute="trailing" constant="20" id="ezn-j7-t7H"/>
-                            <constraint firstItem="TgQ-yj-U1W" firstAttribute="leading" secondItem="zaL-ht-2so" secondAttribute="leading" constant="20" id="fyW-rm-8ai"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Календарь" id="O2y-sz-ApN"/>
                     <connections>
                         <outlet property="chartView" destination="emQ-J0-lLy" id="LAr-vK-qCQ"/>
-                        <outlet property="segmentedControllOutlet" destination="TgQ-yj-U1W" id="jMa-dn-rxy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxN-Rw-dPU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

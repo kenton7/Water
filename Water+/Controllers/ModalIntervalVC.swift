@@ -21,7 +21,32 @@ class ModalIntervalVC: UIViewController {
         super.viewDidLoad()
         datePickerOutlet.dataSource = self
         datePickerOutlet.delegate = self
-        timeLabelOutlet.text = "Уведомления отправляются с периодичностью в \(UserSettings.userIntervalNotif) минут"
+        switch UserSettings.userIntervalNotif {
+        case 900:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 15 минут"
+        case 1800:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 30 минут"
+        case 3600:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 1 час"
+        case 4680:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 1 час и 30 минут"
+        case 7200:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 2 часа"
+        case 8280:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 2 часа и 30 минут"
+        case 10800:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 3 часа"
+        case 14400:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 4 часа"
+        case 18000:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 5 часов"
+        case 21600:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 6 часов"
+        case 25200:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 7 часов"
+        default:
+            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 1 час"
+        }
     }
     
     public func scheduleNotification(inSeconds seconds: TimeInterval, text: String, completion: (Bool) -> ()) {
@@ -82,133 +107,56 @@ extension ModalIntervalVC: UIPickerViewDelegate, UIPickerViewDataSource {
             UserSettings.userIntervalNotif = timeInSeconds!
             print(UserSettings.userIntervalNotif!)
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 15 минут"
-//            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("failed")
-//                }
-//            }
             appDelegate?.createNotification()
         case "30 минут":
             timeInSeconds = 1800
             UserSettings.userIntervalNotif = timeInSeconds! 
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 30 минут"
-//            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("failed")
-//                }
-//            }
             appDelegate?.createNotification()
         case "1 час":
             timeInSeconds = 3600
             UserSettings.userIntervalNotif = timeInSeconds
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 1 час"
-//            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("failed")
-//                }
-//            }
             appDelegate?.createNotification()
         case "1 час и 30 минут":
             timeInSeconds = 4680
             UserSettings.userIntervalNotif = timeInSeconds
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 1 час и 30 минут"
-//            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("failed")
-//                }
-//            }
             appDelegate?.createNotification()
         case "2 часа":
             timeInSeconds = 7200
             UserSettings.userIntervalNotif = timeInSeconds
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 2 часа"
-//            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("failed")
-//                }
-//            }
             appDelegate?.createNotification()
         case "2 часа и 30 минут":
             timeInSeconds = 8280
             UserSettings.userIntervalNotif = timeInSeconds
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 2 часа и 30 минут"
-//            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("failed")
-//                }
-            //}
             appDelegate?.createNotification()
         case "3 часа":
             timeInSeconds = 10800
             UserSettings.userIntervalNotif = timeInSeconds!
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 3 часа"
-//            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("failed")
-//                }
-//            }
             appDelegate?.createNotification()
         case "4 часа":
             timeInSeconds = 14400
             UserSettings.userIntervalNotif = timeInSeconds
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 4 часа"
-//            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("failed")
-//                }
-//            }
             appDelegate?.createNotification()
         case "5 часов":
             timeInSeconds = 18000
             UserSettings.userIntervalNotif = timeInSeconds
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 5 часов"
-//            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("failed")
-//                }
-//            }
             appDelegate?.createNotification()
         case "6 часов":
             timeInSeconds = 21600
             UserSettings.userIntervalNotif = timeInSeconds
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 6 часов"
-            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-                if success {
-                    print("success")
-                } else {
-                    print("failed")
-                }
-            }
             appDelegate?.createNotification()
         case "7 часов":
             timeInSeconds = 25200
             UserSettings.userIntervalNotif = timeInSeconds
             timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 7 часов"
-//            scheduleNotification(inSeconds: Double(timeInSeconds!), text: "Не забудь выпить воды") { (success) in
-//                if success {
-//                    print("success")
-//                } else {
-//                    print("failed")
-//                }
-//            }
             appDelegate?.createNotification()
         default:
             break
