@@ -23,7 +23,7 @@ class ModalToVC: UIViewController, HalfModalPresentable {
     }
     
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
-        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         UserSettings.userNotifTo = dateFormatter.string(from: datePickerOutlet.date)
         appDelegate?.stopSendingNotifications()
         if let delegate = navigationController?.transitioningDelegate as? HalfModalTransitioningDelegate {

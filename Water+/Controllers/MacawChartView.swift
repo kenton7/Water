@@ -137,25 +137,25 @@ class MacawCharts: MacawView {
         print(percentOfResult)
         
         switch currentDay {
-        case "Monday":
+        case "Monday", "Понедельник":
             monday = Double(percentOfResult)
             UserSettings.monday = monday
-        case "Tuesday":
+        case "Tuesday", "Вторник":
             tuesday = Double(percentOfResult)
             UserSettings.tuesday = tuesday
-        case "Wednesday":
+        case "Wednesday", "Среда":
             wednesday = Double(percentOfResult)
             UserSettings.wednesday = wednesday
-        case "Thursday":
+        case "Thursday", "Четверг":
             thursday = Double(percentOfResult)
             UserSettings.thursday = thursday
-        case "Friday":
+        case "Friday", "Пятница":
             friday = Double(percentOfResult)
             UserSettings.friday = friday
-        case "Saturday":
+        case "Saturday", "Суббота":
             saturday = Double(percentOfResult)
             UserSettings.saturday = saturday
-        case "Sunday":
+        case "Sunday", "Воскресенье":
             sunday = Double(percentOfResult)
             UserSettings.sunday = sunday
         default:

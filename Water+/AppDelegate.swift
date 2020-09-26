@@ -155,51 +155,117 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func startSendingNotifications() {
+        typealias TimeOfDay = (hour: Int, minute: Int, second: Int)
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         let date = Date()
-        dateFormatter.dateFormat = "HH:mm"
         let result = dateFormatter.string(from: date)
         currentTimeOnDevice = result
         print(currentTimeOnDevice)
+        //print(UserSettings.userNotifFrom)
+        var calendar = Calendar.current
+        calendar.timeZone = .current
+        let strings: [String] = [UserSettings.userNotifFrom ?? currentTimeOnDevice, currentTimeOnDevice]
+        let timesOfDay: [TimeOfDay] = strings.map({ (string) -> TimeOfDay in
+            let components = calendar.dateComponents([.hour, .minute, .second], from: dateFormatter.date(from: string)!)
+            return (hour: components.hour!, minute: components.minute!, second: components.second!)
+        })
+        print(timesOfDay)
         
-        let date1 = dateFormatter.date(from: UserSettings.userNotifFrom ?? currentTimeOnDevice)
-        let date2 = dateFormatter.date(from: result)
-        
-        let userTime = 60 * Calendar.current.component(.hour, from: date1!) + Calendar.current.component(.minute, from: date1!)
-        let currentTime = 60 * Calendar.current.component(.hour, from: date2!) + Calendar.current.component(.minute, from: date2!)
-        print(userTime)
-        print(currentTime)
-        if currentTime < userTime {
+        if timesOfDay[0] > timesOfDay[1] {
             DispatchQueue.main.async {
                 UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                print("start notofications turned off")
             }
+            print("turned off START notif")
+        } else if timesOfDay[0] == timesOfDay[1] {
+            DispatchQueue.main.async {
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            }
+            print("turn off START notif")
         } else {
-            createNotification()
+            //createNotification()
+            print("turned on START notif")
+            return
         }
+        
+        
+//        let date = Date()
+//        dateFormatter.dateFormat = "HH:mm"
+//        let result = dateFormatter.string(from: date)
+//        currentTimeOnDevice = result
+//        print(currentTimeOnDevice)
+        
+//        let date1 = dateFormatter.date(from: UserSettings.userNotifFrom ?? currentTimeOnDevice)
+//        let date2 = dateFormatter.date(from: result)
+//
+//        let userTime = 60 * Calendar.current.component(.hour, from: date1!) + Calendar.current.component(.minute, from: date1!)
+//        let currentTime = 60 * Calendar.current.component(.hour, from: date2!) + Calendar.current.component(.minute, from: date2!)
+//        print(userTime)
+//        print(currentTime)
+//        if currentTime < userTime {
+//            DispatchQueue.main.async {
+//                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//                print("start notofications turned off")
+//            }
+//        } else {
+//            createNotification()
+//        }
     }
     
     func stopSendingNotifications() {
         
+        typealias TimeOfDay = (hour: Int, minute: Int, second: Int)
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         let date = Date()
-        dateFormatter.dateFormat = "HH:mm"
         let result = dateFormatter.string(from: date)
         currentTimeOnDeviceForStop = result
         print(currentTimeOnDeviceForStop)
-        let date1 = dateFormatter.date(from: UserSettings.userNotifTo ?? currentTimeOnDevice)
-        let date2 = dateFormatter.date(from: result)
+        //print(UserSettings.userNotifTo)
+        var calendar = Calendar.current
+        calendar.timeZone = .current
+        let strings: [String] = [UserSettings.userNotifTo ?? currentTimeOnDeviceForStop, currentTimeOnDeviceForStop]
+        let timesOfDay: [TimeOfDay] = strings.map({ (string) -> TimeOfDay in
+            let components = calendar.dateComponents([.hour, .minute, .second], from: dateFormatter.date(from: string)!)
+            return (hour: components.hour!, minute: components.minute!, second: components.second!)
+        })
+        print(timesOfDay)
         
-        let userTime = 60 * Calendar.current.component(.hour, from: date1!) + Calendar.current.component(.minute, from: date1!)
-        let currentTime = 60 * Calendar.current.component(.hour, from: date2!) + Calendar.current.component(.minute, from: date2!)
-        print(userTime)
-        print(currentTime)
-        if currentTime >= userTime {
+        if timesOfDay[0] < timesOfDay[1] {
             DispatchQueue.main.async {
                 UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                print("stop notifications turned off")
             }
+            print("turned off STOP notif")
+        } else if timesOfDay[0] == timesOfDay[1] {
+            DispatchQueue.main.async {
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            }
+            print("turn off STOP notif")
         } else {
-            createNotification()
+            //createNotification()
+            print("turned on STOP notif")
+            return
         }
+
+        //let date = Date()
+        //dateFormatter.dateFormat = "HH:mm"
+        //let result = dateFormatter.string(from: date)
+        //currentTimeOnDeviceForStop = result
+        //print(currentTimeOnDeviceForStop)
+//        let date1 = dateFormatter.date(from: UserSettings.userNotifTo ?? currentTimeOnDevice)
+//        let date2 = dateFormatter.date(from: result)
+//
+//        let userTime = 60 * Calendar.current.component(.hour, from: date1!) + Calendar.current.component(.minute, from: date1!)
+//        let currentTime = 60 * Calendar.current.component(.hour, from: date2!) + Calendar.current.component(.minute, from: date2!)
+//        print(userTime)
+//        print(currentTime)
+//        if currentTime >= userTime {
+//            DispatchQueue.main.async {
+//                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//                print("stop notifications turned off")
+//            }
+//        } else {
+//            print("not stopped")
+//            createNotification()
+//        }
     }
     
     

@@ -54,7 +54,7 @@ class ModalFromVC: UIViewController, HalfModalPresentable {
     
     
     @IBAction func saveButtonTapped(sender: UIButton) {
-            self.dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
             
             UserSettings.userNotifFrom = self.dateFormatter.string(from: self.datePickerOutlet.date)
         appDelegate?.startSendingNotifications()

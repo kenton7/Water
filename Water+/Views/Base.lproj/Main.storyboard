@@ -766,8 +766,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emQ-J0-lLy" customClass="MacawCharts" customModule="Water_" customModuleProvider="target">
-                                <rect key="frame" x="19" y="261" width="375" height="375"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emQ-J0-lLy" customClass="MacawCharts" customModule="Water_" customModuleProvider="target">
+                                <rect key="frame" x="19" y="265" width="375" height="371"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="375" id="CRj-q8-WDE"/>
@@ -780,6 +780,7 @@
                             <constraint firstItem="zaL-ht-2so" firstAttribute="bottom" secondItem="emQ-J0-lLy" secondAttribute="bottom" constant="177" id="O4J-yy-0zb"/>
                             <constraint firstItem="emQ-J0-lLy" firstAttribute="leading" secondItem="zaL-ht-2so" secondAttribute="leading" constant="19" id="ZFj-aL-KCO"/>
                             <constraint firstItem="zaL-ht-2so" firstAttribute="trailing" secondItem="emQ-J0-lLy" secondAttribute="trailing" constant="20" id="ezn-j7-t7H"/>
+                            <constraint firstItem="emQ-J0-lLy" firstAttribute="centerY" secondItem="zaL-ht-2so" secondAttribute="centerY" id="x41-af-1fD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Календарь" id="O2y-sz-ApN"/>
