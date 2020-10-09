@@ -11,6 +11,7 @@ protocol MililetersVCDelegate {
 }
 
 import UIKit
+import IntentsUI
 
 class MililetersViewController: UIViewController, UIViewControllerTransitioningDelegate, MililetersVCDelegate, UITextFieldDelegate {
     func passingDataBack(data: [String]) {
@@ -47,6 +48,8 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
     var addDrinks = AddDrinksViewController()
     var drinksToMainVC: [String] = []
     var progressToMainVC: Float = 0.0
+    let siriDelegate = SiriShortcutsVC()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,7 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
         pickerViewOutlet.dataSource = self
         pickerViewOutlet.delegate = self
         self.transitioningDelegate = self
+        //addSiriButton(to: self.view)
         
         addButtonOutlet.layer.cornerRadius = 25
         addButtonOutlet.layer.shadowColor = UIColor.black.cgColor
@@ -64,9 +68,28 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
         descr.layer.cornerRadius = 25
     }
     
+    func addShortcut() {
+        let activity = NSUserActivity(activityType: "com.ilyakuznetsov.WaterPlus")
+        let shortcut = INShortcut(userActivity: activity)
+
+        activity.title = "Выбери напиток"
+        activity.isEligibleForSearch = true
+        activity.isEligibleForPrediction = true
+
+        self.userActivity = activity
+        self.userActivity?.becomeCurrent()
+
+        let vc = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+        vc.delegate = self
+
+        present(vc, animated: true, completion: nil)
+    }
+    
     
     @IBAction func goToMainVC(_ sender: UIButton) {
+        drinksToMainVC.append(drinks?.imageName ?? "nil")
         performSegue(withIdentifier: K.BackToMainView, sender: self)
+        //addShortcut()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,57 +116,60 @@ extension MililetersViewController: UIPickerViewDelegate, UIPickerViewDataSource
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //название элементов в picker view
-        return String(volume.volumeArray[row]) + " " + "мл"
+        return String(volume.volumeArray[row]) + " " + NSLocalizedString("ML", comment: "ml")
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         volumeFromMilimetersVC = Double(volume.volumeArray[row])
-        drinksToMainVC.append(drinks?.imageName ?? "nil")
         progressToMainVC = Float(volumeFromMilimetersVC)
+        //addShortcut()
+        
         
         switch drinks?.drinkName {
-        case "Вода":
+        case "Вода", "Water", "L'eau", "Wasser", "Acqua":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
             print(volumeFromMilimetersVC)
-        case "Зелёный \nчай":
+        case "Зелёный \nчай", "Green \ntea", "Thé vert", "Grüner Tee", "Tè verde":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
+            //addSiriButton(to: self.view)
             print(volumeFromMilimetersVC)
-        case "Чёрный \nчай":
+        case "Чёрный \nчай", "Black \ntea", "Thé noir", "Schwarzer Tee", "Tè nero":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
-        case "Какао":
+            //addSiriButton(to: self.view)
+        case "Какао", "Cocoa", "Cacao", "Kakao":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.9
-        case "Кофе":
+        case "Кофе", "Coffee", "Café", "Kaffee", "Caffè":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.9
-        case "Кола":
+        case "Кола", "Cola":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.89
-        case "Молоко":
+        case "Молоко", "Milk", "Lait", "Milch", "Latte":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.88
-        case "Кефир":
+        case "Кефир", "Kefir", "Kéfir":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.91
-        case "Вино":
+        case "Вино", "Wine", "Du vin", "Wein", "Vino":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.86
-        case "Пиво":
+        case "Пиво", "Beer", "Bière", "Bier", "Birra":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.91
-        case "Смузи":
+        case "Смузи", "Smoothie":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.85
-        case "Квас":
-            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * (-0.4)
-        case "Кола Zero":
+        case "Квас", "Kvass", "Kwas", "Kvas":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.9
+        case "Кола Zero", "Cola Zero", "Cola Zéro":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
-        case "Компот":
+        case "Компот", "Compote", "Kompott", "Composta":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.87
-        case "Лимонад":
-            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * (-0.4)
-        case "Энергетик":
-            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * (-0.8)
-        case "Пиво \nбезалкогол.":
+        case "Лимонад", "Lemonade", "Limonade", "Limonata":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.89
+        case "Энергетик", "Energy Drink", "Boisson \nénergisante", "Energiegetränk", "Bevanda \nenergetica":
+            volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.89
+        case "Пиво \nбезалкогол.", "Beer \nnonalcoholic", "Bière sans \nalcool", "Alkoholfreies \nBier", "Birra \nanalcolica":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.94
-        case "Яблочный \nсок":
+        case "Яблочный \nсок", "Apple \njuice", "Jus de \npomme", "Apfelsaft", "Succo di \nmela":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.88
-        case "Крепкий \nалкоголь":
+        case "Крепкий \nалкоголь", "Strong \nalcohol", "Alcool fort", "Starker \nAlkohol", "Alcol \nforte":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.62
-        case "Апельсин. \nсок":
+        case "Апельсин. \nсок", "Orange \njuice", "Du jus \nd'orange", "Orangensaft", "Succo \nd'arancia":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.89
         default:
             break
@@ -154,6 +180,94 @@ extension MililetersViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 35
     }
-    
 }
+
+extension MililetersViewController: INUIAddVoiceShortcutButtonDelegate {
+        @available(iOS 12.0, *)
+            func present(_ addVoiceShortcutViewController: INUIAddVoiceShortcutViewController, for addVoiceShortcutButton: INUIAddVoiceShortcutButton) {
+                addVoiceShortcutViewController.delegate = self
+                addVoiceShortcutViewController.modalPresentationStyle = .formSheet
+                present(addVoiceShortcutViewController, animated: true, completion: nil)
+    }
+
+    @available(iOS 12.0, *)
+        func present(_ editVoiceShortcutViewController: INUIEditVoiceShortcutViewController, for addVoiceShortcutButton: INUIAddVoiceShortcutButton) {
+            editVoiceShortcutViewController.delegate = self
+            editVoiceShortcutViewController.modalPresentationStyle = .formSheet
+            present(editVoiceShortcutViewController, animated: true, completion: nil)
+        }
+
+//    func addSiriButton(to view: UIView) {
+//        if #available(iOS 12.0, *) {
+//            //let intent = INIntent()
+//            let button = INUIAddVoiceShortcutButton(style: .whiteOutline)
+//            button.shortcut = INShortcut(intent: intent)
+//                button.delegate = self
+//                button.translatesAutoresizingMaskIntoConstraints = false
+//                view.addSubview(button)
+//                view.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+//                view.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+//            }
+//
+//        }
+
+    func showMessage() {
+        let alert = UIAlertController(title: "Готово!", message: "Команда добавлена в Siri Shortcuts", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+//extension MililetersViewController {
+//    @available(iOS 12.0, *)
+//    public var intent: DrinkWaterIntent {
+//        let testIntent = DrinkWaterIntent()
+//        testIntent.suggestedInvocationPhrase = "Добавить воды"
+//        let interaction = INInteraction(intent: testIntent, response: nil)
+//        interaction.donate { (error) in
+//            print(error?.localizedDescription)
+//        }
+//        return testIntent
+//    }
+//}
+
+extension MililetersViewController: INUIAddVoiceShortcutViewControllerDelegate {
+    @available(iOS 12.0, *)
+        func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+            controller.dismiss(animated: true, completion: nil)
+        }
+
+        @available(iOS 12.0, *)
+        func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+            controller.dismiss(animated: true, completion: nil)
+        }
+}
+
+extension MililetersViewController: INUIEditVoiceShortcutViewControllerDelegate {
+    @available(iOS 12.0, *)
+        func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
+            controller.dismiss(animated: true, completion: nil)
+        }
+
+        @available(iOS 12.0, *)
+        func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
+            controller.dismiss(animated: true, completion: nil)
+        }
+
+        @available(iOS 12.0, *)
+        func editVoiceShortcutViewControllerDidCancel(_ controller: INUIEditVoiceShortcutViewController) {
+            controller.dismiss(animated: true, completion: nil)
+        }
+}
+
+
+//extension MililetersViewController: INUIAddVoiceShortcutViewControllerDelegate {
+//    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+//        dismiss(animated: true, completion: nil)
+//    }
+//
+//    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+//        dismiss(animated: true, completion: nil)
+//    }
+//}
 

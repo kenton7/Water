@@ -64,7 +64,7 @@ class SetLanguageTableVC: UITableViewController {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         
         switch lang.languagesArray[indexPath.row] {
-        case "Русский":
+        case NSLocalizedString("RUSSIAN", comment: "rus"):
             let alertRu = UIAlertController(title: "Перезапустите приложение", message: "", preferredStyle: .alert)
             let ru = UIAlertAction(title: "Ок", style: .default) { (alert) in
                 Bundle.setLanguage("ru")
@@ -73,7 +73,7 @@ class SetLanguageTableVC: UITableViewController {
             }
             alertRu.addAction(ru)
             self.present(alertRu, animated: true, completion: nil)
-        case "Английский":
+        case NSLocalizedString("ENGLISH", comment: "eng"):
             let alertEn = UIAlertController(title: "Restart the app", message: "", preferredStyle: .alert)
             let en = UIAlertAction(title: "Ok", style: .default) { (alert) in
                 Bundle.setLanguage("en")
@@ -82,7 +82,7 @@ class SetLanguageTableVC: UITableViewController {
             }
             alertEn.addAction(en)
             self.present(alertEn, animated: true, completion: nil)
-        case "Немецкий":
+        case NSLocalizedString("GERMAN", comment: "de"):
             let alertDe = UIAlertController(title: "Starten Sie die Anwendung neu", message: "", preferredStyle: .alert)
             let de = UIAlertAction(title: "Ok", style: .default) { (alert) in
                 Bundle.setLanguage("de")
@@ -91,7 +91,7 @@ class SetLanguageTableVC: UITableViewController {
             }
             alertDe.addAction(de)
             self.present(alertDe, animated: true, completion: nil)
-        case "Французский":
+        case NSLocalizedString("FRENCH", comment: "fr"):
             let alertFr = UIAlertController(title: "Redémarrez l'application", message: "", preferredStyle: .alert)
             let fr = UIAlertAction(title: "Ok", style: .default) { (alert) in
                 Bundle.setLanguage("fr")
@@ -100,7 +100,7 @@ class SetLanguageTableVC: UITableViewController {
             }
             alertFr.addAction(fr)
             self.present(alertFr, animated: true, completion: nil)
-        case "Итальянский":
+        case NSLocalizedString("ITALIAN", comment: "it"):
             let alertIt = UIAlertController(title: "Riavvia l'applicazione", message: "", preferredStyle: .alert)
             let it = UIAlertAction(title: "Ok", style: .default) { (alert) in
                 Bundle.setLanguage("it")

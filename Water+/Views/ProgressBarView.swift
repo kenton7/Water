@@ -67,7 +67,11 @@ func updateProgress(with value: Float) {
     if value > Float(UserSettings.result!) {
         progressLayer.strokeEnd = 1.0
         progressLayer.strokeColor = UIColor.green.cgColor
-        progressLayer.strokeColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+        if progressLayer.strokeEnd >= 1.0 {
+            progressLayer.strokeColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+        } else {
+            progressLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        }
         UserSettings.userProgress = Float(progressLayer.strokeEnd)
             return
         }

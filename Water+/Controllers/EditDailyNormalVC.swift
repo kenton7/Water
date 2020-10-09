@@ -9,7 +9,7 @@
 import UIKit
 
 class EditDailyNormalVC: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var currentDailyNormal: UILabel!
     @IBOutlet weak var customNormalTextField: UITextField!
     @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
@@ -33,9 +33,9 @@ class EditDailyNormalVC: UIViewController, UITextFieldDelegate {
     
     //проверка на количество знаков в textField'e, чтобы юзер не смог ввести новую норму НЕ в миллилитрах
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
         let text = (customNormalTextField.text! as NSString).replacingCharacters(in: range, with: string)
-
+        
         if text.count < 4 {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
         } else {
@@ -68,11 +68,17 @@ class EditDailyNormalVC: UIViewController, UITextFieldDelegate {
         UserSettings.result = Int(newDaily)
         DispatchQueue.main.async {
             vc?.maxProgress = Int(self.newMaxProgress)
+            if vc!.progressBar.progressLayer.strokeEnd >= 1.0 {
+                vc!.progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            } else {
+                vc!.progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+                UserSettings.alert = false
+            }
         }
     }
-
+    
     //убираем клавиатуру
-      override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-          self.view.endEditing(true)
-      }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

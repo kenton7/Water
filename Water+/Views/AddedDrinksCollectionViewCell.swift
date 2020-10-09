@@ -8,12 +8,13 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class AddedDrinksCollectionViewCell: UICollectionViewCell {
     
     
     static let identifier = K.identifierAddedDrinksCollectionView
-    let drinks = Drinks()
-    let main = MainViewController()
+    //let drinks = Drinks()
+    //let main = MainViewController()
     
     let circleAddedDrinksImages: UIImageView = {
         let imageView = UIImageView()

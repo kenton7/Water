@@ -23,8 +23,8 @@ class MacawCharts: MacawView {
     var currentDay: String?
     let delegate = MainViewController()
     
-        required init?(coder aDecoder: NSCoder) {
-            super.init(node: MacawCharts.createChart(), coder: aDecoder)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(node: MacawCharts.createChart(), coder: aDecoder)
     }
     
     private static func createChart() -> Group {
@@ -129,46 +129,50 @@ class MacawCharts: MacawView {
         var friday: Double?
         var saturday: Double?
         var sunday: Double?
-         
+        let formatter = DateFormatter()
+        let date = Date()
+        
         dateFormatter.dateFormat = "EEEE"
+        formatter.dateFormat = "MM-dd"
+        let formatterString = formatter.string(from: date)
         currentDay = dateFormatter.string(from: Date()).capitalized
         print(currentDay!)
         let percentOfResult = (UserSettings.addedVolume * 100) / delegate.maxProgress!
         print(percentOfResult)
         
         switch currentDay {
-        case "Monday", "Понедельник":
+        case "Monday", "Понедельник", "Lunedi", "Lundi", "Montag":
             monday = Double(percentOfResult)
             UserSettings.monday = monday
-        case "Tuesday", "Вторник":
+        case "Tuesday", "Вторник", "Martedì", "Mardi", "Dienstag":
             tuesday = Double(percentOfResult)
             UserSettings.tuesday = tuesday
-        case "Wednesday", "Среда":
+        case "Wednesday", "Среда", "Mercoledì", "Mercredi", "Mittwoch":
             wednesday = Double(percentOfResult)
             UserSettings.wednesday = wednesday
-        case "Thursday", "Четверг":
+        case "Thursday", "Четверг", "Giovedi", "Jeudi", "Donnerstag":
             thursday = Double(percentOfResult)
             UserSettings.thursday = thursday
-        case "Friday", "Пятница":
+        case "Friday", "Пятница", "Venerdì", "Vendredi", "Freitag":
             friday = Double(percentOfResult)
             UserSettings.friday = friday
-        case "Saturday", "Суббота":
+        case "Saturday", "Суббота", "Sabato", "Samedi", "Samstag":
             saturday = Double(percentOfResult)
             UserSettings.saturday = saturday
-        case "Sunday", "Воскресенье":
+        case "Sunday", "Воскресенье", "Domenica", "Dimanche", "Sonntag":
             sunday = Double(percentOfResult)
             UserSettings.sunday = sunday
         default:
             break
         }
         
-        let mondayForChart = StatisticScreen(showNumber: "Пн", viewCount: UserSettings.monday)
-        let tuesdayForChart = StatisticScreen(showNumber: "Вт", viewCount: UserSettings.tuesday)
-        let wednesdayForChart = StatisticScreen(showNumber: "Ср", viewCount: UserSettings.wednesday)
-        let thursdayForChart = StatisticScreen(showNumber: "Чт", viewCount: UserSettings.thursday)
-        let fridayForChart = StatisticScreen(showNumber: "Пт", viewCount: UserSettings.friday)
-        let saturdayForChart = StatisticScreen(showNumber: "Сб", viewCount: UserSettings.saturday)
-        let sundayForChart = StatisticScreen(showNumber: "Вск", viewCount: UserSettings.sunday)
+        let mondayForChart = StatisticScreen(showNumber: NSLocalizedString("MONDAY", comment: "Mnd"), viewCount: UserSettings.monday)
+        let tuesdayForChart = StatisticScreen(showNumber: NSLocalizedString("TUESDAY", comment: "tsd"), viewCount: UserSettings.tuesday)
+        let wednesdayForChart = StatisticScreen(showNumber: NSLocalizedString("WEDNESDAY", comment: "Wdn"), viewCount: UserSettings.wednesday)
+        let thursdayForChart = StatisticScreen(showNumber: NSLocalizedString("THURSDAY", comment: "Tsd"), viewCount: UserSettings.thursday)
+        let fridayForChart = StatisticScreen(showNumber: NSLocalizedString("FRIDAY", comment: "fr"), viewCount: UserSettings.friday)
+        let saturdayForChart = StatisticScreen(showNumber: NSLocalizedString("SATURDAY", comment: "Str"), viewCount: UserSettings.saturday)
+        let sundayForChart = StatisticScreen(showNumber: NSLocalizedString("SUNDAY", comment: "Snd"), viewCount: UserSettings.sunday)
         
         
         return [mondayForChart, tuesdayForChart, wednesdayForChart, thursdayForChart, fridayForChart, saturdayForChart, sundayForChart]

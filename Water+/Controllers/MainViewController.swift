@@ -62,7 +62,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.navigationItem.title = "Главная"
+        tabBarController?.navigationItem.title = NSLocalizedString("MAIN", comment: "main")
         
         checkAddedDrinksAndUpdateLabel()
         print(addedDrinksArray)
@@ -89,7 +89,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         if progressBar.progressLayer.strokeEnd >= 1.0 {
             progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         } else {
-            progressBar.progressLayer.strokeColor = UIColor.init(red: 30/255, green: 144/255, blue: 255/255, alpha: 1).cgColor
+            progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
         }
         progress = Float(UserSettings.addedVolume)
         resetDataEveryNight()

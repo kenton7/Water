@@ -20,36 +20,10 @@ class ModalFromVC: UIViewController, HalfModalPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentTimeOutlet.text = "Уведомления отправляются с: \(UserSettings.userNotifFrom ?? " ")"
-    }
-    
-//    func scheduleNotification(inSeconds seconds: TimeInterval, text: String, completion: (Bool) -> ()) {
-//     
-//        removeNotification(withIdentifiers:["notifStart"])
-//        
-//        let date = Date(timeIntervalSinceNow: seconds)
-//        print (Date())
-//        print(date)
-//        
-//        let content = UNMutableNotificationContent()
-//        content.title = "Текст"
-//        content.sound = UNNotificationSound.default
-//        
-//        let calendar = Calendar.current
-//        let components = calendar.dateComponents([.hour, .minute], from: date)
-//        print(components)
-//        
-//        
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-//        let request = UNNotificationRequest(identifier: "notifStart", content: content, trigger: trigger)
-//        
-//        let center = UNUserNotificationCenter.current()
-//        center.add(request, withCompletionHandler: nil)
-//    }
-    
-    func removeNotification(withIdentifiers identifiers: [String]) {
-        let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: identifiers)
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        currentTimeOutlet.text = NSLocalizedString("NOTIFICATIONS_FROM", comment: "from")
     }
     
     
@@ -59,7 +33,7 @@ class ModalFromVC: UIViewController, HalfModalPresentable {
             UserSettings.userNotifFrom = self.dateFormatter.string(from: self.datePickerOutlet.date)
         appDelegate?.startSendingNotifications()
             print(UserSettings.userNotifFrom!)
-            self.currentTimeOutlet.text = "Уведомления отправляются с: \(UserSettings.userNotifFrom!)"
+            self.currentTimeOutlet.text = NSLocalizedString("NOTIFICATIONS_FROM", comment: "from")
         if let delegate = navigationController?.transitioningDelegate as? HalfModalTransitioningDelegate {
             delegate.interactiveDismiss = false
         }

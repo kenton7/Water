@@ -18,8 +18,8 @@ class ModalToVC: UIViewController, HalfModalPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        timeLabelOutlet.text = "Уведомления отправляются до: \(UserSettings.userNotifTo ?? "")"
+        
+        timeLabelOutlet.text = NSLocalizedString("NOTIFICATIONS_TO", comment: "to")
     }
     
     @IBAction func savePressed(_ sender: UIBarButtonItem) {

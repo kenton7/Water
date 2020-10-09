@@ -13,112 +13,113 @@ class AddDrinksViewController: UIViewController {
     var delegate: MililetersViewController?
     
     var drinksArray: [Drinks] = {
-       var water = Drinks()
-        water.drinkName = "Вода"
-        water.imageName = "water"
-        water.description = "Коэффициент гидрации = 100%"
-        
-        var greenTea = Drinks()
-        greenTea.drinkName = "Зелёный \nчай"
-        greenTea.imageName = "greenTea"
-        greenTea.description = "Коэффициент гидрации = 100%"
-        
-        var blackTea = Drinks()
-        blackTea.drinkName = "Чёрный \nчай"
-        blackTea.imageName = "blackTea"
-        blackTea.description = "Коэффициент гидрации = 100%"
-        
-        var coffee = Drinks()
-        coffee.drinkName = "Кофе"
-        coffee.imageName = "coffee"
-        coffee.description = "Коэффициент гидрации = 90%"
-        
-        var cola = Drinks()
-        cola.drinkName = "Кола"
-        cola.imageName = "cola"
-        cola.description = "Коэффициент гидрации = 89%"
-        
-        var dietCola = Drinks()
-        dietCola.drinkName = "Кола Zero"
-        dietCola.imageName = "dietCola"
-        dietCola.description = "Коэффициент гидрации = 100%"
-        
-        var milk = Drinks()
-        milk.drinkName = "Молоко"
-        milk.imageName = "milk"
-        milk.description = "Коэффициент гидрации = 88%"
-        
-        var appleJuice = Drinks()
-        appleJuice.drinkName = "Яблочный \nсок"
-        appleJuice.imageName = "appleJuice"
-        appleJuice.description = "Коэффициент гидрации = 88%"
-        
-        var orangeJuice = Drinks()
-        orangeJuice.drinkName = "Апельсин. \nсок"
-        orangeJuice.imageName = "orangeJuice"
-        orangeJuice.description = "Коэффициент гидрации = 89%"
-        
-        var kefir = Drinks()
-        kefir.drinkName = "Кефир"
-        kefir.imageName = "kefir"
-        kefir.description = "Коэффициент гидрации = 91%"
-        
-        var wine = Drinks()
-        wine.drinkName = "Вино"
-        wine.imageName = "wine"
-        wine.description = "Коэффициент гидрации вина рассчитывается по формуле: \n1 мл * (-0.8)"
-        
-        var beer = Drinks()
-        beer.drinkName = "Пиво"
-        beer.imageName = "beer"
-        beer.description = "Коэффициент гидрации = 91%"
-        
-        var noAcloholBeer = Drinks()
-        noAcloholBeer.drinkName = "Пиво \nбезалкогол."
-        noAcloholBeer.imageName = "noAlcoholBeer"
-        noAcloholBeer.description = "Коэффициент гидрации = 94%"
-        
-        var hardAlcohol = Drinks()
-        hardAlcohol.drinkName = "Крепкий \nалкоголь"
-        hardAlcohol.imageName = "hardAlcohol"
-        hardAlcohol.description = "Коэффициент гидрации крепкого алкоголя расчитывается по формуле: \n1 мл * (-1.8)"
-        
-        var energetic = Drinks()
-        energetic.drinkName = "Энергетик"
-        energetic.imageName = "energyDrink"
-        energetic.description = "Коэффициент гидрации энергетика рассчитывается по формуле: \n1 мл * (-0.8)"
-        
-        var limonad = Drinks()
-        limonad.drinkName = "Лимонад"
-        limonad.imageName = "lemonade"
-        limonad.description = "Коэффициент гидрации лимонада рассчитывается по формуле: \n1 мл * (-0.4)"
-        
-        var kvass = Drinks()
-        kvass.drinkName = "Квас"
-        kvass.imageName = "kvass"
-        kvass.description = "Коэффициент гидрации кваса рассчитывается по формуле: \n1 мл * (-0.4)"
-        
-        var smoothie = Drinks()
-        smoothie.drinkName = "Смузи"
-        smoothie.imageName = "smoothie"
-        smoothie.description = "Коэффициент гидрации = 85%"
-        
-        var compote = Drinks()
-        compote.drinkName = "Компот"
-        compote.imageName = "compote"
-        compote.description = "Коэффициент гидрации = 87%"
-        
-        var cocoa = Drinks()
-        cocoa.drinkName = "Какао"
-        cocoa.imageName = "cocoa"
-        cocoa.description = "Коэффициент гидрации = 90%"
-
-        return [water, greenTea, blackTea, cocoa, coffee, cola, milk, kefir, wine, beer, smoothie, kvass, dietCola, compote, limonad, energetic, noAcloholBeer, appleJuice, hardAlcohol, orangeJuice]
-    }()
+           var water = Drinks()
+            water.drinkName = NSLocalizedString("WATER", comment: "Water")
+            water.imageName = "water"
+            water.description = NSLocalizedString("WATER_DESCR", comment: "WeaterDescr")
+            
+            var greenTea = Drinks()
+            greenTea.drinkName = NSLocalizedString("GREEN_TEA", comment: "Green tea")
+            greenTea.imageName = "greenTea"
+            greenTea.description = NSLocalizedString("GREEN_TEA_DESCR", comment: "Green_tea_descr")
+            
+            var blackTea = Drinks()
+            blackTea.drinkName = NSLocalizedString("BLACK_TEA", comment: "Black tea")
+            blackTea.imageName = "blackTea"
+            blackTea.description = NSLocalizedString("BLACK_TEA_DESCR", comment: "black tea descr")
+            
+            var coffee = Drinks()
+            coffee.drinkName = NSLocalizedString("COFFEE", comment: "Coffee")
+            coffee.imageName = "coffee"
+            coffee.description = NSLocalizedString("COFFEE_DESCR", comment: "Coffee descr")
+            
+            var cola = Drinks()
+            cola.drinkName = NSLocalizedString("COLA", comment: "Cola")
+            cola.imageName = "cola"
+            cola.description = NSLocalizedString("COLA_DESCR", comment: "Cola descr")
+            
+            var dietCola = Drinks()
+            dietCola.drinkName = NSLocalizedString("COLA_ZERO", comment: "Cola Zero")
+            dietCola.imageName = "dietCola"
+            dietCola.description = NSLocalizedString("COLA_ZERO_DESCR", comment: "Cola zero descr")
+            
+            var milk = Drinks()
+            milk.drinkName = NSLocalizedString("MILK", comment: "Milk")
+            milk.imageName = "milk"
+            milk.description = NSLocalizedString("MILK_DESCR", comment: "milk descr")
+            
+            var appleJuice = Drinks()
+            appleJuice.drinkName = NSLocalizedString("APPLE_JUICE", comment: "Apple Juice")
+            appleJuice.imageName = "appleJuice"
+            appleJuice.description = NSLocalizedString("APPLE_JUICE_DESCR", comment: "apple juice descr")
+            
+            var orangeJuice = Drinks()
+            orangeJuice.drinkName = NSLocalizedString("ORANGE_JUICE", comment: "Orange Juice")
+            orangeJuice.imageName = "orangeJuice"
+            orangeJuice.description = NSLocalizedString("ORANGE_JUICE_DECR", comment: "orange juice descr")
+            
+            var kefir = Drinks()
+            kefir.drinkName = NSLocalizedString("KEFIR", comment: "Kefir")
+            kefir.imageName = "kefir"
+            kefir.description = NSLocalizedString("KEFIR_DESCR", comment: "kefir descr")
+            
+            var wine = Drinks()
+            wine.drinkName = NSLocalizedString("WINE", comment: "Wine")
+            wine.imageName = "wine"
+            wine.description = NSLocalizedString("WINE_DESCR", comment: "wine descr")
+            
+            var beer = Drinks()
+            beer.drinkName = NSLocalizedString("BEER", comment: "Beer")
+            beer.imageName = "beer"
+            beer.description = NSLocalizedString("BEER_DESCR", comment: "beer descr")
+            
+            var noAcloholBeer = Drinks()
+            noAcloholBeer.drinkName = NSLocalizedString("NO_ALCOHOL_BEER", comment: "No alcohol beer")
+            noAcloholBeer.imageName = "noAlcoholBeer"
+            noAcloholBeer.description = NSLocalizedString("NO_ALCOHOL_BEER_DESCR", comment: "no alcohol descr")
+            
+            var hardAlcohol = Drinks()
+            hardAlcohol.drinkName = NSLocalizedString("HARD_ALCOHOL", comment: "Strong alcohol")
+            hardAlcohol.imageName = "hardAlcohol"
+            hardAlcohol.description = NSLocalizedString("HARD_ALCOHOL_DESCR", comment: "hard alcohol descr")
+            
+            var energetic = Drinks()
+            energetic.drinkName = NSLocalizedString("ENERGETIC", comment: "Energetic")
+            energetic.imageName = "energyDrink"
+            energetic.description = NSLocalizedString("ENERGETIC_DESCR", comment: "Energetic descr")
+            
+            var limonad = Drinks()
+            limonad.drinkName = NSLocalizedString("LIMONAD", comment: "lemonade")
+            limonad.imageName = "lemonade"
+            limonad.description = NSLocalizedString("LIMONAD_DESCR", comment: "lemonade descr")
+            
+            var kvass = Drinks()
+            kvass.drinkName = NSLocalizedString("KVASS", comment: "Kvass")
+            kvass.imageName = "kvass"
+            kvass.description = NSLocalizedString("KVASS_DESCR", comment: "kvass descr")
+            
+            var smoothie = Drinks()
+            smoothie.drinkName = NSLocalizedString("SMOOTHIE", comment: "Smoothie")
+            smoothie.imageName = "smoothie"
+            smoothie.description = NSLocalizedString("SMOOTHIE_DESCR", comment: "Smoothie descr")
+            
+            var compote = Drinks()
+            compote.drinkName = NSLocalizedString("COMPOTE", comment: "Compote")
+            compote.imageName = "compote"
+            compote.description = NSLocalizedString("COMPOTE_DESCR", comment: "compote descr")
+            
+            var cocoa = Drinks()
+            cocoa.drinkName = NSLocalizedString("COCOA", comment: "Cocoa")
+            cocoa.imageName = "cocoa"
+            cocoa.description = NSLocalizedString("COCOA_DESCR", comment: "cocoa descr")
+            
+            return [water, greenTea, blackTea, cocoa, coffee, cola, milk, kefir, wine, beer, smoothie, kvass, dietCola, compote, limonad, energetic, noAcloholBeer, appleJuice, hardAlcohol, orangeJuice]
+        }()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.navigationItem.title = "Напитки"
+        
+        self.tabBarController?.navigationItem.title = NSLocalizedString("DRINKS", comment: "drinks")
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -139,6 +140,10 @@ class AddDrinksViewController: UIViewController {
                 vc.drinks = milimeters
             }
         }
+    }
+    
+    @IBAction func unwindTAddDrinksVC(segue: UIStoryboardSegue) {
+        
     }
 }
 
@@ -165,6 +170,14 @@ extension AddDrinksViewController: UICollectionViewDelegate, UICollectionViewDat
         return CollectionViewCell()
     }
     
+    func test() {
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let drinks = drinksArray[indexPath.row]
+
+            
+            self.performSegue(withIdentifier: K.milimetersView, sender: drinks)
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let drinks = drinksArray[indexPath.row]

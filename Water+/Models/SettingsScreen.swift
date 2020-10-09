@@ -21,11 +21,11 @@ enum SettingsSections: Int, CaseIterable, CustomStringConvertible {
     var description: String {
         switch self {
         case .General:
-            return "Основные"
+            return NSLocalizedString("GENERAL", comment: "general")
 //        case .Customization:
 //            return "Оформление"
         case .About:
-            return "Другое"
+            return NSLocalizedString("OTHER", comment: "other")
         }
     }
 }
@@ -37,6 +37,7 @@ enum GeneralOptions: Int, CaseIterable, SectionType {
     case changeWeight
     case notifications
     case language
+    case darkTheme
     
     var description: String {
         switch self {
@@ -44,6 +45,8 @@ enum GeneralOptions: Int, CaseIterable, SectionType {
             return "Дневная норма"
         case .changeWeight:
             return "Изменить вес"
+        case .darkTheme:
+            return "Тёмная тема"
         case .notifications:
             return "Уведомления"
         case .language:
@@ -67,10 +70,11 @@ enum GeneralOptions: Int, CaseIterable, SectionType {
 enum AboutOptions: Int, CaseIterable, SectionType {
     var containsSwitch: Bool { return false }
     
-    case rateApp
+    //case rateApp
     case writeToSupport
     case aboutAppllication
     case infoAboutDrinks
+    case siriShortcuts
     
     var description: String {
         switch self {
@@ -78,8 +82,10 @@ enum AboutOptions: Int, CaseIterable, SectionType {
             return "О приложении"
         case .infoAboutDrinks:
             return "Информация о напитках"
-        case .rateApp:
-            return "Оценить приложение"
+        //case .rateApp:
+            //return "Оценить приложение"
+        case .siriShortcuts:
+            return "Настроить Siri Shortcuts"
         case .writeToSupport:
             return "Написать разработчикам"
             

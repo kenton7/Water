@@ -9,5 +9,6 @@
 import Foundation
 
 struct LanguagesScreen {
-    let languagesArray = ["Русский", "Английский", "Немецкий", "Французский", "Итальянский"]
+    //let languagesArray = ["Русский", "Английский", "Немецкий", "Французский", "Итальянский"]
+    let languagesArray = [NSLocalizedString("RUSSIAN", comment: "rus"), NSLocalizedString("ITALIAN", comment: "it"), NSLocalizedString("ENGLISH", comment: "eng"), NSLocalizedString("FRENCH", comment: "fr"), NSLocalizedString("GERMAN", comment: "de")]
 }

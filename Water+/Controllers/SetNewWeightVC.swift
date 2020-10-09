@@ -13,7 +13,7 @@ class SetNewWeightVC: UIViewController, UITextFieldDelegate {
     var changedWeight = ""
     var calcWater = CalculateWater()
     var newDaily = 0
-
+    
     @IBOutlet weak var currentWeightOutlet: UILabel!
     @IBOutlet weak var newWeightTextField: UITextField!
     @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
@@ -60,6 +60,17 @@ class SetNewWeightVC: UIViewController, UITextFieldDelegate {
         let changedWeightDouble = Double(changedWeight)!
         UserSettings.userWeight = changedWeight
         
+        func updateProgressBarColor() {
+        DispatchQueue.main.async {
+            if vc!.progressBar.progressLayer.strokeEnd >= 1.0 {
+                vc!.progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            } else {
+                vc!.progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+                UserSettings.alert = false
+            }
+        }
+    }
+        
         if UserDefaults.standard.bool(forKey: "activityFewSaved") {
             DispatchQueue.main.async {
                 let newResult = Double(self.calcWater.calculateWaterForMan(weight: changedWeightDouble))
@@ -68,6 +79,7 @@ class SetNewWeightVC: UIViewController, UITextFieldDelegate {
                 UserSettings.result = Int.init(newResult)
                 vc?.resultValue.text = String(UserSettings.result)
                 vc?.newDaily(String(UserSettings.result))
+                updateProgressBarColor()
             }
         } else if UserDefaults.standard.bool(forKey: "activityMediumSaved") {
             DispatchQueue.main.async {
@@ -76,6 +88,7 @@ class SetNewWeightVC: UIViewController, UITextFieldDelegate {
                 print(self.calcWater.calculateMediumActivity(weight: changedWeightDouble))
                 vc?.resultValue.text = String(UserSettings.result)
                 vc?.newDaily(String(UserSettings.result))
+                updateProgressBarColor()
             }
         } else if UserDefaults.standard.bool(forKey: "activityHardSaved") {
             DispatchQueue.main.async {
@@ -83,6 +96,7 @@ class SetNewWeightVC: UIViewController, UITextFieldDelegate {
                 UserSettings.result = Int.init(newResult)
                 vc?.resultValue.text = String(UserSettings.result)
                 vc?.newDaily(String(UserSettings.result))
+                updateProgressBarColor()
             }
         }
     }

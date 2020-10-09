@@ -8,9 +8,11 @@
 
 import UIKit
 import UserNotifications
+import Firebase
+import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController = UINavigationController()
@@ -21,8 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var currentTimeOnDeviceForStop = ""
     var currentTimeOnDevice = ""
     let date = Date()
+    let gcmMessageIDKey = "gcm.message_id"
+    var token = ""
+    let sender = PushNotificationSender()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -30,6 +36,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let result = dateFormatter.string(from: date)
         currentTimeOnDevice = result
         
+//        if #available(iOS 10.0, *) {
+//          // For iOS 10 display notification (sent via APNS)
+//          UNUserNotificationCenter.current().delegate = self
+//
+//          let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+//          UNUserNotificationCenter.current().requestAuthorization(
+//            options: authOptions,
+//            completionHandler: {_, _ in })
+//        } else {
+//          let settings: UIUserNotificationSettings =
+//          UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+//          application.registerUserNotificationSettings(settings)
+//        }
+        Messaging.messaging().delegate = self
+        application.registerForRemoteNotifications()
 
 //        if (UserSettings.userSex != nil) && (UserSettings.checkUserWeight != nil) && (UserSettings.userActivity != nil) {
 //            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -45,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //            self.window?.makeKeyAndVisible()
 //        }
         let targetLang = UserDefaults.standard.object(forKey: "selectedLanguage") as? String
-        Bundle.setLanguage((targetLang != nil) ? targetLang! : "en")
+        Bundle.setLanguage((targetLang != nil) ? targetLang! : "ru")
         
     
         if UserDefaults.standard.bool(forKey: "SexSelected") && UserDefaults.standard.bool(forKey: "weightSet") && UserDefaults.standard.bool(forKey: "activitySet") && UserDefaults.standard.bool(forKey: "resultShowed") {
@@ -67,6 +88,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        if userActivity.activityType == "com.ilyakuznetsov.WaterPlus" {
+            if let vc = window?.rootViewController as? MililetersViewController {
+                vc.addShortcut()
+            }
+        }
+        return true
+    }
+    
+//    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+//                if userActivity.activityType == "addDrink.SiriShortcuts.addDrink" {
+//                    if let vc = window?.rootViewController as? SiriShortcutsVC {
+//                        if let labelDrink = vc.labelOutlet {
+//                            labelDrink.text = "Drink Water"
+//                        }
+//                    }
+//                }
+//        let vc = AddDrinksViewController()
+//        navigationController.pushViewController(vc, animated: false)
+//      return true
+//    }
+
+    
     
     // MARK: UISceneSession Lifecycle
 
@@ -74,12 +120,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
     /*
@@ -114,6 +154,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.startSendingNotifications()
         self.stopSendingNotifications()
       }
+        UNUserNotificationCenter.current().delegate = self
     }
     
     func getNotificationSettings() {
@@ -145,29 +186,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                      print("Add notification error: \(String(describing: error?.localizedDescription))")
                  }
              }
-        func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                    didReceive response: UNNotificationResponse,
+                                    withCompletionHandler completionHandler: @escaping () -> Void) {
+            let userInfo = response.notification.request.content.userInfo
+                    completionHandler()
             print("did recieve notif")
         }
         
-        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                    willPresent notification: UNNotification,
+                                    withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            startSendingNotifications()
+            stopSendingNotifications()
+            let userInfo = notification.request.content.userInfo
+                    
             completionHandler([.alert, .sound, .badge])
         }
     }
     
     func startSendingNotifications() {
-        typealias TimeOfDay = (hour: Int, minute: Int, second: Int)
+        typealias TimeOfDay = (year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int)
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         let date = Date()
         let result = dateFormatter.string(from: date)
         currentTimeOnDevice = result
         print(currentTimeOnDevice)
-        //print(UserSettings.userNotifFrom)
+        print(UserSettings.userNotifFrom)
         var calendar = Calendar.current
         calendar.timeZone = .current
         let strings: [String] = [UserSettings.userNotifFrom ?? currentTimeOnDevice, currentTimeOnDevice]
         let timesOfDay: [TimeOfDay] = strings.map({ (string) -> TimeOfDay in
-            let components = calendar.dateComponents([.hour, .minute, .second], from: dateFormatter.date(from: string)!)
-            return (hour: components.hour!, minute: components.minute!, second: components.second!)
+            let components = calendar.dateComponents([.year, .month, .day,.hour, .minute, .second], from: dateFormatter.date(from: string)!)
+            return (year: components.year!, month: components.month!, day: components.day!, hour: components.hour!, minute: components.minute!, second: components.second!)
         })
         print(timesOfDay)
         
@@ -182,54 +233,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             print("turn off START notif")
         } else {
-            //createNotification()
+            createNotification()
+            sender.sendPushNotification(to: token, priority: "high", title: "sfs", body: "svsd")
+            
             print("turned on START notif")
-            return
+            //return
         }
-        
-        
-//        let date = Date()
-//        dateFormatter.dateFormat = "HH:mm"
-//        let result = dateFormatter.string(from: date)
-//        currentTimeOnDevice = result
-//        print(currentTimeOnDevice)
-        
-//        let date1 = dateFormatter.date(from: UserSettings.userNotifFrom ?? currentTimeOnDevice)
-//        let date2 = dateFormatter.date(from: result)
-//
-//        let userTime = 60 * Calendar.current.component(.hour, from: date1!) + Calendar.current.component(.minute, from: date1!)
-//        let currentTime = 60 * Calendar.current.component(.hour, from: date2!) + Calendar.current.component(.minute, from: date2!)
-//        print(userTime)
-//        print(currentTime)
-//        if currentTime < userTime {
-//            DispatchQueue.main.async {
-//                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//                print("start notofications turned off")
-//            }
-//        } else {
-//            createNotification()
-//        }
     }
     
     func stopSendingNotifications() {
         
-        typealias TimeOfDay = (hour: Int, minute: Int, second: Int)
+        typealias TimeOfDay = (year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int)
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         let date = Date()
         let result = dateFormatter.string(from: date)
         currentTimeOnDeviceForStop = result
         print(currentTimeOnDeviceForStop)
-        //print(UserSettings.userNotifTo)
+        print(UserSettings.userNotifTo)
         var calendar = Calendar.current
         calendar.timeZone = .current
         let strings: [String] = [UserSettings.userNotifTo ?? currentTimeOnDeviceForStop, currentTimeOnDeviceForStop]
         let timesOfDay: [TimeOfDay] = strings.map({ (string) -> TimeOfDay in
-            let components = calendar.dateComponents([.hour, .minute, .second], from: dateFormatter.date(from: string)!)
-            return (hour: components.hour!, minute: components.minute!, second: components.second!)
+            let components = calendar.dateComponents([.year, .month, .day,.hour, .minute, .second], from: dateFormatter.date(from: string)!)
+            return (year: components.year!, month: components.month!, day: components.day!, hour: components.hour!, minute: components.minute!, second: components.second!)
         })
         print(timesOfDay)
         
-        if timesOfDay[0] < timesOfDay[1] {
+        if UserSettings.userNotifFrom ?? currentTimeOnDevice >= currentTimeOnDevice && UserSettings.userNotifTo ?? currentTimeOnDevice >= currentTimeOnDevice {
+            DispatchQueue.main.async {
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            }
+        } else {
+            createNotification()
+        }
+        
+        if timesOfDay[0] > timesOfDay[1] {
             DispatchQueue.main.async {
                 UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             }
@@ -240,35 +278,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             print("turn off STOP notif")
         } else {
-            //createNotification()
+            createNotification()
             print("turned on STOP notif")
-            return
+            //return
         }
-
-        //let date = Date()
-        //dateFormatter.dateFormat = "HH:mm"
-        //let result = dateFormatter.string(from: date)
-        //currentTimeOnDeviceForStop = result
-        //print(currentTimeOnDeviceForStop)
-//        let date1 = dateFormatter.date(from: UserSettings.userNotifTo ?? currentTimeOnDevice)
-//        let date2 = dateFormatter.date(from: result)
-//
-//        let userTime = 60 * Calendar.current.component(.hour, from: date1!) + Calendar.current.component(.minute, from: date1!)
-//        let currentTime = 60 * Calendar.current.component(.hour, from: date2!) + Calendar.current.component(.minute, from: date2!)
-//        print(userTime)
-//        print(currentTime)
-//        if currentTime >= userTime {
-//            DispatchQueue.main.async {
-//                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//                print("stop notifications turned off")
-//            }
-//        } else {
-//            print("not stopped")
-//            createNotification()
-//        }
     }
+}
+
+//extension AppDelegate: MessagingDelegate {
+//    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+//      print("Firebase registration token: \(fcmToken)")
+//        token = fcmToken
+//
+//      let dataDict:[String: String] = ["token": fcmToken]
+//      NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+//      // TODO: If necessary send token to application server.
+//      // Note: This callback is fired at each app startup and whenever a new token is generated.
+//    }
     
-    
+//    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+//        print("message Data", remoteMessage.appData)
+//    }
+extension AppDelegate {
+         func registerForPushNotifications(application: UIApplication) {
+             if #available(iOS 10.0, *) {
+                    // For iOS 10 display notification (sent via APNS)
+                     UNUserNotificationCenter.current().delegate = self
+                    let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+                    UNUserNotificationCenter.current().requestAuthorization(
+                    options: authOptions,
+                    completionHandler: {_, _ in })
+                    // For iOS 10 data message (sent via FCM
+                   Messaging.messaging().delegate = self
+               } else {
+                   let settings: UIUserNotificationSettings =
+                    UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+                application.registerUserNotificationSettings(settings)
+            }
+            application.registerForRemoteNotifications()
+        }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
       let tokenParts = deviceToken.map { data -> String in
         return String(format: "%02.2hhx", data)
@@ -276,11 +324,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
       
       let token = tokenParts.joined()
       print("Device Token: \(token)")
+        
+        let tokenFirebase = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+                let savedAPNSToken = UserDefaults.standard.object(forKey: "savedAPNSToken") as? String
+                if savedAPNSToken != tokenFirebase {
+                    UserDefaults.standard.set(tokenFirebase, forKey: "savedAPNSToken")
+                    UserDefaults.standard.synchronize()
+                    Messaging.messaging().apnsToken = deviceToken
+                }
     }
+    
+    
 
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
       print("Failed to register: \(error)")
     }
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+      print("Firebase registration token: \(fcmToken)")
+
+      let dataDict:[String: String] = ["token": fcmToken]
+      NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+      // TODO: If necessary send token to application server.
+        sender.sendPushNotification(to: fcmToken, priority: "high", title: "dfgdfgdfg", body: "fgdfgdf")
+      // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
 }
+
 

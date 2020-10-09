@@ -96,8 +96,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
             endingLineNumber = "70"
-            landmarkName = "goToMainVC(_:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -224,8 +224,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
             endingLineNumber = "47"
-            landmarkName = "WelcomeViewController"
-            landmarkType = "3">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -240,8 +240,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "WelcomeViewController"
-            landmarkType = "3">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1176,10 +1176,10 @@
             filePath = "Water+/Controllers/MacawChartView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "chartsData()"
-            landmarkType = "7">
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1192,10 +1192,10 @@
             filePath = "Water+/Controllers/MacawChartView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "chartsData()"
-            landmarkType = "7">
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1210,8 +1210,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
-            landmarkName = "dayOfWeek()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1226,8 +1226,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
-            landmarkName = "createBars()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1249,22 +1249,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B404AFA3-84B1-4B59-94CD-E913577F1D34"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Water+/Controllers/ModalFromVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "ModalFromVC"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A4410A5C-5F35-4DFB-BFE7-FDF329E8419A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1272,8 +1256,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "startSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1288,8 +1272,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "startSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1304,8 +1288,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "startSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1320,8 +1304,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "stopSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1336,8 +1320,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "stopSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1352,8 +1336,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "stopSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1368,8 +1352,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "stopSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1384,8 +1368,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
             landmarkName = "stopSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1400,8 +1384,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "stopSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1416,8 +1400,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "stopSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1432,8 +1416,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "stopSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1496,8 +1480,8 @@
             filePath = "Water+/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "startSendingNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1548,6 +1532,22 @@
                   offsetFromSymbolStart = "660">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0582BBDB-110D-4C73-BB6C-D65EDE5265E1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Water+/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "stopSendingNotifications()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

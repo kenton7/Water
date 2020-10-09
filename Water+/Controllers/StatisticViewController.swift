@@ -14,6 +14,7 @@ class StatisticViewController: UIViewController {
     
     @IBOutlet weak var segmentedControllOutlet: UISegmentedControl!
     @IBOutlet weak var chartView: MacawCharts!
+    
     var currentDay: String?
     let delegate = MainViewController()
     var resultOfDay = 0
@@ -30,7 +31,7 @@ class StatisticViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
         navigationItem.hidesBackButton = true
-        self.tabBarController?.navigationItem.title = "Статистика"
+        self.tabBarController?.navigationItem.title = NSLocalizedString("STATISTIC", comment: "stat")
         chartView.updateData(newData: MacawCharts.chartsData())
         MacawCharts.playAnimations()
     }

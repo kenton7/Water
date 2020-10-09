@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -47,7 +48,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
+    
+//    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+//        print(userActivity.activityType) // "addDrink.SiriShortcuts.addDrink"
+//
+//        switch userActivity.activityType {
+//        case "addDrink.SiriShortcuts.addDrink":
+//            if let vc = window?.rootViewController as? SiriShortcutsVC {
+//                if let labelOutlet = vc.labelOutlet {
+//                    labelOutlet.text = "Выбери напиток"
+//                }
+//            }
+//        default:
+//            print("no such user activity")
+//        }
+//    }
+    
+//    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+////            if let _ = userActivity.interaction?.intent as? DrinkWaterIntent {
+//        if userActivity.activityType == "addDrink.SiriShortcuts.addDrink" {
+//
+//                if let windowScene = scene as? UIWindowScene {
+//                    self.window = UIWindow(windowScene: windowScene)
+//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "mlVC") as! MililetersViewController
+//                    self.window!.rootViewController = initialViewController
+//                    self.window!.makeKeyAndVisible()
+//                    initialViewController.showMessage()
+//                }
+//            }
+//        }
 }
 

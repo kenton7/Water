@@ -23,57 +23,30 @@ class ModalIntervalVC: UIViewController {
         datePickerOutlet.delegate = self
         switch UserSettings.userIntervalNotif {
         case 900:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 15 минут"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_FIFTEEN", comment: "15")
         case 1800:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 30 минут"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_THIRTY", comment: "30")
         case 3600:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 1 час"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_ONE_HOUR", comment: "30")
         case 4680:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 1 час и 30 минут"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_ONE_HOUR_AND_THIRTY", comment: "1:30")
         case 7200:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 2 часа"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_TWO_HOURS", comment: "2")
         case 8280:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 2 часа и 30 минут"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_TWO_HOURS_AND_THIRTY", comment: "2:30")
         case 10800:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 3 часа"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_THREE_HOURS", comment: "3")
         case 14400:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 4 часа"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_FOUR_HOURS", comment: "4")
         case 18000:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 5 часов"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_FIVE_HOURS", comment: "5")
         case 21600:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 6 часов"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_SIX_HOURS", comment: "6")
         case 25200:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 7 часов"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_SEVEN_HOURS", comment: "7")
         default:
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 1 час"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_ONE_HOUR", comment: "1")
         }
-    }
-    
-    public func scheduleNotification(inSeconds seconds: TimeInterval, text: String, completion: (Bool) -> ()) {
-     
-        removeNotification(withIdentifiers:["Notif"])
-        
-        let date = Date(timeIntervalSinceNow: seconds)
-        print (Date())
-        print(date)
-        
-        let content = UNMutableNotificationContent()
-        content.title = "Test"
-        content.sound = UNNotificationSound.default
-        
-        let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents([.month, .day, .hour, .minute, .second], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-        let request = UNNotificationRequest(identifier: "Notif", content: content, trigger: trigger)
-        
-        let center = UNUserNotificationCenter.current()
-        center.add(request, withCompletionHandler: nil)
-        
-    }
-    
-    public func removeNotification(withIdentifiers identifiers: [String]) {
-        let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: identifiers)
     }
     
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
@@ -102,61 +75,61 @@ extension ModalIntervalVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         switch intervalModelDelegate.interval[row] {
-        case "15 минут":
+        case NSLocalizedString("FIFTEEN_MINUTES", comment: "15"):
             timeInSeconds = 900
             UserSettings.userIntervalNotif = timeInSeconds!
             print(UserSettings.userIntervalNotif!)
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 15 минут"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_FIFTEEN", comment: "15")
             appDelegate?.createNotification()
-        case "30 минут":
+        case NSLocalizedString("THIRTY_MINUTES", comment: "30"):
             timeInSeconds = 1800
             UserSettings.userIntervalNotif = timeInSeconds! 
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 30 минут"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_THIRTY", comment: "30")
             appDelegate?.createNotification()
-        case "1 час":
+        case NSLocalizedString("ONE_HOUR", comment: "1"):
             timeInSeconds = 3600
             UserSettings.userIntervalNotif = timeInSeconds
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 1 час"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_ONE_HOUR", comment: "1 hour")
             appDelegate?.createNotification()
-        case "1 час и 30 минут":
+        case NSLocalizedString("ONE_HOUR_AND_THIRTY_MINUTES", comment: "1:30"):
             timeInSeconds = 4680
             UserSettings.userIntervalNotif = timeInSeconds
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 1 час и 30 минут"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_ONE_HOUR_AND_THIRTY", comment: "1:30")
             appDelegate?.createNotification()
-        case "2 часа":
+        case NSLocalizedString("TWO_HOURS", comment: "2"):
             timeInSeconds = 7200
             UserSettings.userIntervalNotif = timeInSeconds
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 2 часа"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_TWO_HOURS", comment: "2")
             appDelegate?.createNotification()
-        case "2 часа и 30 минут":
+        case NSLocalizedString("TWO_HOURS_AND_THIRTY_MINUTES", comment: "2:30"):
             timeInSeconds = 8280
             UserSettings.userIntervalNotif = timeInSeconds
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 2 часа и 30 минут"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_TWO_HOURS_AND_THIRTY", comment: "2:30")
             appDelegate?.createNotification()
-        case "3 часа":
+        case NSLocalizedString("THREE_HOURS", comment: "3"):
             timeInSeconds = 10800
             UserSettings.userIntervalNotif = timeInSeconds!
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 3 часа"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_THREE_HOURS", comment: "3")
             appDelegate?.createNotification()
-        case "4 часа":
+        case NSLocalizedString("FOUR_HOURS", comment: "4"):
             timeInSeconds = 14400
             UserSettings.userIntervalNotif = timeInSeconds
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 4 часа"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_FOUR_HOURS", comment: "4")
             appDelegate?.createNotification()
-        case "5 часов":
+        case NSLocalizedString("FIVE_HOURS", comment: "5"):
             timeInSeconds = 18000
             UserSettings.userIntervalNotif = timeInSeconds
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 5 часов"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_FIVE_HOURS", comment: "5")
             appDelegate?.createNotification()
-        case "6 часов":
+        case NSLocalizedString("SIX_HOURS", comment: "6"):
             timeInSeconds = 21600
             UserSettings.userIntervalNotif = timeInSeconds
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 6 часов"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_SIX_HOURS", comment: "6")
             appDelegate?.createNotification()
-        case "7 часов":
+        case NSLocalizedString("SEVEN_HOURS", comment: "7"):
             timeInSeconds = 25200
             UserSettings.userIntervalNotif = timeInSeconds
-            timeLabelOutlet.text = "Уведомления отправляются с периодичностью в 7 часов"
+            timeLabelOutlet.text = NSLocalizedString("INTERVAL_SEVEN_HOURS", comment: "7")
             appDelegate?.createNotification()
         default:
             break
