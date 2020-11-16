@@ -35,6 +35,8 @@ class SetLanguageTableVC: UITableViewController {
         
     }
     
+    
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -110,7 +112,8 @@ class SetLanguageTableVC: UITableViewController {
             alertIt.addAction(it)
             self.present(alertIt, animated: true, completion: nil)
         default:
-            break
+            Bundle.setLanguage("ru")
+            UserDefaults.standard.setValue("ru", forKey: "selectedLanguage")
         }
     }
     
@@ -120,11 +123,10 @@ class SetLanguageTableVC: UITableViewController {
     
 }
 
-//MARK: Localization configure bundle
 extension Bundle {
     class func setLanguage(_ language: String) {
         var onceToken: Int = 0
-        
+
         if (onceToken == 0) {
             /* TODO: move below code to a static variable initializer (dispatch_once is deprecated) */
             object_setClass(Bundle.main, PrivateBundle.self)

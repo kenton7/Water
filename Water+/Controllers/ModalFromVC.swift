@@ -20,7 +20,7 @@ class ModalFromVC: UIViewController, HalfModalPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let date = Date()
+        _ = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         currentTimeOutlet.text = NSLocalizedString("NOTIFICATIONS_FROM", comment: "from")

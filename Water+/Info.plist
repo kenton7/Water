@@ -33,6 +33,14 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Please give us the reading permission to allow the app to work.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Please give us the reading permission to allow the app to work.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Для того, чтобы мы могли автоматиечски определять погоду в вашем регионе, требуется использование геолокации.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You can choose you photo for using in Application</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>com.ilyakuznetsov.WaterPlus.addDrinks</string>

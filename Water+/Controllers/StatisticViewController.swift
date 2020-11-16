@@ -31,9 +31,13 @@ class StatisticViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
         navigationItem.hidesBackButton = true
-        self.tabBarController?.navigationItem.title = NSLocalizedString("STATISTIC", comment: "stat")
+        self.tabBarController?.navigationController?.title = "Статистика"
+        //self.tabBarController?.navigationItem.title = NSLocalizedString("STATISTIC", comment: "stat")
         chartView.updateData(newData: MacawCharts.chartsData())
         MacawCharts.playAnimations()
+    }
+    
+    @IBAction func test(_ sender: UIButton) {
     }
 }
 

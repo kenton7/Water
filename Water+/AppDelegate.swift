@@ -88,16 +88,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
-    func application(_ application: UIApplication,
-                     continue userActivity: NSUserActivity,
-                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        if userActivity.activityType == "com.ilyakuznetsov.WaterPlus" {
-            if let vc = window?.rootViewController as? MililetersViewController {
-                vc.addShortcut()
-            }
-        }
-        return true
-    }
+//    func application(_ application: UIApplication,
+//                     continue userActivity: NSUserActivity,
+//                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+//        if userActivity.activityType == "com.ilyakuznetsov.WaterPlus" {
+//            if let vc = window?.rootViewController as? MililetersViewController {
+//                vc.addShortcut()
+//            }
+//        }
+//        return true
+//    }
     
 //    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
 //                if userActivity.activityType == "addDrink.SiriShortcuts.addDrink" {
@@ -189,7 +189,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         func userNotificationCenter(_ center: UNUserNotificationCenter,
                                     didReceive response: UNNotificationResponse,
                                     withCompletionHandler completionHandler: @escaping () -> Void) {
-            let userInfo = response.notification.request.content.userInfo
+            _ = response.notification.request.content.userInfo
                     completionHandler()
             print("did recieve notif")
         }
@@ -199,7 +199,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                     withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
             startSendingNotifications()
             stopSendingNotifications()
-            let userInfo = notification.request.content.userInfo
+            _ = notification.request.content.userInfo
                     
             completionHandler([.alert, .sound, .badge])
         }
@@ -212,7 +212,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let result = dateFormatter.string(from: date)
         currentTimeOnDevice = result
         print(currentTimeOnDevice)
-        print(UserSettings.userNotifFrom)
         var calendar = Calendar.current
         calendar.timeZone = .current
         let strings: [String] = [UserSettings.userNotifFrom ?? currentTimeOnDevice, currentTimeOnDevice]
@@ -249,7 +248,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let result = dateFormatter.string(from: date)
         currentTimeOnDeviceForStop = result
         print(currentTimeOnDeviceForStop)
-        print(UserSettings.userNotifTo)
+        //print(UserSettings.userNotifTo)
         var calendar = Calendar.current
         calendar.timeZone = .current
         let strings: [String] = [UserSettings.userNotifTo ?? currentTimeOnDeviceForStop, currentTimeOnDeviceForStop]

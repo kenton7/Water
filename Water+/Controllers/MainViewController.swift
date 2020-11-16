@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
@@ -33,6 +34,8 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     var currentDay: String?
     var resultOfDay = 0
     let drinks = Drinks()
+    var weatherManager = WeatherManager()
+    let locationManager = CLLocationManager()
     
     //переменная с computed property для получения новых данных
     var volume: Int = 0 {
@@ -54,16 +57,23 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         return view
     }()
     
-    @IBOutlet weak var addedDrinksLabel: UILabel!
+    //@IBOutlet weak var addedDrinksLabel: UILabel!
     @IBOutlet weak var addButtonOutlet: UIButton!
     @IBOutlet weak var resultValue: UILabel!
     @IBOutlet weak var currentValue: UILabel!
     @IBOutlet weak var progressBar: ProgressBarView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var degreeLabel: UILabel!
+    @IBOutlet weak var celciusLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var conditionImageView: UIImageView!
+    
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.navigationItem.title = NSLocalizedString("MAIN", comment: "main")
-        
         checkAddedDrinksAndUpdateLabel()
         print(addedDrinksArray)
     }
@@ -71,6 +81,12 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.delegate = self
+        //запрашиваем разрешение на использование геопозиции
+        //locationManager.requestWhenInUseAuthorization()
+        //после разрешения использования геопозиции, делаем запрос на определение геопопзции
+        locationManager.requestLocation()
+        weatherManager.delegate = self
         print(UserSettings.result!)
         addButtonOutlet.layer.cornerRadius = 25
         addButtonOutlet.layer.shadowColor = UIColor.black.cgColor
@@ -80,7 +96,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         addButtonOutlet.layer.shadowOpacity = 0.5
         navigationController?.isNavigationBarHidden = true
         self.tabBarController?.navigationItem.hidesBackButton = true
-    
+        
         addedDrinksCollectionView?.delegate = self
         addedDrinksCollectionView?.dataSource = self
         progressBar.maxProgress = Float(UserSettings.result)
@@ -177,11 +193,11 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
-
+        
     }
     
     @IBAction func unwindToMainVC(segue: UIStoryboardSegue) {
-
+        
     }
     
     func updateProgress(with value: Float) {
@@ -228,14 +244,14 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     //MARK: - Обновляем лейбл "вы не добавили ни одного напитка" после добавления напитика
     func checkAddedDrinksAndUpdateLabel() {
         if currentValue.text == "0" {
-            addedDrinksLabel.text = "Вы не добавили \nни одного напитика"
-            self.view.addSubview(addedDrinksLabel)
+            //addedDrinksLabel.text = "Вы не добавили \nни одного напитика"
+            //self.view.addSubview(addedDrinksLabel)
         } else {
             //обноявлем лейбл добавленными напитками
             let layout = UICollectionViewFlowLayout()
-            addedDrinksLabel.isHidden = true
+            //addedDrinksLabel.isHidden = true
             layout.scrollDirection = .horizontal
-            layout.itemSize = CGSize(width: 100, height: 100)
+            layout.itemSize = CGSize(width: 80, height: 80)
             layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             addedDrinksCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
             addedDrinksCollectionView?.showsHorizontalScrollIndicator = false
@@ -253,7 +269,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        addedDrinksCollectionView?.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: 100).integral
+        addedDrinksCollectionView?.frame = CGRect(x: 0, y: 95, width: view.frame.size.width, height: 80)
     }
 }
 
@@ -271,6 +287,60 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.configure(with: addedDrinksArray[indexPath.row])
         return cell
+    }
+}
+
+extension MainViewController: WeatherManagerDelegate {
+    //берем данные о погоде из WetherModel
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
+        //помещаем температуру в соответствубщий лейбл
+        DispatchQueue.main.async {
+            self.temperatureLabel.text = weather.temperatureString
+            self.cityLabel.text = weather.cityName
+            self.conditionImageView.image = UIImage(named: weather.conditionName)
+            
+            if UserDefaults.standard.bool(forKey: "updatedWithSummerWeather") == true {
+                return
+            } else {
+                if weather.temperature >= 25.0 {
+                    let summerResult = Double(UserSettings.result) * 1.5
+                    let summerResultInt = Int(summerResult)
+                    UserSettings.result = summerResultInt
+                    if self.progressBar.progressLayer.strokeEnd >= 1.0 {
+                        self.progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+                    } else {
+                        self.progressBar.progressLayer.strokeColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+                    }
+                    self.newDaily(self.resultValue.text!)
+                    self.resultValue.text = String(summerResultInt)
+                    UserDefaults.standard.setValue(true, forKey: "updatedWithSummerWeather")
+                } else {
+                    return
+                }
+            }
+            print("--------------")
+            print(weather.conditionID)
+            print("------------------")
+        }
+    }
+    //функция для отлавливания ошибок
+    func didFailError(error: Error) {
+        print(error)
+    }
+}
+
+extension MainViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //запрашиваем координаты
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            weatherManager.fetchWeather(latitude: lat, longitide: lon)
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
 }
 

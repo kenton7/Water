@@ -91,7 +91,7 @@ class MacawCharts: MacawView {
         currentDay = dateFormatter.string(from: Date()).capitalized
         let percentOfResult = (UserSettings.addedVolume * 100) / delegate.maxProgress!
         resultOfDay = Double(percentOfResult)
-        print(percentOfResult)
+        //print(percentOfResult)
         return dateFormatter.string(from: Date()).capitalized
     }
     
@@ -134,11 +134,13 @@ class MacawCharts: MacawView {
         
         dateFormatter.dateFormat = "EEEE"
         formatter.dateFormat = "MM-dd"
-        let formatterString = formatter.string(from: date)
+        _ = formatter.string(from: date)
         currentDay = dateFormatter.string(from: Date()).capitalized
         print(currentDay!)
         let percentOfResult = (UserSettings.addedVolume * 100) / delegate.maxProgress!
-        print(percentOfResult)
+        //print(percentOfResult)
+        
+        let dayAndMonth = formatter.string(from: Date()).capitalized
         
         switch currentDay {
         case "Monday", "Понедельник", "Lunedi", "Lundi", "Montag":

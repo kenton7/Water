@@ -12,6 +12,8 @@ protocol MililetersVCDelegate {
 
 import UIKit
 import IntentsUI
+import AudioToolbox
+import HealthKit
 
 class MililetersViewController: UIViewController, UIViewControllerTransitioningDelegate, MililetersVCDelegate, UITextFieldDelegate {
     func passingDataBack(data: [String]) {
@@ -48,7 +50,9 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
     var addDrinks = AddDrinksViewController()
     var drinksToMainVC: [String] = []
     var progressToMainVC: Float = 0.0
-    let siriDelegate = SiriShortcutsVC()
+    private let userHealthProfile = UserHealthProfile()
+    var waterMl: Double = 0
+    let impactMed = UIImpactFeedbackGenerator(style: .medium)
 
     
     override func viewDidLoad() {
@@ -57,7 +61,6 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
         pickerViewOutlet.dataSource = self
         pickerViewOutlet.delegate = self
         self.transitioningDelegate = self
-        //addSiriButton(to: self.view)
         
         addButtonOutlet.layer.cornerRadius = 25
         addButtonOutlet.layer.shadowColor = UIColor.black.cgColor
@@ -68,28 +71,125 @@ class MililetersViewController: UIViewController, UIViewControllerTransitioningD
         descr.layer.cornerRadius = 25
     }
     
-    func addShortcut() {
-        let activity = NSUserActivity(activityType: "com.ilyakuznetsov.WaterPlus")
-        let shortcut = INShortcut(userActivity: activity)
-
-        activity.title = "Выбери напиток"
-        activity.isEligibleForSearch = true
-        activity.isEligibleForPrediction = true
-
-        self.userActivity = activity
-        self.userActivity?.becomeCurrent()
-
-        let vc = INUIAddVoiceShortcutViewController(shortcut: shortcut)
-        vc.delegate = self
-
-        present(vc, animated: true, completion: nil)
+    private func loadAndDisplayMostRecentHeight() {
+        //1. Use HealthKit to create the Height Sample Type
+        guard let heightSampleType = HKSampleType.quantityType(forIdentifier: .height) else {
+          print("Height Sample Type is no longer available in HealthKit")
+          return
+        }
+            
+        ProfileDataStore.getMostRecentSample(for: heightSampleType) { (sample, error) in
+              
+          guard let sample = sample else {
+              
+            if let error = error {
+              self.displayAlert(for: error)
+            }
+                
+            return
+          }
+              
+          //2. Convert the height sample to meters, save to the profile model,
+          //   and update the user interface.
+          let heightInMeters = sample.quantity.doubleValue(for: HKUnit.meter())
+          self.userHealthProfile.heightInMeters = heightInMeters
+        }
     }
     
+    private func loaadWater() {
+        guard let water = HKSampleType.quantityType(forIdentifier: .dietaryWater) else {
+            print("error")
+            return
+        }
+        ProfileDataStore.getMostRecentSample(for: water) { (sample, error) in
+            guard let sample = sample else {
+                if let error = error {
+                    self.displayAlert(for: error)
+                }
+                return
+            }
+            let waterInVolume = sample.quantity.doubleValue(for: HKUnit.literUnit(with: .milli))
+            self.userHealthProfile.water = waterInVolume
+        }
+    }
+    
+    private func loadAndDisplayMostRecentWeight() {
+        guard let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) else {
+          print("Water Sample Type is no longer available in HealthKit")
+          return
+        }
+            
+        ProfileDataStore.getMostRecentSample(for: weightSampleType) { (sample, error) in
+              
+          guard let sample = sample else {
+                
+            if let error = error {
+              self.displayAlert(for: error)
+            }
+            return
+          }
+              
+          let weightInKilograms = sample.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
+          self.userHealthProfile.weightInKilograms = weightInKilograms
+        }
+
+    }
+    
+    private func displayAlert(for error: Error) {
+      
+      let alert = UIAlertController(title: nil,
+                                    message: error.localizedDescription,
+                                    preferredStyle: .alert)
+      
+      alert.addAction(UIAlertAction(title: "OK",
+                                    style: .default,
+                                    handler: nil))
+      
+      present(alert, animated: true, completion: nil)
+    }
+    
+    class func saveWater(water: Double, date: Date) {
+      
+      //1.  Make sure type exists
+      guard let waterCount = HKQuantityType.quantityType(forIdentifier: .dietaryWater) else {
+        fatalError("Body Mass Index Type is no longer available in HealthKit")
+      }
+        
+      //2.  Use the LiterUnit to create a milileters quantity
+        let waterQuantity = HKQuantity(unit: HKUnit.literUnit(with: .milli),
+                                        doubleValue: water)
+        
+      let waterSample = HKQuantitySample(type: waterCount,
+                                                 quantity: waterQuantity,
+                                                 start: date,
+                                                 end: date)
+        
+      //3.  Save the same to HealthKit
+      HKHealthStore().save(waterSample) { (success, error) in
+          
+        if let error = error {
+          print("Error Saving Water Sample: \(error.localizedDescription)")
+        } else {
+          print("Successfully saved Water Sample")
+        }
+      }
+    }
+    
+    private func saveWaterToHealthKit() {
+        guard let waterCount = userHealthProfile.water else {
+            print("error!")
+          return
+        }
+        print(waterCount)
+        ProfileDataStore.saveWaterSample(water: waterCount,
+                                                 date: Date())
+    }
     
     @IBAction func goToMainVC(_ sender: UIButton) {
         drinksToMainVC.append(drinks?.imageName ?? "nil")
+        impactMed.impactOccurred()
+        saveWaterToHealthKit()
         performSegue(withIdentifier: K.BackToMainView, sender: self)
-        //addShortcut()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -122,6 +222,7 @@ extension MililetersViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         volumeFromMilimetersVC = Double(volume.volumeArray[row])
+        userHealthProfile.water = volumeFromMilimetersVC
         progressToMainVC = Float(volumeFromMilimetersVC)
         //addShortcut()
         
@@ -129,48 +230,66 @@ extension MililetersViewController: UIPickerViewDelegate, UIPickerViewDataSource
         switch drinks?.drinkName {
         case "Вода", "Water", "L'eau", "Wasser", "Acqua":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
-            print(volumeFromMilimetersVC)
+            impactMed.impactOccurred()
         case "Зелёный \nчай", "Green \ntea", "Thé vert", "Grüner Tee", "Tè verde":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
+            impactMed.impactOccurred()
             //addSiriButton(to: self.view)
             print(volumeFromMilimetersVC)
         case "Чёрный \nчай", "Black \ntea", "Thé noir", "Schwarzer Tee", "Tè nero":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
-            //addSiriButton(to: self.view)
+            impactMed.impactOccurred()
         case "Какао", "Cocoa", "Cacao", "Kakao":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.9
+            impactMed.impactOccurred()
         case "Кофе", "Coffee", "Café", "Kaffee", "Caffè":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.9
+            impactMed.impactOccurred()
         case "Кола", "Cola":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.89
+            impactMed.impactOccurred()
         case "Молоко", "Milk", "Lait", "Milch", "Latte":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.88
+            impactMed.impactOccurred()
         case "Кефир", "Kefir", "Kéfir":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.91
+            impactMed.impactOccurred()
         case "Вино", "Wine", "Du vin", "Wein", "Vino":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.86
+            impactMed.impactOccurred()
         case "Пиво", "Beer", "Bière", "Bier", "Birra":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.91
+            impactMed.impactOccurred()
         case "Смузи", "Smoothie":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.85
+            impactMed.impactOccurred()
         case "Квас", "Kvass", "Kwas", "Kvas":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.9
+            impactMed.impactOccurred()
         case "Кола Zero", "Cola Zero", "Cola Zéro":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 1.0
+            impactMed.impactOccurred()
         case "Компот", "Compote", "Kompott", "Composta":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.87
+            impactMed.impactOccurred()
         case "Лимонад", "Lemonade", "Limonade", "Limonata":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.89
+            impactMed.impactOccurred()
         case "Энергетик", "Energy Drink", "Boisson \nénergisante", "Energiegetränk", "Bevanda \nenergetica":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.89
+            impactMed.impactOccurred()
         case "Пиво \nбезалкогол.", "Beer \nnonalcoholic", "Bière sans \nalcool", "Alkoholfreies \nBier", "Birra \nanalcolica":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.94
+            impactMed.impactOccurred()
         case "Яблочный \nсок", "Apple \njuice", "Jus de \npomme", "Apfelsaft", "Succo di \nmela":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.88
+            impactMed.impactOccurred()
         case "Крепкий \nалкоголь", "Strong \nalcohol", "Alcool fort", "Starker \nAlkohol", "Alcol \nforte":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.62
+            impactMed.impactOccurred()
         case "Апельсин. \nсок", "Orange \njuice", "Du jus \nd'orange", "Orangensaft", "Succo \nd'arancia":
             volumeFromMilimetersVC = Double(volume.volumeArray[row]) * 0.89
+            impactMed.impactOccurred()
         default:
             break
         }

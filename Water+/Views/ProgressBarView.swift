@@ -17,7 +17,7 @@ class ProgressBarView: UIView {
     let colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
     let startingPoint = CGPoint(x: 0, y: 0)
     let endingPoint = CGPoint(x: 1, y: 1)
-    let cornerRadiusOfMyView = CGFloat(20)
+    let cornerRadiusOfMyView = CGFloat(10)
         
         override init(frame: CGRect) {
             super.init(frame: frame)

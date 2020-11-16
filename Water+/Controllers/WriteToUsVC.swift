@@ -78,7 +78,6 @@ class WriteToUsVC: UIViewController, MFMailComposeViewControllerDelegate {
             self.visualEffectView.alpha = 0
         }
     }
-    
 }
 
 

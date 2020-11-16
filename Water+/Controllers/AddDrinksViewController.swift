@@ -11,9 +11,11 @@ import UIKit
 class AddDrinksViewController: UIViewController {
     
     var delegate: MililetersViewController?
+    //var customDrinkVC: CustomDrinkVC?
     
     var drinksArray: [Drinks] = {
            var water = Drinks()
+
             water.drinkName = NSLocalizedString("WATER", comment: "Water")
             water.imageName = "water"
             water.description = NSLocalizedString("WATER_DESCR", comment: "WeaterDescr")
@@ -112,10 +114,11 @@ class AddDrinksViewController: UIViewController {
             cocoa.drinkName = NSLocalizedString("COCOA", comment: "Cocoa")
             cocoa.imageName = "cocoa"
             cocoa.description = NSLocalizedString("COCOA_DESCR", comment: "cocoa descr")
+        
             
-            return [water, greenTea, blackTea, cocoa, coffee, cola, milk, kefir, wine, beer, smoothie, kvass, dietCola, compote, limonad, energetic, noAcloholBeer, appleJuice, hardAlcohol, orangeJuice]
+        return [water, greenTea, blackTea, cocoa, coffee, cola, milk, kefir, wine, beer, smoothie, kvass, dietCola, compote, limonad, energetic, noAcloholBeer, appleJuice, hardAlcohol, orangeJuice]
         }()
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -123,6 +126,7 @@ class AddDrinksViewController: UIViewController {
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
     
     
     override func viewDidLoad() {
@@ -154,11 +158,15 @@ extension AddDrinksViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.cellIdentifier, for: indexPath) as? CollectionViewCell {
+        
             
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.cellIdentifier, for: indexPath) as? CollectionViewCell {
+
             cell.drinksMenu = drinksArray[indexPath.row]
             return cell
         }
+        
         //let cellWidth: CGFloat = (self.view.frame.width - 20.0 - (4 * 5)) / 4.0
         //let cellHeight: CGFloat = (self.view.frame.height - 260.0 - (5 * 5)) / 5.0
         //let collectionViewLayout: UICollectionViewFlowLayout = (self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout)
@@ -169,15 +177,7 @@ extension AddDrinksViewController: UICollectionViewDelegate, UICollectionViewDat
         
         return CollectionViewCell()
     }
-    
-    func test() {
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let drinks = drinksArray[indexPath.row]
 
-            
-            self.performSegue(withIdentifier: K.milimetersView, sender: drinks)
-        }
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let drinks = drinksArray[indexPath.row]

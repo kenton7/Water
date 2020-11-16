@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0902D51925262FB8004A2258 /* SiriShortcutsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0902D51825262FB8004A2258 /* SiriShortcutsVC.swift */; };
+		0902D51925262FB8004A2258 /* ChangeCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0902D51825262FB8004A2258 /* ChangeCityVC.swift */; };
 		090898CA252398BF00BA5347 /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090898C9252398BF00BA5347 /* PushNotificationSender.swift */; };
 		090C6BDC24B3BA3F00E5C12A /* LanguageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090C6BDB24B3BA3F00E5C12A /* LanguageScreen.swift */; };
 		0918A79024B0BFCE0035B3CF /* EditDailyNormalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918A78F24B0BFCE0035B3CF /* EditDailyNormalVC.swift */; };
@@ -32,6 +32,13 @@
 		095E871B248D34140046F404 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E871A248D34140046F404 /* CollectionViewCell.swift */; };
 		0961AFAC24B3AEEE005A51BD /* SetLanguageTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0961AFAB24B3AEEE005A51BD /* SetLanguageTableVC.swift */; };
 		0961AFAE24B3AF0F005A51BD /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0961AFAD24B3AF0F005A51BD /* LanguageCell.swift */; };
+		096761ED254D8448003F1FF6 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096761EC254D8448003F1FF6 /* ChartModel.swift */; };
+		09676201254DCD11003F1FF6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09676200254DCD11003F1FF6 /* HealthKit.framework */; };
+		09676205254DD0DD003F1FF6 /* HealthKitAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09676204254DD0DC003F1FF6 /* HealthKitAssistant.swift */; };
+		09676208254DD4CD003F1FF6 /* HealthKitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09676207254DD4CD003F1FF6 /* HealthKitVC.swift */; };
+		0967620B254DDB04003F1FF6 /* ProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967620A254DDB04003F1FF6 /* ProfileDataStore.swift */; };
+		0967620E254DDE69003F1FF6 /* UserHealthProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967620D254DDE69003F1FF6 /* UserHealthProfile.swift */; };
+		0968CA97253CADC600FD6600 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0968CA96253CADC600FD6600 /* ChartsViewController.swift */; };
 		097794A8249EAB930091F547 /* AddedDrinksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097794A7249EAB930091F547 /* AddedDrinksCollectionViewCell.swift */; };
 		0984F312247183BC0039749D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F311247183BC0039749D /* Constants.swift */; };
 		0984F31624718E580039749D /* ActivityManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984F31524718E580039749D /* ActivityManViewController.swift */; };
@@ -54,16 +61,23 @@
 		098C8A0D25168F0200655ED8 /* AppNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C8A0C25168F0200655ED8 /* AppNavController.swift */; };
 		0998247624C2EF990006204A /* SetNewWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998247524C2EF990006204A /* SetNewWeightVC.swift */; };
 		099FA0FD250C04CF000C6F25 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FA0FC250C04CF000C6F25 /* PrivacyPolicy.swift */; };
-		09C2DBC62520D20F004D235F /* FromVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C2DBC52520D20F004D235F /* FromVC.swift */; };
+		09BB065925473B28003E1D67 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB065825473B28003E1D67 /* WeatherManager.swift */; };
+		09BB065C25473BA4003E1D67 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB065B25473BA4003E1D67 /* WeatherData.swift */; };
+		09BB065F25473BC2003E1D67 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB065E25473BC2003E1D67 /* WeatherModel.swift */; };
+		09BB06642547405C003E1D67 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB06632547405C003E1D67 /* WeatherVC.swift */; };
 		09C4D631251E80F000B0C028 /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4D630251E80F000B0C028 /* DaysOfWeek.swift */; };
+		09C625A9255813E000BDDA6C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C625A8255813E000BDDA6C /* CloudKit.framework */; };
+		09C625AC255818EB00BDDA6C /* CloudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C625AB255818EB00BDDA6C /* CloudModel.swift */; };
+		09C625B0255819A700BDDA6C /* Establishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C625AF255819A700BDDA6C /* Establishment.swift */; };
 		09EB599324C4719F00968BCE /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EB599224C4719F00968BCE /* AboutUsVC.swift */; };
+		09F350A52545886A003F5819 /* UserNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F350A42545886A003F5819 /* UserNameVC.swift */; };
 		09F5183824715A1E00DFB0C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5183724715A1E00DFB0C7 /* AppDelegate.swift */; };
 		09F5183C24715A1E00DFB0C7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5183B24715A1E00DFB0C7 /* WelcomeViewController.swift */; };
 		09F5183F24715A1E00DFB0C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F5183D24715A1E00DFB0C7 /* Main.storyboard */; };
 		09F5184124715A2100DFB0C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F5184024715A2100DFB0C7 /* Assets.xcassets */; };
 		09F5184424715A2100DFB0C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F5184224715A2100DFB0C7 /* LaunchScreen.storyboard */; };
 		09F5184D24716B7200DFB0C7 /* WeightManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F5184C24716B7200DFB0C7 /* WeightManViewController.swift */; };
-		1376437FD3EF760612B68471 /* Pods_WaterPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4729A42B924955F6A7B0184D /* Pods_WaterPlus.framework */; };
+		CE4CC24E78DFA52365348BDB /* Pods_WaterPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE8BE32263FD060551D9F54 /* Pods_WaterPlus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,7 +94,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0902D51825262FB8004A2258 /* SiriShortcutsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriShortcutsVC.swift; sourceTree = "<group>"; };
+		0902D51825262FB8004A2258 /* ChangeCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCityVC.swift; sourceTree = "<group>"; };
 		0902D52725274847004A2258 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		0902D52925274847004A2258 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0902D53225274938004A2258 /* AddingExtenstion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AddingExtenstion.entitlements; sourceTree = "<group>"; };
@@ -108,6 +122,65 @@
 		0932E4B724AFD54100E84C5E /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		094483462479701900FD1040 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		09448348247C372A00FD1040 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0944C77C254EBFB900D19C65 /* IMG_0160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0160.png; sourceTree = "<group>"; };
+		0944C77D254EBFB900D19C65 /* Pods-WaterPlus.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-WaterPlus.release.xcconfig"; sourceTree = "<group>"; };
+		0944C77E254EBFB900D19C65 /* photo_2020-09-27_17-44-03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "photo_2020-09-27_17-44-03.jpg"; sourceTree = "<group>"; };
+		0944C77F254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.25.png"; sourceTree = "<group>"; };
+		0944C780254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.31.png"; sourceTree = "<group>"; };
+		0944C781254EBFB900D19C65 /* Custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Custom.png; sourceTree = "<group>"; };
+		0944C782254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.42.png"; sourceTree = "<group>"; };
+		0944C783254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.54.png"; sourceTree = "<group>"; };
+		0944C784254EBFB900D19C65 /* userNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userNameVC.swift; sourceTree = "<group>"; };
+		0944C786254EBFB900D19C65 /* cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.png; sourceTree = "<group>"; };
+		0944C787254EBFB900D19C65 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		0944C788254EBFB900D19C65 /* Pods-WaterPlus.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-WaterPlus.debug.xcconfig"; sourceTree = "<group>"; };
+		0944C789254EBFB900D19C65 /* CustomDrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrinkCell.swift; sourceTree = "<group>"; };
+		0944C78A254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.31.png"; sourceTree = "<group>"; };
+		0944C78B254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.19.png"; sourceTree = "<group>"; };
+		0944C78C254EBFB900D19C65 /* DarkThemeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeVC.swift; sourceTree = "<group>"; };
+		0944C78E254EBFB900D19C65 /* cloud.bolt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.bolt.png; sourceTree = "<group>"; };
+		0944C78F254EBFB900D19C65 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		0944C790254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.27.12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.27.12.png"; sourceTree = "<group>"; };
+		0944C791254EBFB900D19C65 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		0944C792254EBFB900D19C65 /* CustomDrinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrinkVC.swift; sourceTree = "<group>"; };
+		0944C794254EBFB900D19C65 /* cloud.snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.snow.png; sourceTree = "<group>"; };
+		0944C795254EBFB900D19C65 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		0944C796254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.53.png"; sourceTree = "<group>"; };
+		0944C797254EBFB900D19C65 /* Notif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notif.png; sourceTree = "<group>"; };
+		0944C798254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.44.png"; sourceTree = "<group>"; };
+		0944C799254EBFB900D19C65 /* ChartsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsVC.swift; sourceTree = "<group>"; };
+		0944C79B254EBFB900D19C65 /* cloud.snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.snow.png; sourceTree = "<group>"; };
+		0944C79C254EBFB900D19C65 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		0944C79D254EBFB900D19C65 /* OwnDrinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnDrinkModel.swift; sourceTree = "<group>"; };
+		0944C79E254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.11.png"; sourceTree = "<group>"; };
+		0944C7A0254EBFB900D19C65 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		0944C7A1254EBFB900D19C65 /* sun.max.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.max.png; sourceTree = "<group>"; };
+		0944C7A3254EBFB900D19C65 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		0944C7A4254EBFB900D19C65 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		0944C7A5254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.51.54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.51.54.png"; sourceTree = "<group>"; };
+		0944C7A6254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.52.06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.52.06.png"; sourceTree = "<group>"; };
+		0944C7A8254EBFB900D19C65 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		0944C7A9254EBFB900D19C65 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		0944C7AB254EBFB900D19C65 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		0944C7AC254EBFB900D19C65 /* cloud.drizzle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.drizzle.png; sourceTree = "<group>"; };
+		0944C7AD254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.38.png"; sourceTree = "<group>"; };
+		0944C7AE254EBFB900D19C65 /* Drinks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drinks.png; sourceTree = "<group>"; };
+		0944C7B0254EBFB900D19C65 /* cloud.fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.fog.png; sourceTree = "<group>"; };
+		0944C7B1254EBFB900D19C65 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		0944C7B2254EBFB900D19C65 /* Stat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stat.png; sourceTree = "<group>"; };
+		0944C7B4254EBFB900D19C65 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		0944C7B5254EBFB900D19C65 /* cloud.rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.rain.png; sourceTree = "<group>"; };
+		0944C7D82552E7E400D19C65 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0944C7DA2552E7E400D19C65 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		0944C7DD2552E7E500D19C65 /* WaterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterWidget.swift; sourceTree = "<group>"; };
+		0944C7DF2552E7E700D19C65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0944C7E12552E7E700D19C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0944C7F62552E95800D19C65 /* WaterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterWidget.swift; sourceTree = "<group>"; };
+		0944C7F82552E95A00D19C65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0944C7FA2552E95A00D19C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0944C83A25531B6400D19C65 /* WaterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterWidget.swift; sourceTree = "<group>"; };
+		0944C83C25531B6600D19C65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0944C83E25531B6600D19C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0952DF432495024C00ACDA6B /* MililetersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MililetersViewController.swift; sourceTree = "<group>"; };
 		0952DF4724950AA800ACDA6B /* MilimetersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilimetersScreen.swift; sourceTree = "<group>"; };
 		09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewTableViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +196,13 @@
 		095E871A248D34140046F404 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0961AFAB24B3AEEE005A51BD /* SetLanguageTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLanguageTableVC.swift; sourceTree = "<group>"; };
 		0961AFAD24B3AF0F005A51BD /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		096761EC254D8448003F1FF6 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
+		09676200254DCD11003F1FF6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		09676204254DD0DC003F1FF6 /* HealthKitAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitAssistant.swift; sourceTree = "<group>"; };
+		09676207254DD4CD003F1FF6 /* HealthKitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitVC.swift; sourceTree = "<group>"; };
+		0967620A254DDB04003F1FF6 /* ProfileDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataStore.swift; sourceTree = "<group>"; };
+		0967620D254DDE69003F1FF6 /* UserHealthProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHealthProfile.swift; sourceTree = "<group>"; };
+		0968CA96253CADC600FD6600 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		097794A7249EAB930091F547 /* AddedDrinksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedDrinksCollectionViewCell.swift; sourceTree = "<group>"; };
 		09826B8D24EEB65B00EBF532 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		0984F311247183BC0039749D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -152,9 +232,17 @@
 		0998805B25150D690019D612 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09988066251510A20019D612 /* Water+.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Water+.entitlements"; sourceTree = "<group>"; };
 		099FA0FC250C04CF000C6F25 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
-		09C2DBC52520D20F004D235F /* FromVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FromVC.swift; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/FromVC.swift"; sourceTree = "<group>"; };
+		09BB065825473B28003E1D67 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		09BB065B25473BA4003E1D67 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		09BB065E25473BC2003E1D67 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		09BB06632547405C003E1D67 /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
+		09C2DBC52520D20F004D235F /* .Trash */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = .Trash; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash"; sourceTree = "<group>"; };
 		09C4D630251E80F000B0C028 /* DaysOfWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DaysOfWeek.swift; path = "Water/Water+/Models/DaysOfWeek.swift"; sourceTree = SOURCE_ROOT; };
+		09C625A8255813E000BDDA6C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		09C625AB255818EB00BDDA6C /* CloudModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudModel.swift; sourceTree = "<group>"; };
+		09C625AF255819A700BDDA6C /* Establishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Establishment.swift; sourceTree = "<group>"; };
 		09EB599224C4719F00968BCE /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		09F350A42545886A003F5819 /* UserNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameVC.swift; sourceTree = "<group>"; };
 		09F5183424715A1E00DFB0C7 /* WaterPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F5183724715A1E00DFB0C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09F5183B24715A1E00DFB0C7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -163,9 +251,9 @@
 		09F5184324715A2100DFB0C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09F5184524715A2100DFB0C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09F5184C24716B7200DFB0C7 /* WeightManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightManViewController.swift; sourceTree = "<group>"; };
-		13117C2AE2D72F5015BCC44C /* Pods-WaterPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterPlus.release.xcconfig"; path = "Target Support Files/Pods-WaterPlus/Pods-WaterPlus.release.xcconfig"; sourceTree = "<group>"; };
-		4729A42B924955F6A7B0184D /* Pods_WaterPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaterPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7E3A65B9834C829DD91DD5E /* Pods-WaterPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterPlus.debug.xcconfig"; path = "Target Support Files/Pods-WaterPlus/Pods-WaterPlus.debug.xcconfig"; sourceTree = "<group>"; };
+		4149D6E1AD6956AED96894C4 /* Pods-WaterPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterPlus.release.xcconfig"; path = "Target Support Files/Pods-WaterPlus/Pods-WaterPlus.release.xcconfig"; sourceTree = "<group>"; };
+		9EE8BE32263FD060551D9F54 /* Pods_WaterPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaterPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFDB565D94532EB837A28205 /* Pods-WaterPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterPlus.debug.xcconfig"; path = "Target Support Files/Pods-WaterPlus/Pods-WaterPlus.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +261,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1376437FD3EF760612B68471 /* Pods_WaterPlus.framework in Frameworks */,
+				09C625A9255813E000BDDA6C /* CloudKit.framework in Frameworks */,
+				CE4CC24E78DFA52365348BDB /* Pods_WaterPlus.framework in Frameworks */,
+				09676201254DCD11003F1FF6 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +298,172 @@
 			path = Transitioning;
 			sourceTree = "<group>";
 		};
+		0944C77B254EBFB900D19C65 /* .Trash */ = {
+			isa = PBXGroup;
+			children = (
+				0944C77C254EBFB900D19C65 /* IMG_0160.png */,
+				0944C77D254EBFB900D19C65 /* Pods-WaterPlus.release.xcconfig */,
+				0944C77E254EBFB900D19C65 /* photo_2020-09-27_17-44-03.jpg */,
+				0944C77F254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.25.png */,
+				0944C780254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.31.png */,
+				0944C781254EBFB900D19C65 /* Custom.png */,
+				0944C782254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.42.png */,
+				0944C783254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.54.png */,
+				0944C784254EBFB900D19C65 /* userNameVC.swift */,
+				0944C785254EBFB900D19C65 /* cloud.imageset */,
+				0944C788254EBFB900D19C65 /* Pods-WaterPlus.debug.xcconfig */,
+				0944C789254EBFB900D19C65 /* CustomDrinkCell.swift */,
+				0944C78A254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.31.png */,
+				0944C78B254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.19.png */,
+				0944C78C254EBFB900D19C65 /* DarkThemeVC.swift */,
+				0944C78D254EBFB900D19C65 /* cloud.bolt.imageset */,
+				0944C790254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.27.12.png */,
+				0944C791254EBFB900D19C65 /* Intents.intentdefinition */,
+				0944C792254EBFB900D19C65 /* CustomDrinkVC.swift */,
+				0944C793254EBFB900D19C65 /* cloud.snow.imageset */,
+				0944C796254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.53.png */,
+				0944C797254EBFB900D19C65 /* Notif.png */,
+				0944C798254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.44.png */,
+				0944C799254EBFB900D19C65 /* ChartsVC.swift */,
+				0944C79A254EBFB900D19C65 /* cloud 2.snow.imageset */,
+				0944C79D254EBFB900D19C65 /* OwnDrinkModel.swift */,
+				0944C79E254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.29.11.png */,
+				0944C79F254EBFB900D19C65 /* sun.max.imageset */,
+				0944C7A2254EBFB900D19C65 /* add 2.imageset */,
+				0944C7A5254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.51.54.png */,
+				0944C7A6254EBFB900D19C65 /* Simulator Screen Shot - iPhone 11 Pro Max - 2020-09-27 at 18.52.06.png */,
+				0944C7A7254EBFB900D19C65 /* add.imageset */,
+				0944C7AA254EBFB900D19C65 /* cloud.drizzle.imageset */,
+				0944C7AD254EBFB900D19C65 /* Simulator Screen Shot - iPhone 8 Plus - 2020-09-27 at 21.26.38.png */,
+				0944C7AE254EBFB900D19C65 /* Drinks.png */,
+				0944C7AF254EBFB900D19C65 /* cloud.fog.imageset */,
+				0944C7B2254EBFB900D19C65 /* Stat.png */,
+				0944C7B3254EBFB900D19C65 /* cloud.rain.imageset */,
+			);
+			name = .Trash;
+			path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash";
+			sourceTree = "<group>";
+		};
+		0944C785254EBFB900D19C65 /* cloud.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				0944C786254EBFB900D19C65 /* cloud.png */,
+				0944C787254EBFB900D19C65 /* Contents.json */,
+			);
+			path = cloud.imageset;
+			sourceTree = "<group>";
+		};
+		0944C78D254EBFB900D19C65 /* cloud.bolt.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				0944C78E254EBFB900D19C65 /* cloud.bolt.png */,
+				0944C78F254EBFB900D19C65 /* Contents.json */,
+			);
+			path = cloud.bolt.imageset;
+			sourceTree = "<group>";
+		};
+		0944C793254EBFB900D19C65 /* cloud.snow.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				0944C794254EBFB900D19C65 /* cloud.snow.png */,
+				0944C795254EBFB900D19C65 /* Contents.json */,
+			);
+			path = cloud.snow.imageset;
+			sourceTree = "<group>";
+		};
+		0944C79A254EBFB900D19C65 /* cloud 2.snow.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				0944C79B254EBFB900D19C65 /* cloud.snow.png */,
+				0944C79C254EBFB900D19C65 /* Contents.json */,
+			);
+			path = "cloud 2.snow.imageset";
+			sourceTree = "<group>";
+		};
+		0944C79F254EBFB900D19C65 /* sun.max.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				0944C7A0254EBFB900D19C65 /* Contents.json */,
+				0944C7A1254EBFB900D19C65 /* sun.max.png */,
+			);
+			path = sun.max.imageset;
+			sourceTree = "<group>";
+		};
+		0944C7A2254EBFB900D19C65 /* add 2.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				0944C7A3254EBFB900D19C65 /* add.png */,
+				0944C7A4254EBFB900D19C65 /* Contents.json */,
+			);
+			path = "add 2.imageset";
+			sourceTree = "<group>";
+		};
+		0944C7A7254EBFB900D19C65 /* add.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				0944C7A8254EBFB900D19C65 /* add.png */,
+				0944C7A9254EBFB900D19C65 /* Contents.json */,
+			);
+			path = add.imageset;
+			sourceTree = "<group>";
+		};
+		0944C7AA254EBFB900D19C65 /* cloud.drizzle.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				0944C7AB254EBFB900D19C65 /* Contents.json */,
+				0944C7AC254EBFB900D19C65 /* cloud.drizzle.png */,
+			);
+			path = cloud.drizzle.imageset;
+			sourceTree = "<group>";
+		};
+		0944C7AF254EBFB900D19C65 /* cloud.fog.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				0944C7B0254EBFB900D19C65 /* cloud.fog.png */,
+				0944C7B1254EBFB900D19C65 /* Contents.json */,
+			);
+			path = cloud.fog.imageset;
+			sourceTree = "<group>";
+		};
+		0944C7B3254EBFB900D19C65 /* cloud.rain.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				0944C7B4254EBFB900D19C65 /* Contents.json */,
+				0944C7B5254EBFB900D19C65 /* cloud.rain.png */,
+			);
+			path = cloud.rain.imageset;
+			sourceTree = "<group>";
+		};
+		0944C7DC2552E7E400D19C65 /* WaterWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0944C7DD2552E7E500D19C65 /* WaterWidget.swift */,
+				0944C7DF2552E7E700D19C65 /* Assets.xcassets */,
+				0944C7E12552E7E700D19C65 /* Info.plist */,
+			);
+			path = WaterWidget;
+			sourceTree = "<group>";
+		};
+		0944C7F52552E95800D19C65 /* WaterWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0944C7F62552E95800D19C65 /* WaterWidget.swift */,
+				0944C7F82552E95A00D19C65 /* Assets.xcassets */,
+				0944C7FA2552E95A00D19C65 /* Info.plist */,
+			);
+			path = WaterWidget;
+			sourceTree = "<group>";
+		};
+		0944C83925531B6400D19C65 /* WaterWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0944C83A25531B6400D19C65 /* WaterWidget.swift */,
+				0944C83C25531B6600D19C65 /* Assets.xcassets */,
+				0944C83E25531B6600D19C65 /* Info.plist */,
+			);
+			path = WaterWidget;
+			sourceTree = "<group>";
+		};
 		0984F3172471A6810039749D /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +483,9 @@
 			isa = PBXGroup;
 			children = (
 				0984F3192471AE9D0039749D /* CalculateWater.swift */,
+				09BB065825473B28003E1D67 /* WeatherManager.swift */,
+				09BB065B25473BA4003E1D67 /* WeatherData.swift */,
+				09BB065E25473BC2003E1D67 /* WeatherModel.swift */,
 				0984F31B2471BFBB0039749D /* Water.swift */,
 				0984F32724732E2A0039749D /* Drinks.swift */,
 				094483462479701900FD1040 /* UserSettings.swift */,
@@ -237,6 +496,11 @@
 				090C6BDB24B3BA3F00E5C12A /* LanguageScreen.swift */,
 				09599BF8250035E600BC6C69 /* Localization.swift */,
 				098C89FA2516487700655ED8 /* IntervalModel.swift */,
+				096761EC254D8448003F1FF6 /* ChartModel.swift */,
+				09676204254DD0DC003F1FF6 /* HealthKitAssistant.swift */,
+				0967620D254DDE69003F1FF6 /* UserHealthProfile.swift */,
+				09C625AB255818EB00BDDA6C /* CloudModel.swift */,
+				09C625AF255819A700BDDA6C /* Establishment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,6 +521,9 @@
 				09F5183624715A1E00DFB0C7 /* Water+ */,
 				0998805525150D690019D612 /* Push */,
 				0902D52625274847004A2258 /* AddingExtenstion */,
+				0944C7DC2552E7E400D19C65 /* WaterWidget */,
+				0944C7F52552E95800D19C65 /* WaterWidget */,
+				0944C83925531B6400D19C65 /* WaterWidget */,
 				09F5183524715A1E00DFB0C7 /* Products */,
 				0CEC22C68076B384ABF1E234 /* Pods */,
 				0BE629EE5EE19698FBE73130 /* Frameworks */,
@@ -285,6 +552,7 @@
 				09F5184524715A2100DFB0C7 /* Info.plist */,
 				0984F311247183BC0039749D /* Constants.swift */,
 				0926337E2523767E0018F0F7 /* GoogleService-Info.plist */,
+				0944C77B254EBFB900D19C65 /* .Trash */,
 				0919B042251FEC3500C4EF4B /* Localizable.strings */,
 			);
 			path = "Water+";
@@ -294,6 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				09F5183B24715A1E00DFB0C7 /* WelcomeViewController.swift */,
+				09F350A42545886A003F5819 /* UserNameVC.swift */,
 				09F5184C24716B7200DFB0C7 /* WeightManViewController.swift */,
 				0984F31F2471C7BD0039749D /* WeightWomanViewController.swift */,
 				0984F31524718E580039749D /* ActivityManViewController.swift */,
@@ -313,12 +582,16 @@
 				09599BF424FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift */,
 				099FA0FC250C04CF000C6F25 /* PrivacyPolicy.swift */,
 				098C8A0C25168F0200655ED8 /* AppNavController.swift */,
-				09C2DBC52520D20F004D235F /* FromVC.swift */,
 				098C89FD25168C0E00655ED8 /* ModalFromVC.swift */,
 				098C89ED251630D200655ED8 /* ModalToVC.swift */,
 				098C89F12516482700655ED8 /* ModalIntervalVC.swift */,
 				090898C9252398BF00BA5347 /* PushNotificationSender.swift */,
-				0902D51825262FB8004A2258 /* SiriShortcutsVC.swift */,
+				0902D51825262FB8004A2258 /* ChangeCityVC.swift */,
+				0968CA96253CADC600FD6600 /* ChartsViewController.swift */,
+				09BB06632547405C003E1D67 /* WeatherVC.swift */,
+				09676207254DD4CD003F1FF6 /* HealthKitVC.swift */,
+				0967620A254DDB04003F1FF6 /* ProfileDataStore.swift */,
+				09C2DBC52520D20F004D235F /* .Trash */,
 				09311F862516B29F00A62A5C /* Presentation */,
 				09311F872516B2B300A62A5C /* Transitioning */,
 			);
@@ -328,9 +601,13 @@
 		0BE629EE5EE19698FBE73130 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				09C625A8255813E000BDDA6C /* CloudKit.framework */,
+				09676200254DCD11003F1FF6 /* HealthKit.framework */,
 				0998805125150D680019D612 /* UserNotifications.framework */,
 				0998805325150D680019D612 /* UserNotificationsUI.framework */,
-				4729A42B924955F6A7B0184D /* Pods_WaterPlus.framework */,
+				9EE8BE32263FD060551D9F54 /* Pods_WaterPlus.framework */,
+				0944C7D82552E7E400D19C65 /* WidgetKit.framework */,
+				0944C7DA2552E7E400D19C65 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -338,8 +615,8 @@
 		0CEC22C68076B384ABF1E234 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D7E3A65B9834C829DD91DD5E /* Pods-WaterPlus.debug.xcconfig */,
-				13117C2AE2D72F5015BCC44C /* Pods-WaterPlus.release.xcconfig */,
+				EFDB565D94532EB837A28205 /* Pods-WaterPlus.debug.xcconfig */,
+				4149D6E1AD6956AED96894C4 /* Pods-WaterPlus.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -351,12 +628,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09F5184824715A2100DFB0C7 /* Build configuration list for PBXNativeTarget "WaterPlus" */;
 			buildPhases = (
-				C6AD428F9EDD365D603AEEA6 /* [CP] Check Pods Manifest.lock */,
+				D4F4EEAFE428F295A68BCE47 /* [CP] Check Pods Manifest.lock */,
 				09F5183024715A1E00DFB0C7 /* Sources */,
 				09F5183124715A1E00DFB0C7 /* Frameworks */,
 				09F5183224715A1E00DFB0C7 /* Resources */,
 				0998806225150D690019D612 /* Embed App Extensions */,
-				F92489CA6A977E91505DFA4D /* [CP] Embed Pods Frameworks */,
+				DA4FA875381064C08D678A02 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -373,7 +650,7 @@
 		09F5182C24715A1E00DFB0C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Ilya Kuznetsov";
 				TargetAttributes = {
@@ -421,7 +698,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C6AD428F9EDD365D603AEEA6 /* [CP] Check Pods Manifest.lock */ = {
+		D4F4EEAFE428F295A68BCE47 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -443,7 +720,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F92489CA6A977E91505DFA4D /* [CP] Embed Pods Frameworks */ = {
+		DA4FA875381064C08D678A02 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -471,6 +748,7 @@
 				0984F312247183BC0039749D /* Constants.swift in Sources */,
 				09599BF524FD7E1600BC6C69 /* NotificationsTableViewTableViewController.swift in Sources */,
 				095E871B248D34140046F404 /* CollectionViewCell.swift in Sources */,
+				0967620E254DDE69003F1FF6 /* UserHealthProfile.swift in Sources */,
 				0984F32624732D480039749D /* AddDrinksViewController.swift in Sources */,
 				09599BF9250035E600BC6C69 /* Localization.swift in Sources */,
 				0984F3222472E5750039749D /* MainViewController.swift in Sources */,
@@ -479,23 +757,31 @@
 				0998247624C2EF990006204A /* SetNewWeightVC.swift in Sources */,
 				098C8A0A25168D2500655ED8 /* HalfModalPresentationController.swift in Sources */,
 				097794A8249EAB930091F547 /* AddedDrinksCollectionViewCell.swift in Sources */,
+				096761ED254D8448003F1FF6 /* ChartModel.swift in Sources */,
 				098C8A0725168CC500655ED8 /* HalfModalTransitioningDelegate.swift in Sources */,
 				098C8A0425168C8500655ED8 /* HalfModalTransitionAnimator.swift in Sources */,
+				09676208254DD4CD003F1FF6 /* HealthKitVC.swift in Sources */,
+				0967620B254DDB04003F1FF6 /* ProfileDataStore.swift in Sources */,
 				098C8A0D25168F0200655ED8 /* AppNavController.swift in Sources */,
+				09F350A52545886A003F5819 /* UserNameVC.swift in Sources */,
+				09BB065C25473BA4003E1D67 /* WeatherData.swift in Sources */,
 				09F5183C24715A1E00DFB0C7 /* WelcomeViewController.swift in Sources */,
 				095E871124881AFF0046F404 /* SettingsScreen.swift in Sources */,
 				0925E91424A61B8F00639973 /* ProgressBarView.swift in Sources */,
 				095E27A024F01AC800B0BFC4 /* WriteToUsVC.swift in Sources */,
+				09676205254DD0DD003F1FF6 /* HealthKitAssistant.swift in Sources */,
 				09448349247C372A00FD1040 /* SceneDelegate.swift in Sources */,
+				09C625B0255819A700BDDA6C /* Establishment.swift in Sources */,
 				0952DF442495024C00ACDA6B /* MililetersViewController.swift in Sources */,
 				0959C0D425176CC5008EDC1A /* FromTableViewCell.swift in Sources */,
 				099FA0FD250C04CF000C6F25 /* PrivacyPolicy.swift in Sources */,
 				09599BF724FD7F0900BC6C69 /* NotificationsCell.swift in Sources */,
 				0932E4B824AFD54100E84C5E /* SettingsVC.swift in Sources */,
 				09F5184D24716B7200DFB0C7 /* WeightManViewController.swift in Sources */,
+				09C625AC255818EB00BDDA6C /* CloudModel.swift in Sources */,
 				0984F32824732E2A0039749D /* Drinks.swift in Sources */,
 				098C89EE251630D200655ED8 /* ModalToVC.swift in Sources */,
-				09C2DBC62520D20F004D235F /* FromVC.swift in Sources */,
+				09BB06642547405C003E1D67 /* WeatherVC.swift in Sources */,
 				0984F31624718E580039749D /* ActivityManViewController.swift in Sources */,
 				0918A79024B0BFCE0035B3CF /* EditDailyNormalVC.swift in Sources */,
 				0952DF4824950AA800ACDA6B /* MilimetersScreen.swift in Sources */,
@@ -503,13 +789,16 @@
 				0984F31A2471AE9D0039749D /* CalculateWater.swift in Sources */,
 				095E8713248839F50046F404 /* SettingsCell.swift in Sources */,
 				09F5183824715A1E00DFB0C7 /* AppDelegate.swift in Sources */,
+				09BB065F25473BC2003E1D67 /* WeatherModel.swift in Sources */,
 				0984F31E2471C1A90039749D /* ResultViewController.swift in Sources */,
 				095E8719248972010046F404 /* StatisticScreen.swift in Sources */,
 				098C89FB2516487800655ED8 /* IntervalModel.swift in Sources */,
 				098C89FE25168C0E00655ED8 /* ModalFromVC.swift in Sources */,
 				0961AFAC24B3AEEE005A51BD /* SetLanguageTableVC.swift in Sources */,
+				09BB065925473B28003E1D67 /* WeatherManager.swift in Sources */,
 				0984F3242472FC010039749D /* ActivityWomanViewController.swift in Sources */,
-				0902D51925262FB8004A2258 /* SiriShortcutsVC.swift in Sources */,
+				0902D51925262FB8004A2258 /* ChangeCityVC.swift in Sources */,
+				0968CA97253CADC600FD6600 /* ChartsViewController.swift in Sources */,
 				095E870B248816460046F404 /* StatisticViewController.swift in Sources */,
 				090898CA252398BF00BA5347 /* PushNotificationSender.swift in Sources */,
 				0984F3202471C7BD0039749D /* WeightWomanViewController.swift in Sources */,
@@ -694,20 +983,20 @@
 		};
 		09F5184924715A2100DFB0C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7E3A65B9834C829DD91DD5E /* Pods-WaterPlus.debug.xcconfig */;
+			baseConfigurationReference = EFDB565D94532EB837A28205 /* Pods-WaterPlus.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Water+/Water+.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.4;
+				CURRENT_PROJECT_VERSION = 1.1.1;
 				DEVELOPMENT_TEAM = 44S95Z526W;
 				INFOPLIST_FILE = "Water+/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilyakuznetsov.WaterPlus;
 				PRODUCT_NAME = WaterPlus;
 				SWIFT_VERSION = 5.0;
@@ -717,20 +1006,20 @@
 		};
 		09F5184A24715A2100DFB0C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13117C2AE2D72F5015BCC44C /* Pods-WaterPlus.release.xcconfig */;
+			baseConfigurationReference = 4149D6E1AD6956AED96894C4 /* Pods-WaterPlus.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Water+/Water+.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.4;
+				CURRENT_PROJECT_VERSION = 1.1.1;
 				DEVELOPMENT_TEAM = 44S95Z526W;
 				INFOPLIST_FILE = "Water+/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilyakuznetsov.WaterPlus;
 				PRODUCT_NAME = WaterPlus;
 				SWIFT_VERSION = 5.0;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
+//@available(iOS 13.0, *)
 class AddedDrinksCollectionViewCell: UICollectionViewCell {
     
     
@@ -21,7 +21,7 @@ class AddedDrinksCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 100.0/2.0
+        imageView.layer.cornerRadius = 80.0/2.0
         imageView.backgroundColor = .tertiarySystemBackground
         imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor.init(red: 30/255, green: 144/255, blue: 255/255, alpha: 1).cgColor
@@ -33,20 +33,7 @@ class AddedDrinksCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(circleAddedDrinksImages)
-
-        //setupConstraints()
-        //contentView.addSubview(drinkName)
     }
-    
-//    func setupConstraints() {
-//        NSLayoutConstraint.activate([
-//            //circleAddedDrinksImages.topAnchor.constraint(equalTo: circleAddedDrinksImages.topAnchor, constant: 5),
-//            circleAddedDrinksImages.bottomAnchor.constraint(equalTo: main.progressBar.topAnchor, constant: 10),
-//            circleAddedDrinksImages.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            circleAddedDrinksImages.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            circleAddedDrinksImages.trailingAnchor.constraint(equalTo: trailingAnchor)
-//        ])
-//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

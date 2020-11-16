@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WelcomeViewController: UIViewController {
     
     var calculateWater = CalculateWater()
+    var weatherManager = WeatherManager()
+    let locationManager = CLLocationManager()
 
     
     //скрываем nav bar на первом view
@@ -26,6 +29,13 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        //запрашиваем доступ к геолокации пользователя при первом включении приложения
+        locationManager.requestWhenInUseAuthorization()
+        //после разрешения использования геопозиции, делаем запрос на определение геопопзции
+        //locationManager.requestLocation()
+
         
         if UserDefaults.standard.bool(forKey: "ManSelected") {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -48,6 +58,21 @@ class WelcomeViewController: UIViewController {
     @IBAction func womanSelected(_ sender: UIButton) {
         UserSettings.userSex = "WomanSelected"
         UserDefaults.standard.set(true, forKey: "WomanSelected")
+    }
+}
+
+extension WelcomeViewController: CLLocationManagerDelegate {
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            //запрашиваем координаты
+            if let location = locations.last {
+                locationManager.stopUpdatingLocation()
+                let lat = location.coordinate.latitude
+                let lon = location.coordinate.longitude
+                weatherManager.fetchWeather(latitude: lat, longitide: lon)
+            }
+        }
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+            print(error)
     }
 }
 

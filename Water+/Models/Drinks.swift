@@ -14,3 +14,9 @@ struct Drinks {
     var description: String?
     var coefficient: String?
 }
+
+struct OwnDrink {
+    var drinkName: String?
+    var imageName: String?
+    var coefficient: String?
+}

@@ -89,3 +89,9 @@ NOTIFICATIONS_TO = "Notifications are sent to:";
 NOTIFICATIONS_FROM = "Notifications are sent from";
 CANT_WRITE_EMAIL = "Unable to send a message because you are not logged into the standard iOS Mail application. Email us at waterplusapp@gmail.com";
 DESCRIPTION = "Everyone knows that water is life. It is part of any organism, including humans. Water imbalance can lead to health problems, which is why it's so important to stay hydrated! Our application will help you with this! * Not a medical product.";
+APPLE_HEALTH = "You can connect Apple Health to have the app automatically write data to Apple.";
+CONNECT_APPLE_HEALTH_BUTTON = "Connected";
+HEALTHKIT_ALERT = "The Apple Health integration was successful. The amount of liquid you drink will now be displayed in Apple Health.";
+MAX_CHART = "Maximum";
+CHART_NO_DATA_TEXT = "You need to provide data for the chart.";
+
